@@ -1,10 +1,10 @@
+package TajimaRen.Ex0110;
+
 /*キーボードから
 2 つの文字列を入力し、辞書順で小さい方から値を出力する。
 同じ値の場合は、「
 2 つの文字列は同じです」と出力する。
  */
-
-package Ex0110;
 
 import java.io.BufferedReader;
 import java.io.IOException;
