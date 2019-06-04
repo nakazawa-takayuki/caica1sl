@@ -1,4 +1,4 @@
-package Kadai;
+package 田畑陽一朗.Ex0110;
 
 import java.util.Scanner;
 /*
