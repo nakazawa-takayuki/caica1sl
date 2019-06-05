@@ -22,7 +22,7 @@ public class Ex0111 {
 			if (moji.indexOf(str[i]) == -1) {
 				continue;
 			} else {
-				System.out.println("許可しない文字(文字：" + str[i] + "  " + moji.indexOf(str[i]) + "桁目)が含まれます");
+				System.out.println("許可しない文字(文字：" + str[i] + "  " + (moji.indexOf(str[i]) + 1) + "桁目)が含まれます");
 				isNiceString = false;
 			}
 		}
