@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class Ex0112 {
 
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		//キーボード入力欄
 		System.out.println("文字列");
 
 		Scanner scan = new Scanner(System.in);
-		String moji = scan.next();
+		String moji = scan.nextLine();
+		scan.close();
 
 		//半角カナが含まれるか判定
-
 		char[] chars_moji = moji.toCharArray();
 
 		boolean HalfWidth = true;

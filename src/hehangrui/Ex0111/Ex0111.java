@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Ex0111 {
 
-	@SuppressWarnings({ "resource" })
 	public static void main(String[] args) {
 
 		//配列の宣言
@@ -14,15 +13,16 @@ public class Ex0111 {
 		System.out.println("文字列");
 
 		Scanner scan = new Scanner(System.in);
-		String moji = scan.next();
+		String moji = scan.nextLine();
+		scan.close();
 
 		//指定の文字が含まれるか判定
 		boolean isNiceString = true;
-		for (int i = 0; i < str.length; i++) {
-			if (moji.indexOf(str[i]) == -1) {
+		for (String number : str) {
+			if (moji.indexOf(number) == -1) {
 				continue;
 			} else {
-				System.out.println("許可しない文字(文字：" + str[i] + "  " + (moji.indexOf(str[i]) + 1) + "桁目)が含まれます");
+				System.out.println("許可しない文字(文字：" + number + "  " + (moji.indexOf(number) + 1) + "桁目)が含まれます");
 				isNiceString = false;
 			}
 		}
