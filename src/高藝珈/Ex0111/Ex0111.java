@@ -9,16 +9,16 @@ public class Ex0111 {
 		String[] str = { "①", "③", "⑤", "⑦", "⑨" };
 		System.out.println("文字列:");
 		Scanner input = new Scanner(System.in);
-		String str1 = input.next();
+		String str1 = input.nextLine();
 		input.close();
 
 		boolean isRrightString = true;
 
-		for (int i = 0; i < str.length; i++) {
-			if (str1.indexOf(str[i]) == -1) {
+		for (String name : str) {
+			if (str1.indexOf(name) == -1) {
 				continue;
 			} else {
-				System.out.println("許可しない文字(文字：" + str[i] + "  " + (str1.indexOf(str[i]) + 1) + "桁目)が含まれます");
+				System.out.println("許可しない文字(文字：" + name + "  " +  (str1.indexOf(name) + 1) + "桁目)が含まれます");
 				isRrightString = false;
 			}
 		}

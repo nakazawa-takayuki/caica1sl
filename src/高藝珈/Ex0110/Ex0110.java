@@ -1,4 +1,4 @@
-package Algorithm;
+package 高藝珈.Ex0110;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,13 +9,14 @@ public class Ex0110 {
 		// TODO 自動生成されたメソッド・スタブ
 
 		System.out.println("文字列1:");
-		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		String x = input.next();
+		String x = input.nextLine();
+		input.close();
 
 		System.out.println("文字列2:");
 		input = new Scanner(System.in);
-		String y = input.next();
+		String y = input.nextLine();
+		input.close();
 
 		if (x.equals(y)) {
 			System.out.println("２つの文字列は同じです" + "ー＞" + x);

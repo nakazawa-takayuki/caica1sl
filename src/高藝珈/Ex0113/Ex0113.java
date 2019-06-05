@@ -1,4 +1,4 @@
-package Algorithm;
+package 高藝珈.Ex0113;
 
 import java.util.Scanner;
 
@@ -7,12 +7,12 @@ public class Ex0113 {
 	public static void main(String[] args) {
 
 		System.out.println("文字列:");
-		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		String qs = input.next();
+		String qs = input.nextLine();
+		input.close();
 
 		String rqs = Q2BChange(qs, true);
-		System.out.println(qs + "\n" + rqs);
+		System.out.println(rqs);
 
 	}
 

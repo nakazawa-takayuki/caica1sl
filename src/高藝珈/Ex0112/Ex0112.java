@@ -7,7 +7,7 @@ public class Ex0112 {
 	public static void main(String[] args) {
 		System.out.println("文字列:");
 		Scanner input = new Scanner(System.in);
-		String str1 = input.next();
+		String str1 = input.nextLine();
 		input.close();
 
 		char[] chars_str1 = str1.toCharArray();
