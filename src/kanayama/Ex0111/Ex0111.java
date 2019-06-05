@@ -15,14 +15,25 @@ public class Ex0111 {
         	System.out.println("入力されていません");
         	return;
         }
-        System.out.println("この文字列" + str1 + "は許可されますか\n");
+        System.out.println( str1 + "は許可されますか\n");
 
-        for(String moji: mojiary){
-            if(str1.contains(moji)){
-                System.out.print("許可しない文字(文字 : " + moji + "　" +  (str1.indexOf(moji) + 1) + "桁目)が含まれます");
-                return;
-            }
+        String[] strchar = str1.split("");
+        boolean flag = false;
+        
+        for(int i = 0; i < strchar.length; i++) {
+	        for(String moji: mojiary){
+	            if(strchar[i].equals(moji)){
+	                System.out.print("許可しない文字(文字 : " + moji + "　" +  (i + 1) + "桁目)が含まれます\n");
+	                flag = true;
+
+	            }
+	        }
         }
+        if(flag == false) {
         System.out.print("許可する文字列です");
+        }
+
+        return;
     }
 }
+
