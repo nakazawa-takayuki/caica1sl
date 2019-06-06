@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Ex0111 {
 	public static void main(String[] args){
-		final String[] moji_arrs = {"①","③","⑤","⑦","⑨"};
+		final String[] TARGET_CHAR_ARRAY = {"①","③","⑤","⑦","⑨"};
 
 		System.out.print("文字列：");
 		Scanner inp = new Scanner(System.in);
@@ -22,14 +22,14 @@ public class Ex0111 {
 		}
 		System.out.println( str + "は許可されますか\n\n");
 
-		String[] str_arrs = str.split("");
+		String[] strArrays = str.split("");
 		boolean flag = true;
 		int count = 1;
 
-		for(String str_arr : str_arrs) {
-			for(String moji_arr: moji_arrs){
-				if(str_arr.equals(moji_arr)){
-					System.out.print("許可しない文字(文字 : " + moji_arr + "　" +  count + "桁目)が含まれます\n");
+		for(String strChar : strArrays) {
+			for(String targetChar: TARGET_CHAR_ARRAY){
+				if(strChar.equals(targetChar)){
+					System.out.print("許可しない文字(文字 : " + targetChar + "　" +  count + "桁目)が含まれます\n");
 					flag = false;
 				}
 			}

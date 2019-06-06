@@ -18,14 +18,14 @@ public class Ex0113 {
 			return;
 		}
 
-		StringBuffer str_Buffer = new StringBuffer(str);
-		for (int i = 0; i < str_Buffer.length(); i++) {
-			char c = str_Buffer.charAt(i);
+		StringBuffer strBuffer = new StringBuffer(str);
+		for (int i = 0; i < strBuffer.length(); i++) {
+			char c = strBuffer.charAt(i);
 			if ('０' <= c && c <= '９') {
-				str_Buffer.setCharAt(i, (char) (c - '０' + '0'));
+				strBuffer.setCharAt(i, (char) (c - '０' + '0'));
 			}
 		}
-		System.out.print("結果 : " + str_Buffer);
+		System.out.print("結果 : " + strBuffer);
 	}
 
 

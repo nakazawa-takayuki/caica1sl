@@ -20,11 +20,11 @@ public class Ex0114 {
 			return;
 		}
 
-		String [] str_arr = str.split("\\s+");
+		String [] strArray = str.split("\\s+");
 		System.out.println("結果 : ");
 
-		for(int index = str_arr.length - 1; 0 <= index; index--){
-			System.out.print(str_arr[index] + " ");
+		for(int index = strArray.length - 1; 0 <= index; index--){
+			System.out.print(strArray[index] + " ");
 		}
 	}
 

@@ -19,6 +19,7 @@ public class Ex0110 {
 
 		if(str1.isEmpty()||str2.isEmpty()) {
 			System.out.println("入力されていません");
+			return;
 		}
 
 		if(str1.compareTo(str2) == 0){
