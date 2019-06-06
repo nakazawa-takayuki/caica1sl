@@ -2,32 +2,41 @@ package 高藝珈.Ex0113;
 
 import java.util.Scanner;
 
+/**
+*
+* @author 高藝珈
+*/
+
 public class Ex0113 {
 
 	public static void main(String[] args) {
 
 		System.out.println("文字列:");
 		Scanner input = new Scanner(System.in);
-		String qs = input.nextLine();
+		String input1 = input.nextLine();
 		input.close();
 
-		String rqs = Q2BChange(qs, true);
-		System.out.println(rqs);
+		if (input1.isEmpty()) {
+			System.out.println("入力されていません");
+			return;
+		}
+
+		String changeinput = HankakuChange(input1, true);
+		System.out.println(changeinput);
 
 	}
 
-	private static String Q2BChange(String input, boolean flag) {
+	private static String HankakuChange(String input, boolean flag) {
 		String result = "";
-		char[] str = input.toCharArray();
-		for (int i = 0; i < str.length; i++) {
-
-			int code = str[i];//get unicode
+		char[] chars = input.toCharArray();
+		for (int i = 0; i < chars.length; i++) {
+			int code = chars[i];//get unicode
 
 			if (code >= 65281 && code <= 65373)//the whole alphabet
 			{
-				result += (char) (str[i] - 65248);//全角to半角
+				result += (char) (chars[i] - 65248);//全角to半角
 			} else {
-				result += str[i];
+				result += chars[i];
 			}
 		}
 		return result;

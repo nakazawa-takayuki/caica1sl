@@ -2,31 +2,40 @@ package 高藝珈.Ex0111;
 
 import java.util.Scanner;
 
+/**
+*
+* @author 高藝珈
+*/
+
 public class Ex0111 {
 
 	public static void main(String[] args) {
 
-		String[] str = { "①", "③", "⑤", "⑦", "⑨" };
+		final String[] PROHIBITED_CHARACTERS = { "①", "③", "⑤", "⑦", "⑨" };
 		System.out.println("文字列:");
 		Scanner input = new Scanner(System.in);
-		String str1 = input.nextLine();
+		String input1 = input.nextLine();
 		input.close();
 
-		boolean isRrightString = true;
+		if (input1.isEmpty()) {
+			System.out.println("入力されていません");
+			return;
+		}
+		System.out.println("この文字列" + input1 + "は許可されますか\n");
 
-		for (String name : str) {
-			if (str1.indexOf(name) == -1) {
+		boolean permission = true;
+
+		for (String str : PROHIBITED_CHARACTERS) {
+			if (input1.indexOf(str) == -1) {
 				continue;
 			} else {
-				System.out.println("許可しない文字(文字：" + name + "  " +  (str1.indexOf(name) + 1) + "桁目)が含まれます");
-				isRrightString = false;
+				System.out.println("許可しない文字(文字：" + str + "  " + (input1.indexOf(str) + 1) + "桁目)が含まれます");
+				permission = false;
 			}
 		}
-		if (isRrightString) {
+		if (permission) {
 			System.out.println("許可する文字列です。");
-
 		}
-
 	}
 
 }
