@@ -17,24 +17,17 @@ public class Ex0116 {
 		try{
 			System.out.print("input number1 : ");
 			int num1 = inp.nextInt();
-
 			System.out.print("input number2 : ");
 			int num2 = inp.nextInt();
 
 			inp.close();
 			checkNum(num1,num2);
-
 		}catch(InputMismatchException e){
 			System.out.println("半角数字以外が入力されています");
-
-
 		}
-
 	}
 
-
 	private static void checkNum(int num1,int num2){
-
 		if ((num1 % 2 == 0)&&(num2 % 2 == 0)){
 			System.out.println("2 つの値ともに偶数です");
 		} else if((num1 % 2 != 0)&&(num2 % 2 == 0)) {
@@ -44,6 +37,5 @@ public class Ex0116 {
 		} else if((num1 % 2 != 0)&&(num2 % 2 != 0)){
 			System.out.println("2 つの値ともに奇数です」と表示する。");
 		}
-
 	}
 }

@@ -13,23 +13,23 @@ public class Ex0111 {
 
 		System.out.print("文字列：");
 		Scanner inp = new Scanner(System.in);
-		String str = inp.nextLine();
+		String str1 = inp.nextLine();
 		inp.close();
 
-		if(str.isEmpty()){
+		if(str1.isEmpty()){
 			System.out.println("入力されていません");
 			return;
 		}
-		System.out.println( str + "は許可されますか\n\n");
+		System.out.println( str1 + "は許可されますか\n\n");
 
-		String[] strArrays = str.split("");
+		String[] strArrays = str1.split("");
 		boolean flag = true;
 		int count = 1;
 
-		for(String strChar : strArrays) {
-			for(String targetChar: TARGET_CHAR_ARRAY){
-				if(strChar.equals(targetChar)){
-					System.out.print("許可しない文字(文字 : " + targetChar + "　" +  count + "桁目)が含まれます\n");
+		for(String str : strArrays) {
+			for(String target: TARGET_CHAR_ARRAY){
+				if(str.equals(target)){
+					System.out.print("許可しない文字(文字 : " + target + "　" +  count + "桁目)が含まれます\n");
 					flag = false;
 				}
 			}

@@ -20,15 +20,15 @@ public class Ex0115 {
 			return;
 		}
 
-		String [] str_arr = str.split("\\s+");
+		String [] strArray = str.split("\\s+");
 		String odd = "";
 		String even = "";
 
-		for(int index = 0 ; index < str_arr.length; index++){
+		for(int index = 0 ; index < strArray.length; index++){
 			if((index + 1) % 2 != 0) {
-				odd += str_arr[index] + " ";
+				odd += strArray[index] + " ";
 			}else {
-				even += str_arr[index] + " ";
+				even += strArray[index] + " ";
 			}
 		}
 		System.out.println("奇数番目 : " + odd);
