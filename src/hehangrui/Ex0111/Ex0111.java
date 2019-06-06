@@ -2,27 +2,42 @@ package hehangrui.Ex0111;
 
 import java.util.Scanner;
 
+/*
+ * @author Adrian
+ *
+ *問題
+ *キーボードから文字列を入力し、文字列内に「① ③ ⑤ ⑦ ⑨」が含まれるか判定する 。
+ *含まれる場合は「許可しない文字文字： XX YY 桁目 が含まれます」、
+ *含まれない場合は「許可する文字列です」と出力する。
+ */
+
 public class Ex0111 {
 
 	public static void main(String[] args) {
 
 		//配列の宣言
-		String[] str = { "①", "③", "⑤", "⑦", "⑨" };
+		final String[] BANNED_STR = { "①", "③", "⑤", "⑦", "⑨" };
 
 		//キーボード入力欄
 		System.out.println("文字列");
 
 		Scanner scan = new Scanner(System.in);
-		String moji = scan.nextLine();
+		String str = scan.nextLine();
 		scan.close();
+
+		//文字のない場合にコメント
+		if (str.isEmpty()) {
+			System.out.println("文字を入力してください。");
+			return;
+		}
 
 		//指定の文字が含まれるか判定
 		boolean isNiceString = true;
-		for (String number : str) {
-			if (moji.indexOf(number) == -1) {
+		for (String number : BANNED_STR) {
+			if (str.indexOf(number) == -1) {
 				continue;
 			} else {
-				System.out.println("許可しない文字(文字：" + number + "  " + (moji.indexOf(number) + 1) + "桁目)が含まれます");
+				System.out.println("許可しない文字(文字：" + number + "  " + (str.indexOf(number) + 1) + "桁目)が含まれます");
 				isNiceString = false;
 			}
 		}
@@ -30,5 +45,4 @@ public class Ex0111 {
 			System.out.println("許可する文字列です。");
 		}
 	}
-
 }

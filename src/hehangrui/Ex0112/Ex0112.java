@@ -2,6 +2,14 @@ package hehangrui.Ex0112;
 
 import java.util.Scanner;
 
+/*
+ * @author Adrian
+ *
+ *問題
+ *キーボードから文字列を入力し、文字列内に半角カナが含まれるか判定する 。
+ *含まれる場合は「半角カナが含まれます」、含まれない場合は「許可する文字列です」と 出力する。
+ */
+
 public class Ex0112 {
 
 	public static void main(String[] args) {
@@ -10,16 +18,23 @@ public class Ex0112 {
 		System.out.println("文字列");
 
 		Scanner scan = new Scanner(System.in);
-		String moji = scan.nextLine();
+		String str = scan.nextLine();
 		scan.close();
 
+		//文字のない場合にコメント
+		if (str.isEmpty()) {
+			System.out.println("文字を入力してください。");
+			return;
+		}
+
 		//半角カナが含まれるか判定
-		char[] chars_moji = moji.toCharArray();
+		char[] CharsMoji = str.toCharArray();
 
 		boolean HalfWidth = true;
-		for (int i = 0; i < chars_moji.length; i++) {
-			if (String.valueOf(chars_moji[i]).matches(".*[\\uFF61-\\uFF9F]+.*")) {
+		for (int i = 0; i < CharsMoji.length; i++) {
+			if (String.valueOf(CharsMoji[i]).matches(".*[\\uFF61-\\uFF9F]+.*")) {
 				System.out.println("半角カナが含まれます");
+				return;
 			}
 		}
 		if (HalfWidth) {
