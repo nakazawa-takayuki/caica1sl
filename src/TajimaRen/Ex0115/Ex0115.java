@@ -23,18 +23,18 @@ public class Ex0115 {
 			return;
 		}
 
-		String[] word = str.split("\\s+");
+		String[] words = str.split("\\s+");
 
 		System.out.print("奇数番目：");
-		for (int i = 0; i < word.length; i++) {
+		for (int i = 0; i < words.length; i++) {
 			if((i+1) % 2 != 0) {
-				System.out.print(word[i] + " ");
+				System.out.print(words[i] + " ");
 			}
 		}
 		System.out.print("\n偶数番目：");
-		for (int i = 0; i < word.length; i++) {
+		for (int i = 0; i < words.length; i++) {
 			if((i+1) % 2 == 0) {
-				System.out.print(word[i] + " ");
+				System.out.print(words[i] + " ");
 			}
 		}
 	}

@@ -29,7 +29,7 @@ public class Ex0113 {
 				sb.setCharAt(i, (char) (c - 0xFEE0));
 			}
 		}
-		System.out.println("結果：昨日の円相場は"+ sb + "でした。");
+		System.out.println(sb);
 		return;
 	}
 }

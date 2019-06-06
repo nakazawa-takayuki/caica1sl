@@ -32,9 +32,9 @@ public class Ex0111 {
 		final String[] SEARCH_TARGETS = {"①","③","⑤","⑦","⑨"};
 		boolean isPermission = true;
 		int count = 1;
-		for (String strArray : strArrays) {
+		for (String word : strArrays) {
 			for (String target : SEARCH_TARGETS) {
-				if(strArray.contains(target)) {
+				if(word.contains(target)) {
 					System.out.println("許可しない文字(文字：" + target +"　" + count + "桁目)が含まれます");
 					isPermission = false;
 				}
