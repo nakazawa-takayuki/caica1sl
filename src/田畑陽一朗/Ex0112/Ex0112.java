@@ -1,4 +1,5 @@
 package 田畑陽一朗.Ex0112;
+
 import java.util.Scanner;
 
 /**
@@ -11,33 +12,39 @@ import java.util.Scanner;
 */
 public class Ex0112 {
 
-    private static Scanner scn;
+	private static Scanner scn;
 
-    public static void main(String[] args) {
+	private static boolean judge(char[] chars) {
+		boolean result = true;
+		for (int i = 0; i < chars.length; i++) {
+			char c = chars[i];
+			if (c >= '\uff61' && c <= '\uff9f') {
+				result = false;
+				break;
+			}
+		}
+		return result;
+	}
 
-        scn = new Scanner(System.in);
-        System.out.println("文字列:");
-        String line1 = scn.nextLine();
+	public static void main(String[] args) {
 
-        char[] chars = line1.toCharArray();
+		scn = new Scanner(System.in);
+		System.out.println("文字列:");
+		String line1 = scn.nextLine();
 
-        if (line1.equals("") || line1 == null) {
-            System.out.println("文字を入力してください。");
-            return;
-        }
-        System.out.println("この文字列" + line1 + "は許可されますか。");
-        System.out.println("");
-        System.out.println("");
+		if (line1.equals("") || line1 == null) {
+			System.out.println("文字を入力してください。");
+			return;
+		} else {
+			System.out.println("この文字列" + line1 + "は許可されますか。\n\n");
 
-        for (int i = 0; i < chars.length; i++) {
-            char c = chars[i];
-            if (c >= '\uff61' && c <= '\uff9f') {
-                System.out.println("半角カナが含まれます");
-                return;
-            }
-        }
-        System.out.println("許可する文字列です");
-        return;
+			char[] chars = line1.toCharArray();
+			if (judge(chars)) {
+				System.out.println("許可する文字列です");
+			} else {
+				System.out.println("半角カナが含まれます");
+			}
+		}
 
-    }
+	}
 }

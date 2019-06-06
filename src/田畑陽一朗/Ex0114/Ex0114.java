@@ -25,11 +25,9 @@ public class Ex0114 {
 			return;
 		}
 
-		String[] str = line1.split("\\s+");
-		for (int i = str.length - 1; i >= 0; i--) {
-			System.out.print(str[i]);
-			System.out.print(" ");
+		String[] resultArray = line1.split("\\s+");
+		for (int i = resultArray.length - 1; i >= 0; i--) {
+			System.out.print(resultArray[i] + " ");
 		}
-
 	}
 }

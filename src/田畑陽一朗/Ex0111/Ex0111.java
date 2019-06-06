@@ -12,36 +12,35 @@ import java.util.Scanner;
 
 public class Ex0111 {
 
-    private static Scanner scn;
+	private static Scanner scn;
 
-    public static void main(String[] args) {
-        String[] arrays = { "①", "③", "⑤", "⑦", "⑨" };
+	public static void main(String[] args) {
+		final String[] PROHIBITED_ARRAY = { "①", "③", "⑤", "⑦", "⑨" };
 
-        scn = new Scanner(System.in);
-        System.out.println("文字列:");
-        String line1 = scn.nextLine();
-        if (line1.equals("") || line1 == null) {
-            System.out.println("エラーです。");
-            return;
-        }
+		scn = new Scanner(System.in);
+		System.out.println("文字列:");
+		String line1 = scn.nextLine();
+		if (line1.equals("") || line1 == null) {
+			System.out.println("エラーです。");
+			return;
+		}
 
-        boolean judge = false;
-        int count = 1;
-        String[] str = line1.split("");
-        System.out.println("この文字列" + line1 + "は許可されますか。");
-        for (String a : str) {
-            for (String s : arrays) {
-                if (a.contains(s)) {
-                    System.out.println("許可しない文字(文字:" + s + " " + count + "桁目)が含まれます");
-                    judge = true;
+		boolean judge = false;
+		int count = 1;
+		String[] targetChars = line1.split("");
+		System.out.println("この文字列" + line1 + "は許可されますか。");
+		for (String targetChar : targetChars) {
+			for (String PROHIBITED_CHAR : PROHIBITED_ARRAY) {
+				if (targetChar.contains(PROHIBITED_CHAR)) {
+					System.out.println("許可しない文字(文字:" + PROHIBITED_CHAR + " " + count + "桁目)が含まれます");
+					judge = true;
 
-                }
-            }
-            count++;
-        }
-        if (judge == false)
-            System.out.println("許可する文字列です");
-        return;
-    }
+				}
+			}
+			count++;
+		}
+		if (!judge)
+			System.out.println("許可する文字列です");
+	}
 
 }

@@ -20,9 +20,9 @@ public class Ex0110 {
 		System.out.println("文字列2:");
 		String line2 = sc1.nextLine();
 
-		if (line1.equals("") || line2.equals("") || line1 == null || line2 ==null) {
+		if (line1.equals("") || line2.equals("") || line1 == null || line2 == null) {
 			System.out.println("文字を入力してください");
-			}
+		}
 
 		else if (line1.compareTo(line2) < 0) {
 			System.out.println(line1 + " " + line2);
