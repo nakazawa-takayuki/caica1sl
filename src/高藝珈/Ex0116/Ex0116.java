@@ -33,7 +33,9 @@ public class Ex0116 {
 
 		if ("".equals(val1) || "".equals(val2)) {
 			System.out.println("入力されていません");
-		} else if (input1 % 2 == 0 && input2 % 2 == 0) {
+		}
+
+		if (input1 % 2 == 0 && input2 % 2 == 0) {
 			System.out.println("２つの値ともに偶数です");
 		} else if (input1 % 2 != 0 && input2 % 2 == 0) {
 			System.out.println("i1は奇数です。i2は偶数です");

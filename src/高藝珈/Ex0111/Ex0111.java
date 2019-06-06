@@ -21,17 +21,19 @@ public class Ex0111 {
 			System.out.println("入力されていません");
 			return;
 		}
-		System.out.println("この文字列" + input1 + "は許可されますか\n");
 
 		boolean permission = true;
-
-		for (String str : PROHIBITED_CHARACTERS) {
-			if (input1.indexOf(str) == -1) {
-				continue;
-			} else {
-				System.out.println("許可しない文字(文字：" + str + "  " + (input1.indexOf(str) + 1) + "桁目)が含まれます");
-				permission = false;
+		int count = 1;
+		String[] targetChars = input1.split("");
+		System.out.println("この文字列" + input1 + "は許可されますか\n");
+		for (String targetChar : targetChars) {
+			for (String str : PROHIBITED_CHARACTERS) {
+				if (targetChar.contains(str)) {
+					System.out.println("許可しない文字(文字：" + str + "  " + count + "桁目)が含まれます");
+					permission = false;
+				}
 			}
+			count++;
 		}
 		if (permission) {
 			System.out.println("許可する文字列です。");

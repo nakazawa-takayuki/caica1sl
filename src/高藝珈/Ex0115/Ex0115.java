@@ -22,18 +22,18 @@ public class Ex0115 {
 		}
 
 		String[] str = input1.split("\\s+");
-		String Oddposition = "";
-		String Evenposition = "";
+		String oddPosition = "";
+		String evenPosition = "";
 
 		for (int index = 0; index < str.length; index++) {
 			if ((index + 1) % 2 != 0) {
-				Oddposition = Oddposition + str[index] + " ";
+				oddPosition = oddPosition + str[index] + " ";
 			} else {
-				Evenposition = Evenposition + str[index] + " ";
+				evenPosition = evenPosition + str[index] + " ";
 			}
 		}
-		System.out.println("奇数番号 : " + Oddposition);
-		System.out.println("偶数番号 : " + Evenposition);
+		System.out.println("奇数番号 : " + oddPosition);
+		System.out.println("偶数番号 : " + evenPosition);
 		return;
 	}
 }

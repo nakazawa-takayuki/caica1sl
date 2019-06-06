@@ -21,19 +21,16 @@ public class Ex0113 {
 			return;
 		}
 
-		String changeinput = HankakuChange(input1, true);
-		System.out.println(changeinput);
-
+		String changeInput = convFullWidthToHalfWidth(input1, true);
+		System.out.println(changeInput);
 	}
 
-	private static String HankakuChange(String input, boolean flag) {
+	private static String convFullWidthToHalfWidth(String input, boolean flag) {
 		String result = "";
 		char[] chars = input.toCharArray();
 		for (int i = 0; i < chars.length; i++) {
 			int code = chars[i];//get unicode
-
-			if (code >= 65281 && code <= 65373)//the whole alphabet
-			{
+			if (code >= 65281 && code <= 65373){//the whole alphabet
 				result += (char) (chars[i] - 65248);//全角to半角
 			} else {
 				result += chars[i];
