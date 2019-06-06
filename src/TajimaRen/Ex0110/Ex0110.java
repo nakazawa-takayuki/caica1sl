@@ -15,21 +15,28 @@ public class Ex0110 {
 
 	public static void main(String[] args) throws IOException {
 
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("文字列１：");
+		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("文字列１：");
 
-			String str1 = br1.readLine();
+		String str1 = br1.readLine();
 
-			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("文字列２：");
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("文字列２：");
 
-			String str2 = br2.readLine();
-			if(str1.equals(str2)) {
-				System.out.println("2つの文字列は同じです");
-			}else {
-				String[] st = {str1,str2};
-				Arrays.sort(st);
-				System.out.println(Arrays.asList(st));
+		String str2 = br2.readLine();
+
+		//未入力の場合
+		if(str1.isEmpty() || str2.isEmpty()) {
+			System.out.println("入力してください");
+			return;
+		}
+
+		if(str1.equals(str2)) {
+			System.out.println("2つの文字列は同じです ->" + str1);
+		}else {
+			String[] strArray = {str1,str2};
+			Arrays.sort(strArray);
+			System.out.println(Arrays.asList(strArray));
 		}
 	}
 }

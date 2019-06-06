@@ -15,11 +15,17 @@ public class Ex0114 {
 		System.out.println("文字列：");
 
 		String str = br.readLine();
-		String[] data = str.split("\\s+");
 
+		//未入力の場合
+		if(str.isEmpty()) {
+			System.out.println("入力してください");
+			return;
+		}
+
+		String[] word = str.split("\\s+");
 		System.out.print("結果：");
-		for (int i = data.length -1 ; i >= 0; i--) {
-			System.out.print(data[i] + " ");
+		for (int i = word.length -1 ; i >= 0; i--) {
+			System.out.print(word[i] + " ");
 		}
 		return;
 	}

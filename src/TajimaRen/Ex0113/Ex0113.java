@@ -15,7 +15,12 @@ public class Ex0113 {
 		System.out.println("文字列：");
 
 		String str = br.readLine();
-		System.out.println("昨日の円相場は"+ str + "でした。");
+
+		//未入力の場合
+		if(str.isEmpty()) {
+			System.out.println("入力してください");
+			return;
+		}
 
 		StringBuilder sb = new StringBuilder(str);
 		for (int i = 0; i < sb.length(); i++) {

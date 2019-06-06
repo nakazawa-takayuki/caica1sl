@@ -21,16 +21,28 @@ public class Ex0111 {
 		System.out.println("文字列：");
 
 		String str = br.readLine();
-		String message = "この文字列"+ str + "は許可されますか。";
-		System.out.println(message);
 
-		String[] serchTargets = {"①","③","⑤","⑦","⑨"};
-		for (String s : serchTargets) {
-			if(str.contains(s)) {
-				System.out.println("許可しない文字(文字：" + s +"　" + (message.indexOf(s)+1) + "桁目)が含まれます");
-				return;
-			}
+		//未入力の場合
+		if(str.isEmpty()) {
+			System.out.println("入力してください");
+			return;
 		}
-		System.out.println("許可する文字列です");
+
+		String[] strArrays = str.split("");
+		final String[] SEARCH_TARGETS = {"①","③","⑤","⑦","⑨"};
+		boolean isPermission = true;
+		int count = 1;
+		for (String strArray : strArrays) {
+			for (String target : SEARCH_TARGETS) {
+				if(strArray.contains(target)) {
+					System.out.println("許可しない文字(文字：" + target +"　" + count + "桁目)が含まれます");
+					isPermission = false;
+				}
+			}
+			count++;
+		}
+		if(isPermission) {
+			System.out.println("許可する文字列です");
+		}
 	}
 }

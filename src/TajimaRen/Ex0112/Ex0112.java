@@ -21,6 +21,13 @@ public class Ex0112 {
 		System.out.println("文字列：");
 
 		String str = br.readLine();
+
+		//未入力の場合
+		if(str.isEmpty()) {
+			System.out.println("入力してください");
+			return;
+		}
+
 		System.out.println("この文字列"+ str + "は許可されますか。");
 
 		if(str.matches(HAS_HALF_KANA)) {
