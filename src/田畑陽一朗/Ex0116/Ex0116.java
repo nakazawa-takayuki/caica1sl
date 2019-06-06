@@ -16,20 +16,19 @@ import java.util.Scanner;
  */
 public class Ex0116 {
 
-	private static Scanner sc1;
-
 	public static void main(String[] args) {
 
-		sc1 = new Scanner(System.in);
+		Scanner scn = new Scanner(System.in);
 
 		int line1 = 0;
 		int line2 = 0;
 		try {
 			System.out.println("input number1:");
-			line1 = sc1.nextInt();
+			line1 = scn.nextInt();
 			System.out.println("input number2:");
-			line2 = sc1.nextInt();
+			line2 = scn.nextInt();
 
+			scn.close();
 		} catch (InputMismatchException e) {
 			System.out.println("エラーです" + e);
 			return;

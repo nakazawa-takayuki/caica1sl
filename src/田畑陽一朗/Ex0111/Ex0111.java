@@ -12,14 +12,14 @@ import java.util.Scanner;
 
 public class Ex0111 {
 
-	private static Scanner scn;
 
 	public static void main(String[] args) {
 		final String[] PROHIBITED_ARRAY = { "①", "③", "⑤", "⑦", "⑨" };
 
-		scn = new Scanner(System.in);
+		Scanner scn = new Scanner(System.in);
 		System.out.println("文字列:");
 		String line1 = scn.nextLine();
+		scn.close();
 		if (line1.equals("") || line1 == null) {
 			System.out.println("エラーです。");
 			return;
@@ -30,7 +30,7 @@ public class Ex0111 {
 		String[] targetChars = line1.split("");
 		System.out.println("この文字列" + line1 + "は許可されますか。");
 		for (String targetChar : targetChars) {
-			for (String PROHIBITED_CHAR : PROHIBITED_ARRAY) {
+			for (final String PROHIBITED_CHAR : PROHIBITED_ARRAY) {
 				if (targetChar.contains(PROHIBITED_CHAR)) {
 					System.out.println("許可しない文字(文字:" + PROHIBITED_CHAR + " " + count + "桁目)が含まれます");
 					judge = true;

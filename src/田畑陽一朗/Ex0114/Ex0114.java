@@ -12,14 +12,12 @@ import java.util.Scanner;
 */
 public class Ex0114 {
 
-	private static Scanner scn;
-
 	public static void main(String[] args) {
 
-		scn = new Scanner(System.in);
+		Scanner scn = new Scanner(System.in);
 		System.out.println("文字列:");
 		String line1 = scn.nextLine();
-
+		scn.close();
 		if (line1.equals("") || line1 == null) {
 			System.out.println("文字を入力してください。");
 			return;

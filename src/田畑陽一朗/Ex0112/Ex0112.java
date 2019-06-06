@@ -12,9 +12,30 @@ import java.util.Scanner;
 */
 public class Ex0112 {
 
-	private static Scanner scn;
 
-	private static boolean judge(char[] chars) {
+
+	public static void main(String[] args) {
+
+		Scanner scn = new Scanner(System.in);
+		System.out.println("文字列:");
+		String line1 = scn.nextLine();
+		scn.close();
+		if (line1.equals("") || line1 == null) {
+			System.out.println("文字を入力してください。");
+			return;
+		} else {
+			System.out.println("この文字列" + line1 + "は許可されますか。\n\n");
+
+			char[] chars = line1.toCharArray();
+			if (inputJudge(chars)) {
+				System.out.println("許可する文字列です");
+			} else {
+				System.out.println("半角カナが含まれます");
+			}
+		}
+	}
+
+	private static boolean inputJudge(char[] chars) {
 		boolean result = true;
 		for (int i = 0; i < chars.length; i++) {
 			char c = chars[i];
@@ -26,25 +47,4 @@ public class Ex0112 {
 		return result;
 	}
 
-	public static void main(String[] args) {
-
-		scn = new Scanner(System.in);
-		System.out.println("文字列:");
-		String line1 = scn.nextLine();
-
-		if (line1.equals("") || line1 == null) {
-			System.out.println("文字を入力してください。");
-			return;
-		} else {
-			System.out.println("この文字列" + line1 + "は許可されますか。\n\n");
-
-			char[] chars = line1.toCharArray();
-			if (judge(chars)) {
-				System.out.println("許可する文字列です");
-			} else {
-				System.out.println("半角カナが含まれます");
-			}
-		}
-
-	}
 }

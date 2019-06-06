@@ -1,4 +1,4 @@
-package 田畑陽一朗Ex0115;
+package 田畑陽一朗.Ex0115;
 
 import java.util.Scanner;
 
@@ -9,21 +9,18 @@ import java.util.Scanner;
  */
 public class Ex0115 {
 
-	private static Scanner scn;
-
 	public static void main(String[] args) {
 
-		scn = new Scanner(System.in);
+		Scanner scn = new Scanner(System.in);
 		System.out.println("文字列:");
 		String line1 = scn.nextLine();
-
+		scn.close();
 		if (line1.equals("") || line1 == null) {
 			System.out.println("文字を入力してください。");
 			return;
 		}
-
 		String[] resultArrays = line1.split("\\s+");
-
+		scn.close();
 		System.out.print("奇数番目:");
 		for (int i = 0; i < resultArrays.length; i++)
 			if (i % 2 == 0) {
