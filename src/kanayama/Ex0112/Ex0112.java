@@ -13,14 +13,21 @@ public class Ex0112 {
         	System.out.println("入力されていません");
         	return;
         }
+        
         System.out.println( str1 + "は許可されますか\n");
         
-        
-        if(str1.matches( ".*[\\uFF65-\\uFF9F].*")){
-                System.out.print("半角ｶﾅが含まれます");
-            }else {
-            	System.out.print("許可する文字列です");
-            }
-        return;
-    }
+        if(judge(str1)) {
+        	System.out.print("半角ｶﾅが含まれます");
+        	}else {
+        		System.out.print("許可する文字列です");
+        	}
+	}
+	
+	private static boolean judge(String str) {
+		boolean result = false;
+		if(str.matches( ".*[\\uFF65-\\uFF9F].*")){
+			result = true;
+        }
+		return result;
+	}
 }

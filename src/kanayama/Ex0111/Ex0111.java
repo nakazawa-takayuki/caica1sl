@@ -18,22 +18,21 @@ public class Ex0111 {
         System.out.println( str1 + "は許可されますか\n");
 
         String[] strchar = str1.split("");
-        boolean flag = false;
+        boolean flag = true;
+        int count = 1;
         
-        for(int i = 0; i < strchar.length; i++) {
+        for(String strmoji : strchar) {
 	        for(String moji: mojiary){
-	            if(strchar[i].equals(moji)){
-	                System.out.print("許可しない文字(文字 : " + moji + "　" +  (i + 1) + "桁目)が含まれます\n");
-	                flag = true;
-
+	            if(strmoji.equals(moji)){
+	                System.out.print("許可しない文字(文字 : " + moji + "　" +  count + "桁目)が含まれます\n");
+	                flag = false;
 	            }
 	        }
         }
-        if(flag == false) {
+        if(flag) {
         System.out.print("許可する文字列です");
         }
-
-        return;
     }
+	
 }
 
