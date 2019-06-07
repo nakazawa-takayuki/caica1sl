@@ -8,15 +8,19 @@ public class Ex0110 {
 	public static void main(String[] args)
     {
 		System.out.println("文字列1を入力してください");
-		@SuppressWarnings("resource")
-		Scanner input = new Scanner(System.in);
-		String str1 = input.nextLine();
+		Scanner input1 = new Scanner(System.in);
+		String str1 = input1.nextLine();
 		String str11 = str1.replaceAll(" +","");
 
+
+
 		System.out.println("文字列2を入力してください");
-		input = new Scanner(System.in);
-		String str2 = input.nextLine();
+		Scanner input2 = new Scanner(System.in);
+		String str2 = input2.nextLine();
 		String str21 = str2.replaceAll(" +","");
+		input1.close();
+		input2.close();
+
 
 		if (str11.equals(str21))
 		 {
@@ -30,6 +34,7 @@ public class Ex0110 {
         for(int i = 0; i < args1.length; i++)
             System.out.println(args1[i]);
 		 }
+
     }
 
 }
