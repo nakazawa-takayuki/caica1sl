@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Ex0117 {
 
+	final static int PASSING_SCORE = 80;
+
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
@@ -27,14 +29,6 @@ public class Ex0117 {
 			return;
 		}
 
-		String val1 = eScore + "";
-		String val2 = mScore + "";
-
-		if ("".equals(val1) || "".equals(val2)) {
-			System.out.println("入力されていません");
-		}
-
-		final int PASSING_SCORE = 80;
 		if (eScore >= PASSING_SCORE && mScore >= PASSING_SCORE) {
 			System.out.println("進級");
 		} else if (eScore < PASSING_SCORE && mScore < PASSING_SCORE) {

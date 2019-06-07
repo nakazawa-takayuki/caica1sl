@@ -31,13 +31,6 @@ public class Ex0130 {
 			return;
 		}
 
-		String val1 = input1 + "";
-		String val2 = input2 + "";
-		String val3 = input3 + "";
-		if ("".equals(val1) || "".equals(val2) || "".equals(val3)) {
-			System.out.println("入力されていません");
-		}
-
 		double inputNumbers[] = { input1, input2, input3 };
 		//最大値
 		max(inputNumbers);
@@ -48,9 +41,9 @@ public class Ex0130 {
 	}
 
 	/**
-	 * 最大値を返します
+	 * 最大値
 	 * @param numbers [input1, input2, input3]
-	 * @return max
+	 *
 	 */
 	public static void max(double[] inputNumbers) {
 		double max = 0;
@@ -60,10 +53,10 @@ public class Ex0130 {
 	}
 
 	/**
-	 * 中央値を返します
+	 * 中央値
 	 *
 	 * @param numbers
-	 * @return median
+	 *
 	 */
 	public static void median(double[] inputNumbers) {
 		int middle = inputNumbers.length / 2;
@@ -75,10 +68,10 @@ public class Ex0130 {
 	}
 
 	/**
-	* 平均値を返します
+	* 平均値
 	*
 	* @param numbers
-	* @return mean
+	*
 	*/
 	public static void mean(double[] inputNumbers) {
 		double sum = 0;

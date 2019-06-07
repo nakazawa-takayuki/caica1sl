@@ -28,13 +28,6 @@ public class Ex0116 {
 			return;
 		}
 
-		String val1 = input1 + "";
-		String val2 = input2 + "";
-
-		if ("".equals(val1) || "".equals(val2)) {
-			System.out.println("入力されていません");
-		}
-
 		if (input1 % 2 == 0 && input2 % 2 == 0) {
 			System.out.println("２つの値ともに偶数です");
 		} else if (input1 % 2 != 0 && input2 % 2 == 0) {
