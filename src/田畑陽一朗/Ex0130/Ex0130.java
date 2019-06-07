@@ -44,37 +44,51 @@ public class Ex0130 {
 		calcResultList.add(average);
 
 		//最大値
-		for (Integer calcResult : calcResultList) {
+		System.out.print("最大値 = " + calcMaximum(calcResultList));
+
+		//中央値
+		System.out.print("  中央値 = " + calcMedian(calcResultList));
+
+		//平均値
+		System.out.print("  平均値 = " + averageResult(calcResultList));
+	}
+
+	//最大値
+	private static int calcMaximum(ArrayList<Integer> calcResultList) {
+		int maximum = 0;
+		for (int calcResult : calcResultList) {
 			if (maximum < calcResult) {
 				maximum = calcResult;
 			}
 		}
-		System.out.print("最大値 = " + maximum);
+		return maximum;
+	}
 
-		//中央値
+	//中央値
+	private static int calcMedian(ArrayList<Integer> calcResultList) {
+
 		Collections.sort(calcResultList);
-
 		if (calcResultList.size() % 2 == 1) {
-
-			// 要素数が奇数だった場合
-			Integer median1 = calcResultList.get(calcResultList.size() / 2);
-			System.out.print("中央値 = " + median1);
-
+			int median1 = calcResultList.get(calcResultList.size() / 2);
+			return median1;
 		} else {
 			// 要素数が偶数だった場合
-			Integer median2 = (calcResultList
+			int median2 = (calcResultList
 					.get(calcResultList.size() / 2 + calcResultList.get(calcResultList.size() / 2 - 1) / 2));
-			System.out.print("中央値 = " + median2);
+			return median2;
 		}
+	}
 
-		//平均値
+	//平均値
+	private static BigDecimal averageResult(ArrayList<Integer> calcResultList) {
 		double sum = 0;
-		for (Integer calcResult : calcResultList) {
+		for (int calcResult : calcResultList) {
 			sum += calcResult;
 		}
 		double averageResult = sum / calcResultList.size();
 		BigDecimal bdAverage = new BigDecimal(averageResult);
 		BigDecimal resultDbAverage = bdAverage.setScale(2, BigDecimal.ROUND_HALF_UP);
-		System.out.print("平均値 = " + resultDbAverage);
+		return resultDbAverage;
 	}
+
 }

@@ -16,13 +16,15 @@ import java.util.Scanner;
  */
 public class Ex0117 {
 
+	final static int BORDER_SCORE = 80;
+
 	public static void main(String[] args) {
 
 		Scanner scn = new Scanner(System.in);
 
 		int eScore = 0;
 		int mScore = 0;
-		final int BORDER_SCORE = 80;
+
 		try {
 			System.out.println("input english score:");
 			eScore = scn.nextInt();
@@ -38,15 +40,13 @@ public class Ex0117 {
 			return;
 		}
 
-		if (eScore < 0 ^ mScore < 0) {
+		int invalid = 0;
+		if (eScore < invalid || mScore < invalid) {
 			System.out.println("入力でできない値です");
-
 		} else if (eScore >= BORDER_SCORE && mScore >= BORDER_SCORE) {
 			System.out.println("進級");
-
 		} else if (eScore < BORDER_SCORE ^ mScore < BORDER_SCORE) {
 			System.out.println("再試験");
-
 		} else if (eScore < BORDER_SCORE && mScore < BORDER_SCORE) {
 			System.out.println("留年");
 		}
