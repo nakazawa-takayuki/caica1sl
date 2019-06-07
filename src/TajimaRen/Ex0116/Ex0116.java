@@ -15,31 +15,37 @@ import java.io.InputStreamReader;
 public class Ex0116 {
 
 	public static void main(String[] args) throws IOException  {
+		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("input number1：");
+
+		String str1 = br1.readLine();
+
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("input number2：");
+
+		String str2 = br2.readLine();
+
+		int i1 = 0;
+		int i2 = 0;
+
 		try {
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input number1：");
+			i1 = Integer.parseInt(str1);
+			i2 = Integer.parseInt(str2);
 
-			String str1 = br1.readLine();
-
-			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input number2：");
-
-			String str2 = br2.readLine();
-
-			int i1 = Integer.parseInt(str1);
-			int i2 = Integer.parseInt(str2);
-
-			if(i1 % 2 == 0 && i2 % 2 == 0) {
-				System.out.println("2つの値ともに偶数です");
-			}else if(i1 % 2 != 0 && i2 % 2 == 0) {
-				System.out.println("i1は奇数です。i2は偶数です。");
-			}else if(i1 % 2 == 0 && i2 % 2 != 0) {
-				System.out.println("i1は偶数です。i2は奇数です。");
-			}else if(i1 % 2 != 0 && i2 % 2 != 0) {
-				System.out.println("2つの値ともに奇数です");
-			}
 		} catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
+			return;
 		}
+
+		if(i1 % 2 == 0 && i2 % 2 == 0) {
+			System.out.println("2つの値ともに偶数です");
+		}else if(i1 % 2 != 0 && i2 % 2 == 0) {
+			System.out.println("i1は奇数です。i2は偶数です。");
+		}else if(i1 % 2 == 0 && i2 % 2 != 0) {
+			System.out.println("i1は偶数です。i2は奇数です。");
+		}else if(i1 % 2 != 0 && i2 % 2 != 0) {
+			System.out.println("2つの値ともに奇数です");
+		}
+
 	}
 }

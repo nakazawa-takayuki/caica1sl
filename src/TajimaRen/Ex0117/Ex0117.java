@@ -14,31 +14,39 @@ import java.io.InputStreamReader;
 public class Ex0117 {
 
 	public static void main(String[] args) throws IOException {
+
+		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("input english score：");
+
+		String str1 = br1.readLine();
+
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("input math score：");
+
+		String str2 = br2.readLine();
+
+		int e_score = 0;
+		int m_score = 0;
+		final int PASSING_SCORE = 80;
+
 		try {
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input english score：");
+			e_score = Integer.parseInt(str1);
+			m_score = Integer.parseInt(str2);
 
-			String str1 = br1.readLine();
-
-			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input math score：");
-
-			String str2 = br2.readLine();
-
-			int e_score = Integer.parseInt(str1);
-			int m_score = Integer.parseInt(str2);
-
-			if(e_score >= 80 && m_score >= 80) {
-				System.out.println("進級");
-			}else if(e_score < 80 && m_score >= 80) {
-				System.out.println("再試験");
-			}else if(e_score >= 80 && m_score < 80) {
-				System.out.println("再試験");
-			}else if(e_score < 80  && m_score < 80) {
-				System.out.println("留年");
-			}
 		} catch(NumberFormatException ex) {
 			System.out.println("点数を入力してください");
+			return;
 		}
+
+		if(e_score >= 80 && m_score >= PASSING_SCORE) {
+			System.out.println("進級");
+		}else if(e_score < 80 && m_score >= PASSING_SCORE) {
+			System.out.println("再試験");
+		}else if(e_score >= 80 && m_score < PASSING_SCORE) {
+			System.out.println("再試験");
+		}else if(e_score < 80  && m_score < PASSING_SCORE) {
+			System.out.println("留年");
+		}
+
 	}
 }
