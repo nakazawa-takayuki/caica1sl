@@ -33,20 +33,20 @@ public class Ex0140 {
 		}
 	}
 
-	private static int calcMethod(int[] numArray, int calcType) {
-		int result = 0;
+	private static String calcMethod(int[] numArray, int calcType) {
+		String result = "";
 		switch(calcType) {
 		case 0:
-			result = numArray[0] + numArray[1];
+			result = String.valueOf(numArray[0] + numArray[1]);
 			break;
 		case 1:
-			result = numArray[0] - numArray[1];
+			result = String.valueOf(numArray[0] - numArray[1]);
 			break;
 		case 2:
-			result = numArray[0] * numArray[1];
+			result = String.valueOf(numArray[0] * numArray[1]);
 			break;
 		default:
-			result = numArray[0] / numArray[1];
+			result = String.valueOf((double)numArray[0] / (double)numArray[1]);
 		}
 		return result;
 	}
