@@ -10,20 +10,22 @@ public class Ex0110 {
 		System.out.println("文字列1を入力してください");
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		String str1 = input.next();
+		String str1 = input.nextLine();
+		String str11 = str1.replaceAll(" +","");
 
 		System.out.println("文字列2を入力してください");
 		input = new Scanner(System.in);
-		String str2 = input.next();
+		String str2 = input.nextLine();
+		String str21 = str2.replaceAll(" +","");
 
-		if (str1.equals(str2))
+		if (str11.equals(str21))
 		 {
 			 System.out.println("２つの文字列は同じです"+"⇒"+ str1);
 		 }
 		 else
 		 {
         // args is the list of guests
-		String[] args1 = {str1,str2};
+		String[] args1 = {str11,str21};
         Arrays.sort(args1);
         for(int i = 0; i < args1.length; i++)
             System.out.println(args1[i]);
