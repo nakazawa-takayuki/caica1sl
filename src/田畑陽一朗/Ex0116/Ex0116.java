@@ -44,6 +44,8 @@ public class Ex0116 {
 			System.out.println("i1は偶数です。i2 は奇数です");
 		} else if (line1 % 2 != 0 && line2 % 2 != 0) {
 			System.out.println("2つの値ともに奇数です");
+		} else {
+			System.out.println("エラーです");
 		}
 	}
 

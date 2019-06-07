@@ -38,7 +38,10 @@ public class Ex0117 {
 			return;
 		}
 
-		if (eScore >= BORDER_SCORE && mScore >= BORDER_SCORE) {
+		if (eScore < 0 ^ mScore < 0) {
+			System.out.println("入力でできない値です");
+
+		} else if (eScore >= BORDER_SCORE && mScore >= BORDER_SCORE) {
 			System.out.println("進級");
 
 		} else if (eScore < BORDER_SCORE ^ mScore < BORDER_SCORE) {
