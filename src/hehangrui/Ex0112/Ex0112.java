@@ -28,16 +28,16 @@ public class Ex0112 {
 		}
 
 		//半角カナが含まれるか判定
-		char[] CharsMoji = str.toCharArray();
+		char[] charsStr = str.toCharArray();
 
-		boolean HalfWidth = true;
-		for (int i = 0; i < CharsMoji.length; i++) {
-			if (String.valueOf(CharsMoji[i]).matches(".*[\\uFF61-\\uFF9F]+.*")) {
+		boolean halfWidth = true;
+		for (int i = 0; i < charsStr.length; i++) {
+			if (String.valueOf(charsStr[i]).matches(".*[\\uFF61-\\uFF9F]+.*")) {
 				System.out.println("半角カナが含まれます");
 				return;
 			}
 		}
-		if (HalfWidth) {
+		if (halfWidth) {
 			System.out.println("許可する文字列です。");
 		}
 	}

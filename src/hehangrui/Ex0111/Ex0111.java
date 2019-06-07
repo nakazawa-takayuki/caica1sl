@@ -16,7 +16,7 @@ public class Ex0111 {
 	public static void main(String[] args) {
 
 		//配列の宣言
-		final String[] BANNED_STR = { "①", "③", "⑤", "⑦", "⑨" };
+		final String[] BANNED_STRS = { "①", "③", "⑤", "⑦", "⑨" };
 
 		//キーボード入力欄
 		System.out.println("文字列");
@@ -33,16 +33,20 @@ public class Ex0111 {
 
 		//指定の文字が含まれるか判定
 		boolean isNiceString = true;
-		for (String number : BANNED_STR) {
-			if (str.indexOf(number) == -1) {
-				continue;
-			} else {
-				System.out.println("許可しない文字(文字：" + number + "  " + (str.indexOf(number) + 1) + "桁目)が含まれます");
-				isNiceString = false;
+		String[] strArrays = str.split("");
+		int count = 1;
+
+		for (String strArray : strArrays) {
+			for (String bannedStr : BANNED_STRS) {
+				if (strArray.contains(bannedStr)) {
+					System.out.println("許可しない文字(文字：" + bannedStr + "  " + count + "桁目)が含まれます");
+					isNiceString = false;
+				}
 			}
-		}
-		if (isNiceString) {
-			System.out.println("許可する文字列です。");
+			count++;
+			if (isNiceString) {
+				System.out.println("許可する文字列です。");
+			}
 		}
 	}
 }

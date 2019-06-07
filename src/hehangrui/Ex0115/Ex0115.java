@@ -29,18 +29,18 @@ public class Ex0115 {
 
 		//単語の出力順序が偶数と奇数でそれぞれ結合して出力
 		String[] words = str.split("\\s+");
-		String OddNumber = "";
-		String EvenNumber = "";
+		String oddNumber = "";
+		String evenNumber = "";
 
 		for (int i = 0; i < words.length; i++) {
 			if ((i + 1) % 2 != 0) {
-				OddNumber += words[i] + " ";
+				oddNumber += words[i] + " ";
 			} else {
-				EvenNumber += words[i] + "   ";
+				evenNumber += words[i] + "   ";
 			}
 		}
-		System.out.println("奇数番目：" + OddNumber);
-		System.out.println("偶数番目：" + EvenNumber);
+		System.out.println("奇数番目：" + oddNumber);
+		System.out.println("偶数番目：" + evenNumber);
 		return;
 	}
 }
