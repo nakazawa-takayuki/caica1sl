@@ -27,46 +27,56 @@ public class Ex0130 {
 
 		String str3 = br3.readLine();
 
-		int i1 = 0;
-		int i2 = 0;
-		int i3 = 0;
+		//変数宣言
+		int [] data = new int[3];
+		int max = maxValue(data);
+		int mid = midValue(data);
+		BigDecimal ave = aveValue(data);
 
 		try {
-			i1 = Integer.parseInt(str1);
-			i2 = Integer.parseInt(str2);
-			i3 = Integer.parseInt(str3);
+			data[0] = Integer.parseInt(str1);
+			data[1] = Integer.parseInt(str2);
+			data[2] = Integer.parseInt(str3);
 
 		}catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
+			return;
 		}
-		//最大値
-		int max;
-		max = i1;
-		if(i2 > max)
-			max = i2;
-		if(i3 > max)
-			max = i3;
 
-		//中央値
-		int mid = 0;
+		//出力
+		System.out.println("最大値 ＝" + max + "　中央値 ＝" + mid + "　平均値 ＝" + ave);
+	}
 
-		if(i1 > i2 && i1 < i3 || i1 < i2 && i1 > i3 || i1 == i2 || i1 == i3) {
-			mid = i1;
-		}else if(i2 > i1 && i2 < i3 || i2 < i1 && i2 > i3 || i2 == i3) {
-			mid = i2;
-		}else
-			mid = i3;
+	//最大値
+	public static int maxValue(int [] data) {
+		int max = data[0];
+		if(data[1] > max)
+			max = data[1];
+		if(data[2] > max)
+			max = data[2];
 
-		//平均値
-		int sum = 0;		//合計値
-		int [] data = {i1,i2,i3};
+		return max;
+	}
+
+	//中央値
+	public static int midValue(int [] data) {
+		int mid = data.length / 2;
+		if(data.length % 2 == 1) {
+			return data[mid];
+		}else {
+			return (data[mid - 1] + data[mid]) / 2;		//偶数の場合中央値が二つあるので足して2で割る
+		}
+	}
+
+	//平均値
+	public static BigDecimal aveValue(int [] data) {
+		int sum = 0;
 		for(int i = 0; i < data.length; i++) {
-			sum += data[i];
+			sum = sum + data[i];
 		}
 		BigDecimal bd = new BigDecimal((double)sum/(double)data.length);
 		BigDecimal ave= bd.setScale(2,BigDecimal.ROUND_HALF_UP);		//小数点第３位を四捨五入
 
-		//出力
-		System.out.println("最大値 ＝" + max + "　中央値 ＝" + mid + "　平均値 ＝" + ave.doubleValue());
+		return ave;
 	}
 }

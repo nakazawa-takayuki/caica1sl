@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Ex0117 {
+	static final int PASSING_SCORE = 80;		//合格点
 
 	public static void main(String[] args) throws IOException {
 
@@ -25,28 +26,26 @@ public class Ex0117 {
 
 		String str2 = br2.readLine();
 
-		int e_score = 0;
-		int m_score = 0;
-		final int PASSING_SCORE = 80;
+		int eScore = 0;	//英語の点数
+		int mScore = 0;	//数学の点数
 
 		try {
-			e_score = Integer.parseInt(str1);
-			m_score = Integer.parseInt(str2);
+			eScore = Integer.parseInt(str1);
+			mScore = Integer.parseInt(str2);
 
 		} catch(NumberFormatException ex) {
 			System.out.println("点数を入力してください");
 			return;
 		}
 
-		if(e_score >= 80 && m_score >= PASSING_SCORE) {
+		if(eScore >= 80 && mScore >= PASSING_SCORE) {
 			System.out.println("進級");
-		}else if(e_score < 80 && m_score >= PASSING_SCORE) {
+		}else if(eScore < 80 && mScore >= PASSING_SCORE) {
 			System.out.println("再試験");
-		}else if(e_score >= 80 && m_score < PASSING_SCORE) {
+		}else if(eScore >= 80 && mScore < PASSING_SCORE) {
 			System.out.println("再試験");
-		}else if(e_score < 80  && m_score < PASSING_SCORE) {
+		}else if(eScore < 80  && mScore < PASSING_SCORE) {
 			System.out.println("留年");
 		}
-
 	}
 }
