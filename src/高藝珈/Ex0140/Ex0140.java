@@ -12,8 +12,8 @@ public class Ex0140 {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int input1 = 0;
-		int input2 = 0;
+		double input1 = 0;
+		double input2 = 0;
 		int inputCommand = 0;
 
 		try {
@@ -44,13 +44,8 @@ public class Ex0140 {
 			break;
 
 		default:
-			try {
-				result = (double) input1 / (double) input2;
-				break;
-			} catch (ArithmeticException e) {
-				System.out.println("0除算エラーです。");
-				return;
-			}
+			result = input1 / input2;
+
 		}
 		System.out.println("結果 =" + result);
 	}

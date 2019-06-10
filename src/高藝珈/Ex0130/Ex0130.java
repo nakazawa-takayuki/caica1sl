@@ -33,11 +33,11 @@ public class Ex0130 {
 
 		double inputNumbers[] = { input1, input2, input3 };
 		//最大値
-		max(inputNumbers);
+		outputMax(inputNumbers);
 		//中央値
-		median(inputNumbers);
+		outputMedian(inputNumbers);
 		//平均値
-		mean(inputNumbers);
+		outputMean(inputNumbers);
 	}
 
 	/**
@@ -45,11 +45,11 @@ public class Ex0130 {
 	 * @param numbers [input1, input2, input3]
 	 *
 	 */
-	public static void max(double[] inputNumbers) {
-		double max = 0;
+	public static void outputMax(double[] inputNumbers) {
+		double outputMax = 0;
 		for (int i = 0; i < inputNumbers.length; i++)
-			max = Math.max(max, inputNumbers[i]);
-		System.out.println("最大値=" + String.format("%.2f", max));
+			outputMax = Math.max(outputMax, inputNumbers[i]);
+		System.out.println("最大値=" + String.format("%.2f", outputMax));
 	}
 
 	/**
@@ -58,12 +58,12 @@ public class Ex0130 {
 	 * @param numbers
 	 *
 	 */
-	public static void median(double[] inputNumbers) {
-		int middle = inputNumbers.length / 2;
+	public static void outputMedian(double[] inputNumbers) {
+		int outputMedian = inputNumbers.length / 2;
 		if (inputNumbers.length % 2 == 1) {
-			System.out.println("中央値=" + String.format("%.2f", inputNumbers[middle]));
+			System.out.println("中央値=" + String.format("%.2f", inputNumbers[outputMedian]));
 		} else {
-			System.out.println("中央値=" + String.format("%.2f", (inputNumbers[middle]) / 2.0 + 1));
+			System.out.println("中央値=" + String.format("%.2f", (inputNumbers[outputMedian]) / 2.0 + 1));
 		}
 	}
 
@@ -73,7 +73,7 @@ public class Ex0130 {
 	* @param numbers
 	*
 	*/
-	public static void mean(double[] inputNumbers) {
+	public static void outputMean(double[] inputNumbers) {
 		double sum = 0;
 		for (int i = 0; i < inputNumbers.length; i++) {
 			sum += inputNumbers[i];
