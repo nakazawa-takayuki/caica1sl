@@ -15,20 +15,22 @@ import java.util.Scanner;
 
 public class Ex0117 {
 
+	final static int PASSING_SCORE = 80;
+
 	public static void main(String[] args) {
 
 		//キーボード入力欄
 		Scanner scan = new Scanner(System.in);
 
-		int e_score = 0;
-		int m_score = 0;
+		int eScore = 0;
+		int mScore = 0;
 
 		try {
 			System.out.println("input english score：");
-			e_score = scan.nextInt();
+			eScore = scan.nextInt();
 
 			System.out.println("input math score：");
-			m_score = scan.nextInt();
+			mScore = scan.nextInt();
 			scan.close();
 
 			//入力値は数字ではない場合に例外処理
@@ -38,11 +40,11 @@ public class Ex0117 {
 		}
 
 		//進級か再試験か留年か判定
-		if (e_score >= 80 && m_score >= 80) {
+		if (eScore >= PASSING_SCORE && mScore >= PASSING_SCORE) {
 			System.out.println("進級");
-		} else if (e_score < 80 && m_score < 80) {
+		} else if (eScore < PASSING_SCORE && mScore < PASSING_SCORE) {
 			System.out.println("留年");
-		} else if (e_score < 80 || m_score < 80) {
+		} else {
 			System.out.println("再試験");
 		}
 	}
