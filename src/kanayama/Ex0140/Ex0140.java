@@ -15,22 +15,23 @@ import java.util.Scanner;
 public class Ex0140 {
 	public static void main(String[] args){
 		Scanner inp = new Scanner(System.in);
-		try{
-			int numArray[] = new int[3];
+		int numArray[] = new int[3];
+		int calcType = 0;
 
+		try{
 			System.out.print("input number1: ");
 			numArray[0] = inp.nextInt();
 			System.out.print("input number2: ");
 			numArray[1] = inp.nextInt();
 			System.out.print("input command: ");
-			int calcType = inp.nextInt();
+			calcType = inp.nextInt();
 			inp.close();
-
-			System.out.print("計算結果 =" + calcMethod(numArray,calcType));
 
 		}catch(InputMismatchException e){
 			System.out.println("半角数字以外が入力されています。");
 		}
+
+			System.out.print("計算結果 =" + calcMethod(numArray,calcType));
 	}
 
 	private static String calcMethod(int[] numArray, int calcType) {
