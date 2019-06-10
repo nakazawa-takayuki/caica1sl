@@ -2,11 +2,11 @@ package hehangrui.Ex0113;
 
 import java.util.Scanner;
 
-/*
- * @author Adrian
+/**
+ * 問題
+ * キーボードから文字列を入力し、文字列内に全角数字が含まれる場合は半角数字に置換して出力する.
  *
- *問題
- *キーボードから文字列を入力し、文字列内に全角数字が含まれる場合は半角数字に置換して出力する 。
+ * @author Adrian
  */
 
 public class Ex0113 {
