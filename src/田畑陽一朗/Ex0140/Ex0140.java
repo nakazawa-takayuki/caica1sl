@@ -14,9 +14,9 @@ import java.util.Scanner;
  */
 public class Ex0140 {
 
-	final static String add = "0";
-	final static String sub = "1";
-	final static String mul = "2";
+	final static String ADDITION = "0";
+	final static String SUBTRACTION = "1";
+	final static String MULTIPLICATION = "2";
 
 	public static void main(String[] args) {
 
@@ -32,7 +32,7 @@ public class Ex0140 {
 			System.out.println("input number2:");
 			line2 = scn.nextInt();
 		} catch (InputMismatchException e) {
-			System.out.println("整数を入力してください。" );
+			System.out.println("整数を入力してください。");
 		}
 		System.out.println("input number3:");
 		String line3 = scn2.nextLine();
@@ -53,11 +53,11 @@ public class Ex0140 {
 	 */
 	private static double calcResult(double line1, double line2, String line3) {
 		double result = 0;
-		if (line3.equals(add)) {
+		if (line3.equals(ADDITION)) {
 			result = line1 + line2;
-		} else if (line3.equals(sub)) {
+		} else if (line3.equals(SUBTRACTION)) {
 			result = line1 - line2;
-		} else if (line3.equals(mul)) {
+		} else if (line3.equals(MULTIPLICATION)) {
 			result = line1 * line2;
 		} else {
 			result = line1 / line2;
