@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class Ex0130 {
 
@@ -29,9 +30,9 @@ public class Ex0130 {
 
 		//変数宣言
 		int [] data = new int[3];
-		int max = maxValue(data);
-		int mid = midValue(data);
-		BigDecimal ave = aveValue(data);
+		int max = 0;
+		int mid = 0;
+		BigDecimal ave = null;
 
 		try {
 			data[0] = Integer.parseInt(str1);
@@ -42,6 +43,11 @@ public class Ex0130 {
 			System.out.println("数字を入力してください");
 			return;
 		}
+
+		//代入
+		max = maxValue(data);
+		mid = midValue(data);
+		ave = aveValue(data);
 
 		//出力
 		System.out.println("最大値 ＝" + max + "　中央値 ＝" + mid + "　平均値 ＝" + ave);
@@ -60,6 +66,7 @@ public class Ex0130 {
 
 	//中央値
 	public static int midValue(int [] data) {
+		Arrays.sort(data);
 		int mid = data.length / 2;
 		if(data.length % 2 == 1) {
 			return data[mid];

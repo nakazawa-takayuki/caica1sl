@@ -71,12 +71,7 @@ public class Ex0140 {
 	}
 
 	//割り算
-	public static double divide(double i1,double i2) {
-		try {
-			double result = i1 / i2;
-		}catch(ArithmeticException ex) {
-			System.out.println("ゼロ除算はできません");
-		}
+	public static Object divide(double i1,double i2) {
 		return i1 / i2;
 	}
 }
