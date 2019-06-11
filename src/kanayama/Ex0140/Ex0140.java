@@ -15,14 +15,14 @@ import java.util.Scanner;
 public class Ex0140 {
 	public static void main(String[] args){
 		Scanner inp = new Scanner(System.in);
-		int numArray[] = new int[3];
+		double inputArray[] = new double[3];
 		int calcType = 0;
 
 		try{
 			System.out.print("input number1: ");
-			numArray[0] = inp.nextInt();
+			inputArray[0] = inp.nextInt();
 			System.out.print("input number2: ");
-			numArray[1] = inp.nextInt();
+			inputArray[1] = inp.nextInt();
 			System.out.print("input command: ");
 			calcType = inp.nextInt();
 			inp.close();
@@ -31,23 +31,23 @@ public class Ex0140 {
 			System.out.println("半角数字以外が入力されています。");
 		}
 
-			System.out.print("計算結果 =" + calcMethod(numArray,calcType));
+		System.out.print("計算結果 =" + calcMethod(inputArray,calcType));
 	}
 
-	private static String calcMethod(int[] numArray, int calcType) {
-		String result = "";
+	private static double calcMethod(double[] numArray, int calcType) {
+		double result = 0;
 		switch(calcType) {
 		case 0:
-			result = String.valueOf(numArray[0] + numArray[1]);
+			result = numArray[0] + numArray[1];
 			break;
 		case 1:
-			result = String.valueOf(numArray[0] - numArray[1]);
+			result = numArray[0] - numArray[1];
 			break;
 		case 2:
-			result = String.valueOf(numArray[0] * numArray[1]);
+			result = numArray[0] * numArray[1];
 			break;
 		default:
-			result = String.valueOf((double)numArray[0] / (double)numArray[1]);
+			result = numArray[0] / numArray[1];
 		}
 		return result;
 	}

@@ -12,47 +12,47 @@ public class Ex0130 {
 	public static void main(String[] args){
 		Scanner inp = new Scanner(System.in);
 		try{
-			int numArray[] = new int[3];
+			int inputArray[] = new int[3];
 
 			System.out.print("input number1: ");
-			numArray[0] = inp.nextInt();
+			inputArray[0] = inp.nextInt();
 			System.out.print("input number2: ");
-			numArray[1] = inp.nextInt();
+			inputArray[1] = inp.nextInt();
 			System.out.print("input number3: ");
-			numArray[2] = inp.nextInt();
+			inputArray[2] = inp.nextInt();
 
 			inp.close();
-			Arrays.sort(numArray);
+			Arrays.sort(inputArray);
 
-			System.out.print("最大値 =" + numMax(numArray));
-			System.out.print(" 中央値 =" + numMedian(numArray));
-			System.out.print(" 平均値 =" + String.format("%.3f", numAverage(numArray)));
+			System.out.print("最大値 =" + calcMax(inputArray));
+			System.out.print(" 中央値 =" + calcMedian(inputArray));
+			System.out.print(" 平均値 =" + String.format("%.3f", calcAverage(inputArray)));
 
 		}catch(InputMismatchException e){
 			System.out.println("半角数字以外が入力されています。");
 		}
 	}
 
-	private static int numMax(int[] numArray){
-		double max = numArray[0];
-		for (double num : numArray) {
+	private static int calcMax(int[] numArray){
+		int max = numArray[0];
+		for (int num : numArray) {
 			if (max < num) {
 				max = num;
 			}
 		}
-		return (int) max;
+		return max;
 	}
 
-	private static int numMedian(int[] numArray){
+	private static int calcMedian(int[] numArray){
 		int middle = numArray.length / 2;
 		if (numArray.length % 2 == 1) {
-			return (int)numArray[middle];
+			return numArray[middle];
 		} else {
-			return (int)(numArray[middle - 1] + numArray[middle]) / 2;
+			return (numArray[middle - 1] + numArray[middle]) / 2;
 		}
 	}
 
-	private static double numAverage(int[] numArray) {
+	private static double calcAverage(int[] numArray) {
 		int sum = 0;
 
 		for (int num : numArray) {

@@ -14,8 +14,11 @@ public class Ex0200 {
 			inputNum = inp.nextInt();
 			inp.close();
 
-			System.out.print("合計値 = " + inputNumSum(inputNum));
-
+			if(inputNum < 0) {
+				System.out.println("マイナス値が入力されています。");
+				return;
+			}
+			System.out.println("合計値 = " + inputNumSum(inputNum));
 		}catch(InputMismatchException e){
 			System.out.println("半角数字以外が入力されています。");
 		}
@@ -23,9 +26,9 @@ public class Ex0200 {
 
 	private static int inputNumSum(int inputNum) {
 		int sum = 0;
-        for (int index = 1; index <= inputNum; index++) {
-            sum = sum + index;
-        }
-        return sum;
+		for (int index = 1; index <= inputNum; index++) {
+			sum = sum + index;
+		}
+		return sum;
 	}
 }
