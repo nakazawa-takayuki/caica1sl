@@ -2,6 +2,12 @@ package hehangrui.Ex0215;
 
 import java.util.Scanner;
 
+/**
+ * 問題
+ * キーボードから複数の数字を入力し、足して10になる 2つの数値をペアとして出力する.
+ *
+ * @author Adrian
+ */
 public class Ex0215 {
 
 	final static int SUM_VALUE = 10;
@@ -33,7 +39,7 @@ public class Ex0215 {
 		boolean isSum = false;
 		for (int i = 0; i < inputNumArrays.length - 1; i++) {
 			for (int j = i + 1; j < inputNumArrays.length; j++) {
-				if (inputNumArrays[i] + inputNumArrays[j] == 10) {
+				if (inputNumArrays[i] + inputNumArrays[j] == SUM_VALUE) {
 					System.out.print(inputNumArrays[i] + "と" + inputNumArrays[j] + "、");
 					isSum = true;
 				}
