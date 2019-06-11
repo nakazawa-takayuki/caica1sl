@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex0215 {
-
 	static final int TARGET_VALUE = 10;
 	public static void main(String[] args){
 
@@ -16,27 +15,24 @@ public class Ex0215 {
 			System.out.println("入力されていません");
 			return;
 		}
-		String [] inputArray = inputNums.split("\\s+");
-		Integer[] inputNumArray = checkInputNum(inputArray);
+		try {
+			String [] inputArray = inputNums.split("\\s+");
+			Integer[] inputNumArray = checkInputNum(inputArray);
 
-		System.out.println(Arrays.toString(inputArray));
-		System.out.println(Arrays.toString(inputNumArray));
-
-		if(checkTotalTen(inputNumArray)) {
-			System.out.print(" は足して10 となるペアです");
-		}else{
-			System.out.print("ペアとなる数字はありません");
+			if(checkTotalTen(inputNumArray)) {
+				System.out.print(" は足して10 となるペアです");
+			}else{
+				System.out.print("ペアとなる数字はありません");
+			}
+		}catch(NumberFormatException e) {
+			System.out.print("整数以外が含まれています。");
 		}
 	}
 
 	private static Integer[] checkInputNum(String[] inputArray) {
 		Integer[] NumArray = new Integer[inputArray.length];
-		try {
-			for(int index = 0; index < inputArray.length; index++){
-				NumArray[index] = Integer.parseInt(inputArray[index]);
-			}
-		}catch(NumberFormatException e) {
-			System.out.print("整数以外が含まれています。");
+		for(int i = 0; i < inputArray.length; i++){
+			NumArray[i] = Integer.parseInt(inputArray[i]);
 		}
 		Arrays.sort(NumArray);
 		return NumArray;
