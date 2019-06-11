@@ -4,10 +4,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
- * @author 高藝珈
- * @return
- */
+  * キーボードから入力された0~5の範囲の2つの数字を元に、占いの結果を出力する。
+  *
+  * @author 高藝珈
+  */
 
 public class Ex0160 {
 

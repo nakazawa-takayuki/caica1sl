@@ -4,9 +4,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
-*/
+ * 英語の試験の点数e_score、数学の試験の点数m_scoreを入力する。
+ * 両方の点数が80点以上の場合、「進級」と表示する。
+ * 点数のどちらかが80点を下回る場合、「再試験」と表示する。
+ * 両方の点数とも80点を下回る場合、「留年」と表示する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0117 {
 

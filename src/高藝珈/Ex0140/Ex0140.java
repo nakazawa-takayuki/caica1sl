@@ -4,9 +4,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
-*/
+ * キーボードから2つの整数値とコマンドを入力し、計算結果を出力する。
+ * コマンドの意味は以下の通りとする。
+ * 0：足し算
+ * 1：引き算
+ * 2：掛け算
+ * その他：割り算
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0140 {
 

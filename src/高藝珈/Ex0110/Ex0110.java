@@ -4,9 +4,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
-*/
+ * キーボードから2つの文字列を入力し、辞書順で小さい方から値を出力する。
+ * 同じ値の場合は、「2つの文字列は同じです」と出力する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0110 {
 

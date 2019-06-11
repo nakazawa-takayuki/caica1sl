@@ -1,30 +1,32 @@
 package 高藝珈.Ex0130;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
-*入力された数字の最大値、平均値、中央値を求めます
-*
-* @author 高藝珈
-*/
+ * 入力された数字の最大値、平均値、中央値を求めます
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0130 {
 
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		int input1 = 0;
-		int input2 = 0;
-		int input3 = 0;
+		double input1 = 0;
+		double input2 = 0;
+		double input3 = 0;
 
+		// 入力フォームを表示します
 		try {
 			System.out.println("input number1：");
-			input1 = input.nextInt();
+			input1 = input.nextDouble();
 			System.out.println("input number2：");
-			input2 = input.nextInt();
+			input2 = input.nextDouble();
 			System.out.println("input number3：");
-			input3 = input.nextInt();
+			input3 = input.nextDouble();
 			input.close();
 		} catch (InputMismatchException e) {
 			System.out.println("数字以外が入力されています");
@@ -33,38 +35,45 @@ public class Ex0130 {
 
 		double inputNumbers[] = { input1, input2, input3 };
 		//最大値
-		outputMax(inputNumbers);
+		double outputMax = outputMax(inputNumbers);
 		//中央値
-		outputMedian(inputNumbers);
+		double outputMedian = outputMedian(inputNumbers);
 		//平均値
-		outputMean(inputNumbers);
+		double outputMean = outputMean(outputMax, inputNumbers);
+
+		System.out.println("最大値=" + String.format("%.2f", outputMax));
+		System.out.println("中央値 = " + String.format("%.2f", outputMedian));
+		System.out.println("平均値=" + String.format("%.2f", outputMean));
+
 	}
 
 	/**
 	 * 最大値
-	 * @param numbers [input1, input2, input3]
+	 * @param inputNumbers [input1, input2, input3]
 	 *
 	 */
-	public static void outputMax(double[] inputNumbers) {
-		double outputMax = 0;
-		for (int i = 0; i < inputNumbers.length; i++)
-			outputMax = Math.max(outputMax, inputNumbers[i]);
-		System.out.println("最大値=" + String.format("%.2f", outputMax));
+	private static double outputMax(double[] inputNumbers) {
+		double max = 0;
+		for (int i = 0; i < inputNumbers.length; i++) {
+			if (max < inputNumbers[i]) {
+				max = inputNumbers[i];
+			}
+		}
+		return max;
 	}
 
 	/**
 	 * 中央値
 	 *
 	 * @param numbers
+	 * @return
 	 *
 	 */
-	public static void outputMedian(double[] inputNumbers) {
-		int outputMedian = inputNumbers.length / 2;
-		if (inputNumbers.length % 2 == 1) {
-			System.out.println("中央値=" + String.format("%.2f", inputNumbers[outputMedian]));
-		} else {
-			System.out.println("中央値=" + String.format("%.2f", (inputNumbers[outputMedian]) / 2.0 + 1));
-		}
+
+	private static double outputMedian(double[] inputNumbers) {
+		Arrays.sort(inputNumbers);
+		return inputNumbers[1];
+
 	}
 
 	/**
@@ -73,11 +82,8 @@ public class Ex0130 {
 	* @param numbers
 	*
 	*/
-	public static void outputMean(double[] inputNumbers) {
-		double sum = 0;
-		for (int i = 0; i < inputNumbers.length; i++) {
-			sum += inputNumbers[i];
-		}
-		System.out.println("平均値=" + String.format("%.2f", sum / inputNumbers.length));
+	private static double outputMean(double outputMax, double[] numbers) {
+		return outputMax / numbers.length;
 	}
+
 }

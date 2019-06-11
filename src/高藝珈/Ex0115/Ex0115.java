@@ -3,9 +3,11 @@ package 高藝珈.Ex0115;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
-*/
+ * キーボードから文字列を入力し、文字列内の半角空白で単語に分解する。
+ * 分解後、単語の出力順序が偶数と奇数でそれぞれ結合して出力する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0115 {
 

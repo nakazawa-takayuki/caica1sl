@@ -3,9 +3,10 @@ package 高藝珈.Ex0113;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
-*/
+ * キーボードから文字列を入力し、文字列内に全角数字が含まれる場合は半角数字に置換して出力する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0113 {
 

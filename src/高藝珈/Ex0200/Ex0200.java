@@ -4,10 +4,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
- * @return
-*/
+ * キーボードから1つの整数値nを入力し、1からnまでの和を求め、結果を出力する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0200 {
 
@@ -23,29 +23,27 @@ public class Ex0200 {
 				input1 = input.nextInt();
 
 			} catch (InputMismatchException e) {
-				System.out.println("数字以外が入力されています");
+				System.out.println("数字以外あるいは出力範囲を超える数値が入力されています");
 				continue;
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("範囲外です。もう一度数字を入力してください");
 				continue;
 			}
 
-			if (input1 < 0) {
-				System.out.println(" 0より大きな数字入力してください");
-				continue;
+			int result = 0;
+			if (input1 == 0) {
+				System.out.println("合計値 = 0");
+			} else if (input1 > 0) {
+				result = (1 + input1) * input1 / 2;
+				System.out.println("合計値 = " + result);
+			} else {
+				result = (1 + input1) * (2 - input1) / 2;
+				System.out.println("合計値 = " + result);
 			}
 
-			System.out.println(sum(input1));
 			input.close();
 			break;
 		}
-
 	}
 
-	public static int sum(int n) {
-		if (n == 1) {
-			return 1;
-		}
-		return n + sum(n - 1);
-	}
 }

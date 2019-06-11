@@ -4,10 +4,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
-*
-* @author 高藝珈
- * @return
-*/
+ * 九九の表を出力する。
+ *
+ * @author 高藝珈
+ */
 
 public class Ex0210 {
 
