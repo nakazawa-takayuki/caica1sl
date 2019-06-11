@@ -28,23 +28,23 @@ public class Ex0215 {
 			System.out.print("ペアとなる数字はありません");
 		}
 	}
-	
+
 	private static Integer[] checkInputNum(String[] inputArray) {
 		Integer[] NumArray = new Integer[inputArray.length];
 		try {
-		for(int index = 0; index < inputArray.length; index++){
-			NumArray[index] = Integer.parseInt(inputArray[index]);
-		}
+			for(int index = 0; index < inputArray.length; index++){
+				NumArray[index] = Integer.parseInt(inputArray[index]);
+			}
 		}catch(NumberFormatException e) {
 			System.out.print("整数以外が含まれています。");
 		}
-		Arrays.sort(NumArray); 
+		Arrays.sort(NumArray);
 		return NumArray;
 	}
 
 	private static boolean checkTotalTen(Integer[] inputNumArray) {
 		boolean result = false;
-		int k = inputNumArray.length - 1; 
+		int k = inputNumArray.length - 1;
 		for (int i = 0; i < inputNumArray.length - 1; i++) {
 			for( int j = k; i < j; j--) {
 				if(inputNumArray[i] == TARGET_VALUE - inputNumArray[j]) {
