@@ -44,7 +44,7 @@ public class Ex0160 {
 
 		for(int i = 0; i <= number1; i++);{
 			for(int j = 0; j <= number2; j++);{
-				if(number1 > 5 || number2 > 5) {
+				if(number1 > 5 || number2 > 5 || number1 < 0 || number2 < 0) {
 					System.out.println("0～5を入力してください");
 				}else {
 					System.out.println(DIVINATION[number1][number2]);
