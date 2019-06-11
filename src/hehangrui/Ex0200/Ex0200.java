@@ -25,7 +25,7 @@ public class Ex0200 {
 
 			//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
-			System.out.println("数値以外が入力されました。");
+			System.out.println("数値以外、或いは出力範囲を超える数値が入力されました。");
 			return;
 		}
 
