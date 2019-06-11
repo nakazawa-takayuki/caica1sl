@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Ex0130 {
 
@@ -29,7 +30,7 @@ public class Ex0130 {
 		String str3 = br3.readLine();
 
 		//変数宣言
-		int [] data = new int[3];
+		Integer[] data = new Integer[3];
 		int max = 0;
 		int mid = 0;
 		BigDecimal ave = null;
@@ -54,18 +55,13 @@ public class Ex0130 {
 	}
 
 	//最大値
-	public static int maxValue(int [] data) {
-		int max = data[0];
-		if(data[1] > max)
-			max = data[1];
-		if(data[2] > max)
-			max = data[2];
-
-		return max;
+	public static int maxValue(Integer [] data) {
+		Arrays.sort(data,Collections.reverseOrder());
+		return data[0];
 	}
 
 	//中央値
-	public static int midValue(int [] data) {
+	public static int midValue(Integer [] data) {
 		Arrays.sort(data);
 		int mid = data.length / 2;
 		if(data.length % 2 == 1) {
@@ -76,7 +72,7 @@ public class Ex0130 {
 	}
 
 	//平均値
-	public static BigDecimal aveValue(int [] data) {
+	public static BigDecimal aveValue(Integer [] data) {
 		int sum = 0;
 		for(int i = 0; i < data.length; i++) {
 			sum = sum + data[i];

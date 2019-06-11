@@ -30,28 +30,28 @@ public class Ex0140 {
 
 		String str3 = br3.readLine();
 
-		int i1 = 0;
-		int i2 = 0;
-		int ic = 0;
+		int inputNum1 = 0;
+		int inputNum2 = 0;
+		int inputCommand = 0;
 
 		try {
-			i1 = Integer.parseInt(str1);
-			i2 = Integer.parseInt(str2);
-			ic = Integer.parseInt(str3);
+			inputNum1 = Integer.parseInt(str1);
+			inputNum2 = Integer.parseInt(str2);
+			inputCommand = Integer.parseInt(str3);
 
 		}catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
 			return;
 		}
 
-		if(ic == 0) {
-			System.out.println("計算結果 ＝" + add(i1,i2));
-		}else if(ic == 1){
-			System.out.println("計算結果 ＝" + subtract(i1,i2));
-		}else if(ic == 2) {
-			System.out.println("計算結果 ＝" + multiply(i1,i2));
+		if(inputCommand == 0) {
+			System.out.println("計算結果 ＝" + add(inputNum1,inputNum2));
+		}else if(inputCommand == 1){
+			System.out.println("計算結果 ＝" + subtract(inputNum1,inputNum2));
+		}else if(inputCommand == 2) {
+			System.out.println("計算結果 ＝" + multiply(inputNum1,inputNum2));
 		}else {
-			System.out.println("計算結果 ＝" + divide(i1,i2));
+			System.out.println("計算結果 ＝" + divide(inputNum1,inputNum2));
 		}
 	}
 

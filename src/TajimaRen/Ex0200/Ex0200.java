@@ -15,21 +15,26 @@ public class Ex0200 {
 		System.out.println("input number：");
 
 		String str = br.readLine();
-		int n = 0;
+		int number = 0;
 		int sum = 0;
 
 		try {
-			n = Integer.parseInt(str);
+			number = Integer.parseInt(str);
 
 		}catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
 			return;
 		}
 
-		for(int i = 1; i <= n; i++) {
+		for(int i = 1; i <= number; i++) {
 			sum += i;
 		}
-		System.out.println("合計値 ＝" + sum);
-		return;
+
+		if(number <= 0) {
+			System.out.println("整数値を入力してください");
+		}else {
+			System.out.println("合計値 ＝" + sum);
+			return;
+		}
 	}
 }

@@ -10,6 +10,15 @@ import java.io.InputStreamReader;
 
 public class Ex0160 {
 
+	static final String DIVINATION [][] = {
+			{"吉","吉","凶","凶","凶","吉"},
+			{"吉","吉","凶","吉","凶","吉"},
+			{"凶","凶","吉","吉","吉","吉"},
+			{"凶","吉","吉","吉","凶","凶"},
+			{"凶","凶","凶","吉","吉","凶"},
+			{"凶","吉","吉","凶","凶","凶"}
+	};
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("１つ目の数字（0～5）：");
@@ -33,21 +42,13 @@ public class Ex0160 {
 			return;
 		}
 
-		String divination [][] = {
-				{"吉","吉","凶","凶","凶","凶"},
-				{"吉","吉","凶","吉","凶","吉"},
-				{"凶","凶","吉","吉","凶","吉"},
-				{"凶","吉","吉","吉","吉","凶"},
-				{"凶","凶","吉","凶","吉","凶"},
-				{"吉","吉","吉","凶","凶","凶"}
-		};
-
 		for(int i = 0; i <= number1; i++);{
 			for(int j = 0; j <= number2; j++);{
-			}if(number1 > 5 || number2 > 5) {
-				System.out.println("0～5を入力してください");
-			}else {
-				System.out.println(divination[number1][number2]);
+				if(number1 > 5 || number2 > 5) {
+					System.out.println("0～5を入力してください");
+				}else {
+					System.out.println(DIVINATION[number1][number2]);
+				}
 			}
 		}
 	}
