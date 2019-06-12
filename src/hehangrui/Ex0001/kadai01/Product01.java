@@ -13,9 +13,12 @@ public class Product01 {
 	/**
 	 * コンストラクター
 	 */
-	public Product01(int _price,String _name) {
-		price = _price;
-		name = _name;
+	public Product01(int price, String name) {
+		if(name == null) {
+			name = "未設定";
+		}
+		this.price = price;
+		this.name = name;
 	}
 
 	/**
@@ -51,11 +54,10 @@ public class Product01 {
 	}
 
 	/**
-	 * 内容表示
+	 * 価格と商品名を表示する
 	 */
 	public void print() {
-		System.out.printf("商品名 : " + name + "   ");
-		System.out.println("価格 : " + price + "円");
+		System.out.println("商品名 : " + name + "   価格 : " + price + "円");
 
 	}
 }

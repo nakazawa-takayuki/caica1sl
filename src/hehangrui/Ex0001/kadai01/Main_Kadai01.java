@@ -12,29 +12,29 @@ public class Main_Kadai01 {
 	public static void main(String[] args) {
 
 		// Product01をインスタンス化する
-		Product01 syohin01 = new Product01(1000, "林檎");
-		Product01 syohin02 = new Product01(500, "梨");
-		Product01 syohin03 = new Product01(600, "パイン");
-		Product01 syohin04 = new Product01(2000, "スイカ");
+		Product01 item01 = new Product01(1000, "林檎");
+		Product01 item02 = new Product01(500, "梨");
+		Product01 item03 = new Product01(600, "パイン");
+		Product01 item04 = new Product01(2000, "スイカ");
 
 		// 商品名と価格を設定する
-		syohin01.setName("林檎");
-		syohin01.setPrice(1000);
+		item01.setName("林檎");
+		item01.setPrice(1000);
 
-		syohin02.setName("梨");
-		syohin02.setPrice(500);
+		item02.setName("梨");
+		item02.setPrice(500);
 
-		syohin03.setName("パイン");
-		syohin03.setPrice(600);
+		item03.setName("パイン");
+		item03.setPrice(600);
 
-		syohin04.setName("スイカ");
-		syohin04.setPrice(2000);
+		item04.setName("スイカ");
+		item04.setPrice(2000);
 
 		// 出力する
-		syohin01.print();
-		syohin02.print();
-		syohin03.print();
-		syohin04.print();
+		item01.print();
+		item02.print();
+		item03.print();
+		item04.print();
 
 	}
 
