@@ -1,14 +1,19 @@
 package TajimaRen.Ex0215;
 
-/*
- * キーボードから複数の数字を入力し、足して10 になる2 つの数値をペアとして出力する。
- */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * 設問：キーボードから複数の数字を入力し、足して10 になる2 つの数値をペアとして出力する。
+ *
+ * @author TajimaRen
+ */
+
 public class Ex0215 {
+
+	final static int SUM_VALUE = 10;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +36,7 @@ public class Ex0215 {
 		//足して10になるペアをリストに入れる
 		for(int i = 0; i <= numbers.length -1; i++) {
 			for(int j = i + 1; j <= numbers.length -1; j++) {
-				if(numbers[i] + numbers[j] == 10) {
+				if(numbers[i] + numbers[j] == SUM_VALUE) {
 					pairs.add(numbers[i] + "と" + numbers[j]);
 				}
 			}
