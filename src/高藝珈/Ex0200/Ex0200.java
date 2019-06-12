@@ -31,9 +31,8 @@ public class Ex0200 {
 			}
 
 			int result = 0;
-			if (input1 == 0) {
-				System.out.println("合計値 = 0");
-			} else if (input1 > 0) {
+
+			if (input1 > 0) {
 				result = (1 + input1) * input1 / 2;
 				System.out.println("合計値 = " + result);
 			} else {
