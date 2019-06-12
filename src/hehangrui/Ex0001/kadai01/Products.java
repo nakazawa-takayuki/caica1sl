@@ -6,14 +6,14 @@ package hehangrui.Ex0001.kadai01;
  * @author Adrian
  */
 
-public class Product01 {
+public class Products {
 	private int price;
 	private String name;
 
 	/**
 	 * コンストラクター
 	 */
-	public Product01(int price, String name) {
+	public Products(int price, String name) {
 		if(name == null) {
 			name = "未設定";
 		}
