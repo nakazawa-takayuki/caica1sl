@@ -14,24 +14,30 @@ public class Ex0200 {
 
 	public static void main(String[] args) {
 
-		int line1 = 0;
+		int inputNum1 = 0;
 		Scanner scn = new Scanner(System.in);
 		try {
 			System.out.println("input number :");
-			line1 = scn.nextInt();
+			inputNum1 = scn.nextInt();
 		} catch (InputMismatchException e) {
 			System.out.println("整数を入力してください。");
 			return;
 		} finally {
 			scn.close();
 		}
-		System.out.println("合計値 = " + totalValue(line1));
+		System.out.println("合計値 = " + totalValue(inputNum1));
 	}
 
 	private static int totalValue(int line1) {
 		int sum = 0;
-		for (int i = 1; i <= line1; i++) {
-			sum += i;
+		if (line1 >= 1)
+			for (int i = 1; i <= line1; i++) {
+				sum += i;
+			}
+		else {
+			for (int i = 1; i >= line1; i--) {
+				sum += i;
+			}
 		}
 		return sum;
 	}
