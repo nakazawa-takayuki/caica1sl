@@ -27,8 +27,7 @@ public class Ex0215 {
 		int[] imputNumber = new int[splitLine.length];
 		for (int i = 0; i < splitLine.length; i++) {
 			try {
-				int split = Integer.parseInt(splitLine[i]);
-				imputNumber[i] = split;
+				imputNumber[i] = Integer.parseInt(splitLine[i]);
 			} catch (NumberFormatException e) {
 				System.out.println("整数値を入力してください。");
 				return;
@@ -44,7 +43,9 @@ public class Ex0215 {
 				System.out.print(pairs.get(i));
 			}
 		}
-		if (pairs.isEmpty()) {
+		if (splitLine.length < 2) {
+			System.out.println("数字を二つ以上入力してください");
+		} else if (pairs.isEmpty()) {
 			System.out.println("ペアとなる数字はありません。");
 		} else {
 			System.out.println(" は足して" + TARGET_NUMBER + "となるペアです");
