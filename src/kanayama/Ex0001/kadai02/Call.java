@@ -31,7 +31,7 @@ public class Call {
 		basketB.putBasket(productValueY,2);
 		basketB.putBasket(productValueZ,3);
 
-		//お客様
+		//顧客
 		Customer customerA = new Customer(basketA,"A");
 		Customer customerB = new Customer(basketB,"B");
 

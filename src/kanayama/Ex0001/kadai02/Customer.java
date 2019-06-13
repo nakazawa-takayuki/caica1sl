@@ -5,25 +5,56 @@ public class Customer {
 	private String customerName;
 
 	/**
-	 *	 コンストラクタ
+	 *	 買い物かご、顧客の名前を設定するクラス
 	 * @param myBasket 買い物かご
-	 * @param customerName お客様の名前
+	 * @param customerName 顧客の名前
 	 */
 	public Customer(Basket myBasket, String customerName) {
+
+		if(myBasket == null) {
+			myBasket = null;
+			System.out.println("商品名が未設定のものがあります");
+		}
+
+		if(customerName == null) {
+			customerName = "未設定";
+			System.out.println("顧客の名前が未設定です");
+		}
 		this.myBasket = myBasket;
 		this.customerName = customerName;
-	}
-	public Customer () {
+
 	}
 	/**
-	 * 商品名を返却
+	 *	 買い物かご、顧客の名前を設定するクラス
+	 * <br>引数なし
+	 */
+	public Customer () {
+	}
+
+	/**
+	 * 買い物かごの中身を設定
+	 * */
+	public void setMyBasket(Basket myBasket) {
+		this.myBasket = myBasket;
+	}
+
+	/**
+	 * 顧客の名前を設定
+	 * */
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	/**
+	 * 買い物かごの中身を取得
 	 * @return this.myBasket
 	 * */
 	public Basket getMyBasket(){
 		return this.myBasket;
 	}
+
 	/**
-	 * 商品価格を返却
+	 * 顧客の名前を取得
 	 * @return this.customerName
 	 * */
 	public String getCustomerName(){

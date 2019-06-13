@@ -4,7 +4,7 @@ public class Product {
 	private int productPrice;
 
 	/**
-	 *	 コンストラクタ
+	 *	 商品名と価格を設定するクラス
 	 * @param productName 商品名
 	 * @param productPrice 価格
 	 */
@@ -12,17 +12,34 @@ public class Product {
 
 		if(productName == null) {
 			productName = "未設定";
+			System.out.println("商品名が未設定のものがあります");
 		}
 
 		if(productPrice < 0) {
 			productPrice = 0;
+			System.out.println(productName + "の価格がマイナス値です");
 		}
 
 		this.productName = productName;
 		this.productPrice = productPrice;
 	}
+
 	/**
-	 * 商品名を返却
+	 * 商品名を設定
+	 * */
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	/**
+	 * 商品価格を設定
+	 * */
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	/**
+	 * 商品名を取得
 	 * @return this.productName
 	 * */
 	public String getProductName(){
@@ -30,7 +47,7 @@ public class Product {
 	}
 
 	/**
-	 * 価格を返却
+	 * 価格を取得
 	 * @return this.productPrice
 	 * */
 	public int getProductPrice(){
