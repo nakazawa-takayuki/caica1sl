@@ -24,11 +24,8 @@ public class Main {
 		customerB.insertBasket(goodsA, 1);
 		customerB.insertBasket(goodsB, 8);
 
-		basketA.displayBasket(customerA.getCustomerName());
-		basketA.displayTotal();
-		basketB.displayBasket(customerB.getCustomerName());
-		basketB.displayTotal();
-
+		customerA.displayBasket(customerA.getCustomerName());
+		customerB.displayBasket(customerB.getCustomerName());
 	}
 
 }

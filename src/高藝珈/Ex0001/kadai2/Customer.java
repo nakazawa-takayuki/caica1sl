@@ -63,4 +63,9 @@ public class Customer {
 		this.basket.putBasket(goods, itemNum);
 	}
 
+
+	public void displayBasket(String customerName) {
+		this.basket.displayBasket(customerName);
+
+	}
 }

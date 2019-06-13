@@ -24,7 +24,7 @@ public class Basket {
 		for (Map.Entry<Goods, Integer> entry : mapItem.entrySet()) {
 			System.out.println(entry.getKey().outputGoodsDetail(entry.getValue()));
 		}
-
+		 displayTotal();
 	}
 
 	public void displayTotal() {
