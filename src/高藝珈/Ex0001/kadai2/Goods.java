@@ -1,11 +1,8 @@
-package 高藝珈.Ex0001.kadai1;
+package 高藝珈.Ex0001.kadai2;
 
 /**
- * 【課題1】
- * 2つの商品の内容を表示してみよう。
- * -商品は"価格"と"商品名"の属性を持ちます。
- * -属性はソース内にベタ書きして構いません。
- * -商品が今後増減することも意識しよう。
+ * 【課題2】
+ * お商品の価格と商品名の設定と取得
  *
  * @author 高藝珈
  */
@@ -18,6 +15,16 @@ public class Goods {
 	public Goods(String item, int price) {
 		this.item = item;
 		this.price = price;
+	}
+
+	/**
+	 *
+	 * @param itemNum
+	 * @return
+	 */
+	public String outputGoodsDetail(Integer itemNum) {
+		return "商品：" + this.item + " 単価：" + this.price + " 個数：" + itemNum + " 合計：" + this.price * itemNum;
+
 	}
 
 	/**
