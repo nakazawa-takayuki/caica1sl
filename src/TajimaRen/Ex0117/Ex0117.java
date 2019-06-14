@@ -38,13 +38,13 @@ public class Ex0117 {
 			return;
 		}
 
-		if(eScore >= 80 && mScore >= PASSING_SCORE) {
+		if(eScore >= PASSING_SCORE && mScore >= PASSING_SCORE) {
 			System.out.println("進級");
-		}else if(eScore < 80 && mScore >= PASSING_SCORE) {
+		}else if(eScore < PASSING_SCORE && mScore >= PASSING_SCORE) {
 			System.out.println("再試験");
-		}else if(eScore >= 80 && mScore < PASSING_SCORE) {
+		}else if(eScore >= PASSING_SCORE && mScore < PASSING_SCORE) {
 			System.out.println("再試験");
-		}else if(eScore < 80  && mScore < PASSING_SCORE) {
+		}else if(eScore < PASSING_SCORE  && mScore < PASSING_SCORE) {
 			System.out.println("留年");
 		}
 	}
