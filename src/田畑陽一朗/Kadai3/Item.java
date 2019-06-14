@@ -1,8 +1,19 @@
-package 田畑陽一朗.kadai1;
+package 田畑陽一朗.Kadai3;
 
+/**
+ * 商品の名前と価格を返す
+ *
+ * @author 田畑 陽一朗
+ *
+ */
 public class Item {
-
+	/**
+	 * 商品名のフィールドを作成
+	 */
 	private String itemName; //商品名
+	/**
+	 * 価格のフィールドを作成
+	 */
 	private int price; //価格
 
 	/**
@@ -29,13 +40,5 @@ public class Item {
 	public Item(String itemName, int price) {
 		this.itemName = itemName;
 		this.price = price;
-	}
-
-	/**
-	 * オーバーライドして文字を出力
-	 */
-	@Override
-	public String toString() {
-		return itemName + ":" + Integer.toString(price) + "円";
 	}
 }
