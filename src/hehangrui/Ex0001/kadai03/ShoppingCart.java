@@ -25,13 +25,13 @@ public class ShoppingCart {
 	 * かごに入っている商品を表示する
 	 */
 	public void displayItem() {
-		if(itemMap.isEmpty()) {
+		if (itemMap.isEmpty()) {
 			System.out.print("");
-		}else {
+		} else {
 			System.out.println("さんの買った物です。");
 		}
 		for (Map.Entry<Products, Integer> entry : itemMap.entrySet()) {
-			System.out.println("商品名: " + entry.getKey().getProductName() + "   価格: " + entry.getKey().getProductPrice()+ "円   個数: " + entry.getValue());
+			System.out.println("商品名: " + entry.getKey().getProductName() + "   価格: " + entry.getKey().getProductPrice() + "円   個数: " + entry.getValue());
 		}
 	}
 
@@ -40,9 +40,6 @@ public class ShoppingCart {
 	 */
 	public void disposalShopping() {
 		itemMap.clear();
-		if(itemMap.isEmpty()) {
-		System.out.println("さんが買い物をやめました。");
-		}
 	}
 
 	/**

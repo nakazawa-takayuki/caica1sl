@@ -12,7 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// Product01をインスタンス化する
+		// インスタンス化
 		Products item1 = new Products();
 		Products item2 = new Products();
 		Products item3 = new Products();
@@ -39,6 +39,7 @@ public class Main {
 		item4.setProductName("スイカ");
 		item4.setProductPrice(2000);
 
+		// 顧客と買った物を設定する
 		people1.setShoppingCart(shoppingCart1);
 		people1.setCustomerName("佐藤");
 		people1.getShoppingCart().putItemMap(item2, 1);
@@ -56,19 +57,17 @@ public class Main {
 
 		// 出力する
 		people1.printCustomerName();
-		shoppingCart1.displayItem();
-		shoppingCart1.calcPrice();
+		people1.displayItem();
+		people1.calcPrice();
 
 		people2.printCustomerName();
-		shoppingCart2.disposalItem(item4);
-		shoppingCart2.displayItem();
-		shoppingCart2.calcPrice();
+		people2.disposalItem(item3);
+		people2.displayItem();
+		people2.calcPrice();
 
 		people3.printCustomerName();
-		shoppingCart3.disposalShopping();
-		shoppingCart3.displayItem();
-		shoppingCart3.calcPrice();
-
+		people3.NotBuyCustomer();
+		people3.displayItem();
+		people3.calcPrice();
 	}
-
 }
