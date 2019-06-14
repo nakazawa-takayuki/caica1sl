@@ -72,7 +72,7 @@ public class Customer {
 
 	}
 
-	public void removePartGood(String customerName, String item) {
+	public void removePartGood(String customerName, Goods item) {
 		this.basket.removePartGood(customerName, item);
 
 	}

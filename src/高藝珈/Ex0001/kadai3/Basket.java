@@ -36,20 +36,21 @@ public class Basket {
 
 	public void emptyBasket(String customerName) {
 		System.out.println(customerName + "様は買い物をやめる");
-		for (Map.Entry<Goods, Integer> entry : mapItem.entrySet()) {
-			mapItem.remove(entry.getKey());
-		}
-		displayBasket(customerName);
+		mapItem.clear();
+		//		System.out.println(customerName + "様は買い物をやめる");
+		//		for (Map.Entry<Goods, Integer> entry : mapItem.entrySet()) {
+		//			mapItem.remove(entry.getKey());
+		//		}
+		//		displayBasket(customerName);
 	}
 
-	public void removePartGood(String customerName, String item) {
-		System.out.println(customerName + "様はいちごをやめる");
-		for (Map.Entry<Goods, Integer> entry : mapItem.entrySet()) {
-			if (entry.getKey().getItem().equals(item)) {
-				mapItem.remove(entry.getKey());
-				break;
-			}
-		}
-		displayBasket(customerName);
+	public void removePartGood(String customerName, Goods item) {
+		System.out.println(customerName + "様は" + item.getItem() + "の購入をやめる");
+		mapItem.remove(item);
+		//		for (Map.Entry<Goods, Integer> entry : mapItem.entrySet()) {
+		//			if (entry.getKey().getItem().equals(item)) {
+		//				break;
 	}
+	//		}
+	//		displayBasket(customerName);
 }

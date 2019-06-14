@@ -24,11 +24,11 @@ public class Main {
 		customerB.insertBasket(goodsA, 1);
 		customerB.insertBasket(goodsB, 8);
 
-		customerA.displayBasket(customerA.getCustomerName());
-		customerB.displayBasket(customerB.getCustomerName());
-
 		customerA.emptyBasket(customerA.getCustomerName());
-		customerB.removePartGood(customerB.getCustomerName(), goodsA.getItem());
+		customerA.displayBasket(customerA.getCustomerName());
+
+		customerB.removePartGood(customerB.getCustomerName(), goodsA);
+		customerB.displayBasket(customerB.getCustomerName());
 	}
 
 }
