@@ -1,10 +1,10 @@
-package 高藝珈.Ex0001.kadai3;
+package 高藝珈.Ex0001.kadai4;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 【課題３】
+ * 【課題４】
  *
  * @author 高藝珈
  */

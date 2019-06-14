@@ -1,0 +1,65 @@
+package 高藝珈.Ex0001.kadai4;
+
+/**
+ * 【課題４】
+ *
+ * @author 高藝珈
+ */
+
+public class Goods {
+
+	public int price; // 価格
+	public String item; // 商品名
+
+	public Goods(String item, int price) {
+		this.item = item;
+		this.price = price;
+	}
+
+	/**
+	 *
+	 * @param itemNum
+	 * @return
+	 */
+	public String outputGoodsDetail(Integer itemNum) {
+		return "商品：" + this.item + " 単価：" + this.price + " 個数：" + itemNum + " 合計：" + this.price * itemNum;
+
+	}
+
+	/**
+	 *	価格を取得する
+	 *
+	 *	@return price 価格
+	 */
+	public int getPrice() {
+		return price;
+	}
+
+	/**
+	 *	価格を設定する
+	 *
+	 *	@param price 価格
+	 */
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	/**
+	 *	商品名を取得する
+	 *
+	 *	@return item 商品名
+	 */
+	public String getItem() {
+		return item;
+	}
+
+	/**
+	 *	商品名を設定する
+	 *
+	 *	@param item 商品名
+	 */
+	public void setItem(String item) {
+		this.item = item;
+	}
+
+}
