@@ -21,6 +21,9 @@ public class Item {
 	 * @return 商品名
 	 */
 	public String getItemName() {
+		if (itemName.isEmpty()) {
+			System.out.println("商品名を入力してください");
+		}
 		return itemName;
 	}
 
@@ -29,6 +32,10 @@ public class Item {
 	 * @return 価格
 	 */
 	public int getPrice() {
+		if (price < 0) {
+			System.out.println("-の価格が入力されています。");
+			System.exit(0);
+		}
 		return price;
 	}
 
