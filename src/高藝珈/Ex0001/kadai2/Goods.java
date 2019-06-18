@@ -23,6 +23,13 @@ public class Goods {
 	 * @return
 	 */
 	public String outputGoodsDetail(Integer itemNum) {
+		if (price < 0) {
+			System.out.println("正しい価格を入力してください。");
+			System.exit(0);
+		}
+		if (item.equals("")) {
+			item = "なし";
+		}
 		return "商品：" + this.item + " 単価：" + this.price + " 個数：" + itemNum + " 合計：" + this.price * itemNum;
 
 	}
