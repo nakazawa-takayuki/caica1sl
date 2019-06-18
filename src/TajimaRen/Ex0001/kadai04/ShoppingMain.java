@@ -1,5 +1,6 @@
 package TajimaRen.Ex0001.kadai04;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -12,7 +13,7 @@ import java.io.PrintStream;
 
 public class ShoppingMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 
 		/**
 		 * 買い物かご
@@ -24,7 +25,7 @@ public class ShoppingMain {
 		 * 商品名と商品価格
 		 */
 		Products products1 = new Products("にんじん",50);
-		Products products2 = new Products("じゃがいも",100);
+		Products products2 = new Products(" ",100);
 
 		/**
 		 * 客の名前と持っている買い物かご
@@ -43,53 +44,53 @@ public class ShoppingMain {
 		/**
 		 * 買い物をやめる
 		 */
-		cart1.clearProducts();
+		customer1.stopShopping();
 
 		/**
 		 * 商品をやめる
 		 */
-		cart2.removeShopping(products1);
+		customer2.discardingProducts(products1);
 
 		/**
 		 * 表示
 		 */
-
-		try {
-			if(args.length == 0) {
-				//コンソール出力を保持する
-				PrintStream sysOut = System.out;
+		if(args.length == 0) {
+			//コンソール出力を保持する
+			PrintStream sysOut = System.out;
 
 
-				//コンソール出力の出力先をファイルに切り変える
-				FileOutputStream fos = new FileOutputStream("Shopping.txt");
-				PrintStream ps = new PrintStream(fos);
+			//コンソール出力の出力先をファイルに切り変える
+			//エラー：FileNotFoundException
+			FileOutputStream fos = new FileOutputStream("Shopping.txt");
+			PrintStream ps = new PrintStream(fos);
 
-				System.setOut(ps);
+			System.setOut(ps);
 
-				//出力
-				customer1.printCustomerName();
-				customer1.printShoppingCart();
-				customer1.printGrandTotalPrice();
+			//出力
+			customer1.printCustomerName();
+			customer1.printShoppingCart();
+			customer1.printGrandTotalPrice();
 
-				customer2.printCustomerName();
-				customer2.printShoppingCart();
-				customer2.printGrandTotalPrice();
+			customer2.printCustomerName();
+			customer2.printShoppingCart();
+			customer2.printGrandTotalPrice();
 
-				ps.close();
+			ps.close();
+			try {
 				fos.close();
-
-			}else {
-				//出力
-				customer1.printCustomerName();
-				customer1.printShoppingCart();
-				customer1.printGrandTotalPrice();
-
-				customer2.printCustomerName();
-				customer2.printShoppingCart();
-				customer2.printGrandTotalPrice();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		}catch(IOException ex) {
-			System.err.println(ex.getMessage());
+
+		}else {
+			//出力
+			customer1.printCustomerName();
+			customer1.printShoppingCart();
+			customer1.printGrandTotalPrice();
+
+			customer2.printCustomerName();
+			customer2.printShoppingCart();
+			customer2.printGrandTotalPrice();
 		}
 	}
 }

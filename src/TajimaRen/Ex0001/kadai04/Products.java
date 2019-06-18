@@ -8,7 +8,7 @@ package TajimaRen.Ex0001.kadai04;
 public class Products {
 
 	String productsName;		//商品名
-	Integer productsPrice;		//商品価格
+	Integer productsPrice = 0;		//商品価格
 
 	/**
 	 * メインクラスでnewされると実行される
@@ -17,8 +17,16 @@ public class Products {
 	 * @param productsPrice
 	 */
 	public Products(String productsName,Integer productsPrice) {
-		this.productsName = productsName;
-		this.productsPrice = productsPrice;
+		if(productsName == null || productsName == "" || productsName == " " || productsName == "　") {
+			this.productsName = "名無し";
+		}else {
+			this.productsName = productsName;
+		}
+		if(productsPrice < 0) {
+			this.productsPrice = 0;
+		}else {
+			this.productsPrice = productsPrice;
+		}
 	}
 
 	public String getProductsName() {
@@ -26,23 +34,16 @@ public class Products {
 	}
 
 	public void setProductsName(String productsName) {
-		if(productsName == null) {
-			this.productsName = "名無し";
-		}else {
-			this.productsName = productsName;
-		}
+		this.productsName = productsName;
 	}
+
 
 	public Integer getProductsPrice() {
 		return productsPrice;
 	}
 
 	public void setProductsPrice(Integer productsPrice) {
-		if(productsPrice < 0) {
-			System.out.println("価格がマイナス値です");
-		}else {
-			this.productsPrice = productsPrice;
-		}
+		this.productsPrice = productsPrice;
 	}
 
 	/**
