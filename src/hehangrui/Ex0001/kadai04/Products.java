@@ -15,6 +15,9 @@ public class Products {
 	 * @return
 	 */
 	public String getProductName() {
+		if(productName.equals("")) {
+			productName = "なし";
+		}
 		return productName;
 	}
 
@@ -31,6 +34,9 @@ public class Products {
 	 * @return
 	 */
 	public int getProductPrice() {
+		if(productPrice < 0) {
+			productPrice = 0;
+		}
 		return productPrice;
 	}
 

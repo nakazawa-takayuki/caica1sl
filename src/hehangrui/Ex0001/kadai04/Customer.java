@@ -43,6 +43,7 @@ public class Customer {
 
 	/**
 	 * 顧客の名前を出力する
+	 * @param customerName
 	 */
 	public void printCustomerName() {
 		System.out.print(customerName);
@@ -50,6 +51,7 @@ public class Customer {
 
 	/**
 	 * 買い物かごの中身を空にする
+	 * @param shoppingCart
 	 */
 	public void NotBuyCustomer() {
 		System.out.println("さんが買い物をやめました。");
@@ -58,6 +60,7 @@ public class Customer {
 
 	/**
 	 * 一部の商品をやめる
+	 * @param shoppingCart
 	 */
 	public void disposalItem(Products products) {
 		this.shoppingCart.disposalItem(products);
@@ -65,6 +68,7 @@ public class Customer {
 
 	/**
 	 * 顧客がかごに商品を入れる
+	 * @param shoppingCart
 	 */
 	public void displayItem() {
 		this.shoppingCart.displayItem();
@@ -72,6 +76,7 @@ public class Customer {
 
 	/**
 	 * 合計金額
+	 * @param shoppingCart
 	 */
 	public void calcPrice() {
 		this.shoppingCart.calcPrice();

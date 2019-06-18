@@ -16,6 +16,7 @@ public class ShoppingCart {
 
 	/**
 	 * 選択した商品を個数分かごに入れる
+	 * @param itemMap
 	 */
 	public void putItemMap(Products products, Integer itemCount) {
 		itemMap.put(products, itemCount);
@@ -23,6 +24,7 @@ public class ShoppingCart {
 
 	/**
 	 * かごに入っている商品を表示する
+	 * @param itemMap
 	 */
 	public void displayItem() {
 		if (itemMap.isEmpty()) {
@@ -31,12 +33,18 @@ public class ShoppingCart {
 			System.out.println("さんの買った物です。");
 		}
 		for (Map.Entry<Products, Integer> entry : itemMap.entrySet()) {
+			if(entry.getValue() > 0) {
 			System.out.println("商品名: " + entry.getKey().getProductName() + "   価格: " + entry.getKey().getProductPrice() + "円   個数: " + entry.getValue());
+			}else{
+				System.out.println("商品名: " + entry.getKey().getProductName() + "   価格: " + entry.getKey().getProductPrice() + "円   個数: " + "0");
+
+			}
 		}
 	}
 
 	/**
 	 * 顧客が買い物をやめる処理
+	 * @param itemMap
 	 */
 	public void disposalShopping() {
 		itemMap.clear();
@@ -44,6 +52,7 @@ public class ShoppingCart {
 
 	/**
 	 * 顧客が一部の商品をやめる処理
+	 * @param itemMap
 	 */
 	public void disposalItem(Products products) {
 		itemMap.remove(products);
@@ -51,11 +60,16 @@ public class ShoppingCart {
 
 	/**
 	 * 合計金額を計算する
+	 * @param itemMap
 	 */
 	public void calcPrice() {
 		int totalMoney = 0;
 		for (Map.Entry<Products, Integer> entry : itemMap.entrySet()) {
+			if(entry.getValue() > 0) {
 			totalMoney += entry.getKey().getProductPrice() * entry.getValue();
+			}else {
+				totalMoney += entry.getKey().getProductPrice() * 0;
+			}
 		}
 		System.out.println("合計金額: " + totalMoney + "円" + "\n");
 	}

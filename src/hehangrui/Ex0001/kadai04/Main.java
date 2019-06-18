@@ -7,6 +7,7 @@ import java.io.PrintStream;
  * 商品の商品名と価格を定義する.
  * 顧客の名前と持ちかごを決める.
  * 処理クラスを呼び出し、出力する.
+ * ファイル出力と設定する.
  *
  * @author Adrian
  */
@@ -15,6 +16,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		//ファイル出力と設定する
 		if (args.length == 0) {
 			outPutFile();
 		}
@@ -77,12 +79,14 @@ public class Main {
 		people3.calcPrice();
 
 	}
+
+	//ファイル出力先を決める
 	public static void outPutFile() {
-        try {
-            PrintStream file = new PrintStream("C:\\caica_1sl_ojt\\shopping.txt");
-            System.setOut(file);
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    }
+		try {
+			PrintStream file = new PrintStream("C:\\caica_1sl_ojt\\shopping.txt");
+			System.setOut(file);
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		}
+	}
 }
