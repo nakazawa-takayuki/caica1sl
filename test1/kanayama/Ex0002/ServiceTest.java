@@ -46,7 +46,7 @@ public class ServiceTest {
 		service.addEntrantList(human2);
 		service.addEntrantList(human3);
 		service.addEntrantList(human3);
-		*/
+		 */
 
 		List<Human> list = new ArrayList<>();
 		list = service.getEntrantList();
@@ -60,7 +60,7 @@ public class ServiceTest {
 		assertThat(list.get(2).getEntryId(),is(3));
 		assertThat(list.get(2).getEntryName(),is("田中三郎"));
 		assertThat(list.get(2).isEntryAvailability(),is(true));
-		*/
+		 */
 		//fail("まだ実装されていません");
 	}
 	@Test

@@ -15,25 +15,17 @@ public class Service {
 			if(human2.getEntryId() == human.getEntryId()){
 				String message = "ID:" + human2.getEntryId() + "が重複しています。";
 				throw new IdException(message);
-
 			}
 		}
 		entrantList.add(human);
 	}
-	
+
 	public List<Human> getEntrantList() {
 		return entrantList;
 	}
 
 	public void moveDisplayEntry() {
 		manegement.displayEntry(entrantList);
-		
 	}
-
-
-
-
-
-
 
 }

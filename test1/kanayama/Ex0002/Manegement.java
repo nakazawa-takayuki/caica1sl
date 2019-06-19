@@ -7,6 +7,7 @@ public class Manegement {
 
 	/**
 	 * 参加者の合計を計算する
+	 * @return entrantList.size()
 	 * */
 	public int getEntryTotal(List<Human> entrantList) {
 		return entrantList.size();
@@ -14,6 +15,7 @@ public class Manegement {
 
 	/**
 	 * 出席者をカウントする
+	 * @return attendeeCount
 	 * */
 	public int getEntryCount(List<Human> entrantList) {
 		int attendeeCount = 0;
@@ -27,6 +29,7 @@ public class Manegement {
 
 	/**
 	 *  出席率を計算する
+	 *  @return answer
 	 *  */
 	public BigDecimal entryRate(List<Human> entrantList) {
 		BigDecimal attendeeCount = BigDecimal.valueOf(getEntryCount(entrantList));
@@ -34,11 +37,10 @@ public class Manegement {
 		BigDecimal answer = attendeeCount.divide(entrantTotal);
 
 		return answer;
-
 	}
 
 	/**
-	 *  表示する
+	 *  参加者の合計人数、出席人数を表示する
 	 *  */
 	public void displayEntry(List<Human> entrantList) {
 		System.out.print("合計" + getEntryTotal(entrantList) +"名 ");

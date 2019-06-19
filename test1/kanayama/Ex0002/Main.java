@@ -14,19 +14,17 @@ public class Main {
 		Human human3 = new Human(3,"田中三郎",true);
 
 		Service service = new Service();
-			try {
-				//参加者をリストに登録する
-				service.addEntrantList(human1);
-				service.addEntrantList(human2);
-				service.addEntrantList(human2);
-				service.addEntrantList(human3);
+		try {
+			//参加者をリストに登録する
+			service.addEntrantList(human1);
+			service.addEntrantList(human2);
+			service.addEntrantList(human2);
+			service.addEntrantList(human3);
 
-			} catch (IdException e) {
-				System.out.println(e.getMessage());
-				return;
-			}
-
+		} catch (IdException e) {
+			System.out.println(e.getMessage());
+			return;
+		}
 		service.moveDisplayEntry();
-
 	}
 }
