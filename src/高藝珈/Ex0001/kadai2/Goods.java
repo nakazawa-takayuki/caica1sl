@@ -30,6 +30,9 @@ public class Goods {
 		if (item.equals("")) {
 			item = "なし";
 		}
+		if (itemNum <= 0) {
+			System.out.println("正しい個数を入力してください。");
+		}
 		return "商品：" + this.item + " 単価：" + this.price + " 個数：" + itemNum + " 合計：" + this.price * itemNum;
 
 	}
