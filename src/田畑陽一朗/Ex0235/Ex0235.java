@@ -22,8 +22,9 @@ public class Ex0235 {
 		try {
 			System.out.println("0～255の範囲の10進数:");
 			inputNum = scn.nextInt();
-			if (inputNum < 0 && inputNum > 255) {
+			if (inputNum < 0 || inputNum > 255) {
 				System.out.println("0～255の整数値を入力してください");
+				return;
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("整数を入力してください。");
