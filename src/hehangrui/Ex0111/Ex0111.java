@@ -44,9 +44,9 @@ public class Ex0111 {
 				}
 			}
 			count++;
-			if (isNiceString) {
-				System.out.println("許可する文字列です。");
-			}
+		}
+		if (isNiceString) {
+			System.out.println("許可する文字列です。");
 		}
 	}
 }
