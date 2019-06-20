@@ -21,10 +21,9 @@ public class Ex0235 {
 		try {
 			System.out.println("0～255の範囲の10進数：");
 			inputNum = scan.nextInt();
-
 			scan.close();
 
-			//入力値は数字ではない場合の例外処理
+		//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
 			System.out.println("数値以外が入力されました。");
 			return;
