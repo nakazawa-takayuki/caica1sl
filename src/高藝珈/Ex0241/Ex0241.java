@@ -17,11 +17,9 @@ public class Ex0241 {
 
 		while (true) {
 			Scanner input = new Scanner(System.in);
-
 			try {
 				System.out.println("input number：");
 				height = input.nextInt();
-
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
@@ -29,7 +27,6 @@ public class Ex0241 {
 				System.out.println("範囲外です。もう一度数字を入力してください");
 				continue;
 			}
-
 			if (height < 0) {
 				System.out.println(" 0より大きな数字を入力してください");
 				continue;
@@ -42,12 +39,10 @@ public class Ex0241 {
 				for (int j = 0; j < height - i - 1; j++) {
 					System.out.print(" ");
 				}
-
 				System.out.println();
 			}
 			input.close();
 			break;
 		}
-
 	}
 }

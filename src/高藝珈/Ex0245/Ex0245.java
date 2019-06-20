@@ -18,13 +18,11 @@ public class Ex0245 {
 
 		while (true) {
 			Scanner input = new Scanner(System.in);
-
 			try {
 				System.out.println("input number1：");
 				input1 = input.nextInt();
 				System.out.println("input number2：");
 				input2 = input.nextInt();
-
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
@@ -42,6 +40,5 @@ public class Ex0245 {
 			input.close();
 			break;
 		}
-
 	}
 }
