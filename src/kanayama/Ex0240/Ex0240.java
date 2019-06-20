@@ -19,11 +19,11 @@ public class Ex0240 {
 				inputNum = inp.nextInt();
 			}catch(InputMismatchException e) {
 				System.out.print("整数以外が含まれています。");
-				return;
+				continue;
 			}
 
 			if((inputNum < 10)&&(81 < inputNum)) {
-				System.out.print("10～81で入力してください");
+				System.out.print("10～81の範囲で入力してください");
 				continue;
 			}
 
@@ -31,7 +31,6 @@ public class Ex0240 {
 		}
 		inp.close();
 		checkMultiplication(inputNum);
-
 	}
 
 	/**

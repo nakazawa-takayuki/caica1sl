@@ -10,15 +10,23 @@ import java.util.Scanner;
 public class Ex0241 {
 	public static void main(String[] args){
 		int inputNum = 0;
-
 		Scanner inp = new Scanner(System.in);
-		System.out.println("input number：");
-		try {
-			inputNum = inp.nextInt();
-		}catch(InputMismatchException e) {
-			System.out.print("整数以外が含まれています。");
-			return;
+
+		while(true) {
+			System.out.println("input number：");
+			try {
+				inputNum = inp.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("整数以外が含まれています。");
+				continue;
+			}
+			if(inputNum < 0) {
+				System.out.println("マイナス値が入力されています。");
+				continue;
+			}
+			break;
 		}
+
 		inp.close();
 		makeTriangle(inputNum);
 	}
@@ -29,7 +37,7 @@ public class Ex0241 {
 	private static void makeTriangle(int inputNum) {
 		for(int column = 1; column <= inputNum; column++) {
 			for(int line = 1; line <= column; line++) {
-				System.out.print(" * ");
+				System.out.print(" *");
 			}
 			System.out.println();
 		}
