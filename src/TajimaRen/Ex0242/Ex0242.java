@@ -32,10 +32,10 @@ public class Ex0242 {
 
 		for(int i = 0; i < inputNum; i++) {
 			for(int j = 0; j < inputNum - i; j++) {
-				System.out.print("　");
+				System.out.print(" ");
 			}
 			for(int k = 0; k < (i + 1) * 2 - 1; k++) {
-				System.out.print("＊");
+				System.out.print("*");
 			}
 			System.out.print("\n");
 		}
