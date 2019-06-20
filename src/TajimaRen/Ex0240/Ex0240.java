@@ -26,8 +26,8 @@ public class Ex0240 {
 			return;
 		}
 
-		if(inputNum >= 100) {
-			System.out.println("2桁の数字を入力してください");
+		if(inputNum < 10 || inputNum >= 100) {
+			System.out.println("2桁の整数値を入力してください");
 			return;
 		}
 

@@ -30,7 +30,7 @@ public class Ex0235 {
 		decimalNumber = toDecimalNumber(inputNum);
 
 		//出力
-		if(inputNum > 255) {
+		if(inputNum < 0 || inputNum > 255) {
 			System.out.println("0～255の範囲の数字を入力してください");
 		}else {
 			System.out.println("2進数の変換結果：" + String.format("%08d",Integer.parseInt(binaryNumber)));
