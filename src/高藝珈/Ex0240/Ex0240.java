@@ -15,8 +15,8 @@ public class Ex0240 {
 
 		int input1;
 
-		Scanner input = new Scanner(System.in);
 		while (true) {
+			Scanner input = new Scanner(System.in);
 			try {
 				System.out.println("input number：");
 				input1 = input.nextInt();
