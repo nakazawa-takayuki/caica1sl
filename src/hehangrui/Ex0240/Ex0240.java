@@ -35,6 +35,12 @@ public class Ex0240 {
 			inputNum = scan.nextInt();
 			scan.close();
 
+			//入力値は2桁でない場合の判断
+			if(inputNum < 10 || inputNum > 81) {
+				System.out.println("2桁の数値を入力してください。");
+				return;
+			}
+
 			//数値は九九表にあるかを判断し、出力する
 			boolean isNiceNum = true;
 			for (int i = 0; i <= 8; i++) {
