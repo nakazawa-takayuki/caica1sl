@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Ex0110 {
 	public static void main(String[] args) {
 		System.out.println("文字列1：");
+		@SuppressWarnings("resource")
 		String scan1 = new Scanner(System.in).nextLine(); //キーボードからの入力
 		System.out.println("文字列2：");
+		@SuppressWarnings("resource")
 		String scan2 = new Scanner(System.in).nextLine(); //キーボードからの入力
 		Comparison(scan1, scan2);//
 
