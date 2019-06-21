@@ -31,11 +31,17 @@ public class Ex0245 {
 			break;
 		}
 
+		displayCommonDivisor(input1, input2);
+
+	}
+
+	private static void displayCommonDivisor(int input1, int input2) {
 		while (input2 != 0) {
-			int temp = input1 % input2;
+			int commonDivisor = input1 % input2;
 			input1 = input2;
-			input2 = temp;
+			input2 = commonDivisor;
 		}
 		System.out.println("最大公約数= " + input1);
+
 	}
 }

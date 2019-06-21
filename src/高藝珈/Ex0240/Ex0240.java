@@ -24,6 +24,7 @@ public class Ex0240 {
 				System.out.println("数字以外が入力されています");
 				continue;
 			}
+
 			if (input1 < 10 || input1 > 99) {
 				System.out.println("2桁の数字を入力してください");
 				continue;
@@ -32,6 +33,11 @@ public class Ex0240 {
 			break;
 		}
 
+		displayMultiplication(input1);
+
+	}
+
+	private static void displayMultiplication(int input1) {
 		for (int i = 1; i <= 9; i++) {
 			for (int j = 1; j <= 9; j++) {
 				if (input1 == i * j) {
@@ -42,4 +48,5 @@ public class Ex0240 {
 		}
 		System.out.println("九九の表にありません");
 	}
+
 }

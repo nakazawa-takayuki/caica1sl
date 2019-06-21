@@ -24,6 +24,7 @@ public class Ex0241 {
 				System.out.println("数字以外が入力されています");
 				continue;
 			}
+
 			if (height == 0) {
 				System.out.println(" 0以外の数字を入力してください");
 				continue;
@@ -44,6 +45,7 @@ public class Ex0241 {
 			for (int j = 0; j <= i; j++) {
 				System.out.print("*");
 			}
+
 			for (int j = 0; j < height - i - 1; j++) {
 				System.out.print(" ");
 			}
@@ -52,7 +54,7 @@ public class Ex0241 {
 	}
 
 	private static void makeTriangle2(int height) {
-		for (int i = 0; i <= -height; i++) {
+		for (int i = 1; i <= -height; i++) {
 			for (int j = 1; j <= -height + 1 - i; j++) {
 				System.out.print("*");
 			}
