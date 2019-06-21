@@ -40,6 +40,12 @@ public class Ex0245 {
 		}
 		inp.close();
 
+		if(inputNum1 == 0 && inputNum2 == 0) {
+			System.out.println("0と0は公約数の定義に外れています");
+			System.out.println("　->【最大公約数】少なくとも１つが0ではない複数の整数の公約数のうち最大のものを指す");
+		return;
+		}
+
 		/*inputNum1 < inputNum2の場合入れ替える*/
 		if(inputNum1 > inputNum2) {
 			System.out.println("最大公約数 = " + outputCommonDivisor(inputNum1,inputNum2));
@@ -56,6 +62,7 @@ public class Ex0245 {
 		boolean result = true;
 		if(inputNum < 0) {
 			System.out.println("マイナス値が入力されています。");
+			result = false;
 		}
 		return result;
 	}

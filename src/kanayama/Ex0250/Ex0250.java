@@ -16,17 +16,17 @@ public class Ex0250 {
 		Scanner inp = new Scanner(System.in);
 
 		while(true) {
-			System.out.println("input number：");
+			System.out.println("input number(10～100)：");
 			try {
 				inputNum = inp.nextInt();
 			}catch(InputMismatchException e) {
-				System.out.print("整数以外が含まれています。");
+				System.out.println("整数以外が含まれています。");
 				inp.next();
 				continue;
 			}
 
 			if((inputNum < 10)||(100 < inputNum)) {
-				System.out.print("10～100の範囲で入力してください");
+				System.out.println("10～100の範囲で入力してください");
 				continue;
 			}
 
