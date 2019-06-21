@@ -18,12 +18,13 @@ public class Ex0240 {
 			try {
 				inputNum = inp.nextInt();
 			}catch(InputMismatchException e) {
-				System.out.print("整数以外が含まれています。");
+				System.out.println("整数以外が含まれています。");
+				inp.next();
 				continue;
 			}
 
-			if((inputNum < 10)&&(81 < inputNum)) {
-				System.out.print("10～81の範囲で入力してください");
+			if((inputNum < 10)||(81 < inputNum)) {
+				System.out.println("10～81の範囲で入力してください");
 				continue;
 			}
 

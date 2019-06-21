@@ -18,10 +18,10 @@ public class Ex0235 {
 				inputNum = inp.nextInt();
 			}catch(InputMismatchException e) {
 				System.out.print("整数以外が含まれています。");
-				continue;
+				return;
 			}
 
-			if(!((0 <= inputNum)&&(inputNum <= 255))) {
+			if((inputNum < 0) && (255 < inputNum)) {
 				System.out.print("0～255の範囲で入力してください");
 				continue;
 			}
