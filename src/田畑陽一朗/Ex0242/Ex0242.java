@@ -1,4 +1,4 @@
-package 田畑陽一朗.Ex0241;
+package 田畑陽一朗.Ex0242;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,7 +9,8 @@ import java.util.Scanner;
  * @author 田畑 陽一朗
  *
  */
-public class Ex0241 {
+
+public class Ex0242 {
 
 	public static void main(String[] args) {
 
@@ -20,42 +21,48 @@ public class Ex0241 {
 		try {
 			inputNum = scn.nextInt();
 		} catch (InputMismatchException e) {
-			System.out.println("整数値を入力してください。");
+			System.out.println("整数を入力してください。");
 			return;
 		} finally {
 			scn.close();
 		}
 		if (inputNum > 0) {
-			makeRightAngleTriangle(inputNum);
+			makeEqualSidesTriangle(inputNum);
 		} else if (inputNum < 0) {
-			makeInverseTriangle(inputNum);
+			makeEqualSidesInverseTriangle(inputNum);
 		} else {
 			System.out.println("値を入力してください");
 		}
 	}
 
-	//直角三角形を出力するためのメソッド
-	public static void makeRightAngleTriangle(int inputNum) {
+	//二等辺三角形出力するためのメソッド
+	public static void makeEqualSidesTriangle(int inputNum) {
 		int count = 1;
 		for (int i = 0; i < inputNum; i++) {
-			for (int j = 0; j < count; j++) {
+			for (int j = 0; j < inputNum - count; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < count * 2 - 1; j++) {
 				System.out.print("*");
 			}
-			count++;
 			System.out.println("");
+			count++;
 		}
 	}
 
-	//負の値が入力されたときに逆三角形にする
-	public static void makeInverseTriangle(int inputNum) {
+	//負の値を入力した場合、逆三角形にする
+	public static void makeEqualSidesInverseTriangle(int inputNum) {
 		int count = 0;
 		int absoluteValueNum = Math.abs(inputNum);
 		for (int i = 0; i < absoluteValueNum; i++) {
-			for (int j = 0; j < absoluteValueNum - count; j++) {
+			for (int j = 0; j < count; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < (absoluteValueNum - count) * 2 - 1; j++) {
 				System.out.print("*");
 			}
-			count++;
 			System.out.println("");
+			count++;
 		}
 	}
 }
