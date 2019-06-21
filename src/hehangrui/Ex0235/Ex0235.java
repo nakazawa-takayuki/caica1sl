@@ -23,22 +23,31 @@ public class Ex0235 {
 			inputNum = scan.nextInt();
 			scan.close();
 
-		//入力値は数字ではない場合の例外処理
+			//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
 			System.out.println("数値以外が入力されました。");
 			return;
 		}
 
-		//0～255の範囲の10進数整数値を2進数と16進数に変換して出力する。
+		//0～255の範囲の10進数整数値を2進数と16進数に変換した結果を出力する。
 		if (inputNum >= 0 && inputNum <= 255) {
-			String bin = Integer.toBinaryString(inputNum);
-			String hex = Integer.toHexString(inputNum);
-
-			System.out.println("2進数の変換結果：" + bin);
-			System.out.println("10進数の変換結果：" + hex);
+			System.out.println("2進数の変換結果：" + String.format("%08d", Integer.parseInt(binaryNum(inputNum))));
+			System.out.println("10進数の変換結果：" + HexNum(inputNum));
 		} else {
 			System.out.println("範囲内の数値を入力してください。");
 		}
+	}
+
+	//入力値を２進数に変換するメソッド
+	public static String binaryNum(int inputNum) {
+		String bin = Integer.toBinaryString(inputNum);
+		return bin;
+	}
+
+	//入力値を１６進数に変換するメソッド
+	public static String HexNum(int inputNum) {
+		String hex = Integer.toHexString(inputNum);
+		return hex;
 
 	}
 

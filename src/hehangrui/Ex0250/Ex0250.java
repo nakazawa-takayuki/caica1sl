@@ -24,31 +24,33 @@ public class Ex0250 {
 		//キーボード入力欄
 		Scanner scan = new Scanner(System.in);
 
+		int inputNum = 0;
+
 		try {
 			System.out.println("input number：");
-			int inputNum = scan.nextInt();
+			inputNum = scan.nextInt();
 			scan.close();
 
-			//入力値は2桁でない場合の判断
-			if (inputNum < 10 || inputNum >= 100) {
-				System.out.println("2桁の数値を入力してください。");
-				return;
-			}
-
-			//メソッドに引数を渡す
-			int position = binarySearch(PRIME_NUMBER, inputNum, PRIME_NUMBER.length - 1, 0);
-
-			//結果出力
-			if (position == -1) {
-				System.out.println("素数ではありません。");
-			} else {
-				System.out.println("素数です。");
-			}
-
-			//入力値は数字ではない場合の例外処理
+		//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
 			System.out.println("数値以外が入力されました。");
 			return;
+		}
+
+		//入力値は2桁でない場合の判断
+		if (inputNum < 10 || inputNum >= 100) {
+			System.out.println("2桁の数値を入力してください。");
+			return;
+		}
+
+		//メソッドに引数を渡す
+		int position = binarySearch(PRIME_NUMBER, inputNum, PRIME_NUMBER.length - 1, 0);
+
+		//結果出力
+		if (position == -1) {
+			System.out.println("素数ではありません。");
+		} else {
+			System.out.println("素数です。");
 		}
 
 	}

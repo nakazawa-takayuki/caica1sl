@@ -35,33 +35,39 @@ public class Ex0240 {
 			inputNum = scan.nextInt();
 			scan.close();
 
-			//入力値は2桁でない場合の判断
-			if(inputNum < 10 || inputNum > 81) {
-				System.out.println("2桁の数値を入力してください。");
-				return;
-			}
-
-			//数値は九九表にあるかを判断し、出力する
-			boolean isNiceNum = true;
-			for (int i = 0; i <= 8; i++) {
-				for (int j = 0; j <= 8; j++) {
-					if (NINETY_NINE_TABLE[i][j] == inputNum) {
-						int multiplierA = i + 1;
-						int multiplierB = j + 1;
-						System.out.println("九九の表（" + multiplierA + "*" + multiplierB + "）にあります");
-						isNiceNum = false;
-					}
-				}
-			}
-			//数値は九九表にない場合の判断
-			if (isNiceNum) {
-				System.out.println("九九の表にありません");
-			}
 			//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
 			System.out.println("整数以外が入力されました。");
 			return;
 		}
+
+		//入力値は2桁でない場合の判断
+		if (inputNum < 10 || inputNum >= 100) {
+			System.out.println("2桁の数値を入力してください。");
+			return;
+		}
+		//処理メソッドを呼び出す
+		checkNum(inputNum);
 	}
 
+	//数値は九九表にあるかを判断し、出力する
+	public static int checkNum(int inputNum) {
+		boolean isNiceNum = true;
+		for (int i = 0; i <= 8; i++) {
+			for (int j = 0; j <= 8; j++) {
+				if (NINETY_NINE_TABLE[i][j] == inputNum) {
+					int multiplierA = i + 1;
+					int multiplierB = j + 1;
+					System.out.println("九九の表（" + multiplierA + "*" + multiplierB + "）にあります");
+					isNiceNum = false;
+				}
+			}
+		}
+
+		//数値は九九表にない場合の判断
+		if (isNiceNum) {
+			System.out.println("九九の表にありません");
+		}
+		return inputNum;
+	}
 }
