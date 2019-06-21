@@ -15,27 +15,41 @@ public class Ex0241 {
 
 		Scanner scn = new Scanner(System.in);
 		int inputNum = 0;
+
+		System.out.println("input number :");
 		try {
-			System.out.println("input number :");
 			inputNum = scn.nextInt();
-			if (inputNum < 0) {
-				System.out.println("正の値を入力してください");
-				return;
-			}
 		} catch (InputMismatchException e) {
 			System.out.println("整数を入力してください。");
 			return;
 		} finally {
 			scn.close();
 		}
-		makeRightAngleTriangle(inputNum);
+		if (inputNum > 0) {
+			makeRightAngleTriangle(inputNum);
+		} else {
+			makeInverseTriangle(inputNum);
+		}
 	}
 
 	//直角三角形を出力するためのメソッド
 	public static void makeRightAngleTriangle(int inputNum) {
 		int count = 1;
-		for (int j = 0; j < inputNum; j++) {
-			for (int i = 0; i < count; i++) {
+		for (int i = 0; i < inputNum; i++) {
+			for (int j = 0; j < count; j++) {
+				System.out.print("*");
+			}
+			count++;
+			System.out.println("");
+		}
+	}
+
+	//負の値が入力されたときに逆三角形にする
+	public static void makeInverseTriangle(int inputNum) {
+		int count = 0;
+		int absoluteValueNum = Math.abs(inputNum);
+		for (int i = 0; i < absoluteValueNum; i++) {
+			for (int j = 0; j < absoluteValueNum - count; j++) {
 				System.out.print("*");
 			}
 			count++;
