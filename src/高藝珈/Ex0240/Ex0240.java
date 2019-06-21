@@ -23,25 +23,23 @@ public class Ex0240 {
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
-			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("範囲外です。もう一度数字を入力してください");
-				continue;
 			}
-			if (input1 < 10 || input1 > 81) {
+			if (input1 < 10 || input1 > 99) {
 				System.out.println("2桁の数字を入力してください");
 				continue;
 			}
+			input.close();
+			break;
+		}
 
-			for (int i = 1; i <= 9; i++) {
-				for (int j = 1; j <= 9; j++) {
-					if (input1 == i * j) {
-						System.out.println("九九の表(" + i + "*" + j + ")にあります");
-						input.close();
-						return;
-					}
+		for (int i = 1; i <= 9; i++) {
+			for (int j = 1; j <= 9; j++) {
+				if (input1 == i * j) {
+					System.out.println("九九の表(" + i + "*" + j + ")にあります");
+					return;
 				}
 			}
-			System.out.println("九九の表にありません");
 		}
+		System.out.println("九九の表にありません");
 	}
 }

@@ -26,19 +26,16 @@ public class Ex0245 {
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
-			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("範囲外です。もう一度数字を入力してください");
-				continue;
 			}
-
-			while (input2 != 0) {
-				int r = input1 % input2;
-				input1 = input2;
-				input2 = r;
-			}
-			System.out.println("最大公約数= " + input1);
 			input.close();
 			break;
 		}
+
+		while (input2 != 0) {
+			int temp = input1 % input2;
+			input1 = input2;
+			input2 = temp;
+		}
+		System.out.println("最大公約数= " + input1);
 	}
 }

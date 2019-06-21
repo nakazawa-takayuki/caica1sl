@@ -23,25 +23,45 @@ public class Ex0242 {
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
-			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("範囲外です。もう一度数字を入力してください");
-				continue;
 			}
-			if (row < 0) {
-				System.out.println(" 0より大きな数字を入力してください");
+			if (row == 0) {
+				System.out.println(" 0以外の数字を入力してください");
 				continue;
-			}
-
-			for (int i = 1; i <= row; i++) {
-				for (int j = 1; j <= row - i; j++)
-					System.out.printf(" ");
-				for (int s = 1; s <= 2 * i - 1; s++) {
-					System.out.printf("*");
-				}
-				System.out.println();
 			}
 			input.close();
 			break;
 		}
+
+		if (row > 0) {
+			makeTriangle1(row);
+		} else {
+			makeTriangle2(row);
+		}
+	}
+
+	private static int makeTriangle1(int row) {
+		for (int i = 1; i <= row; i++) {
+			for (int j = 1; j <= row - i; j++)
+				System.out.printf(" ");
+			for (int s = 1; s <= 2 * i - 1; s++) {
+				System.out.printf("*");
+			}
+			System.out.println();
+		}
+		return row;
+	}
+
+	private static int makeTriangle2(int row) {
+		int i, j;
+		for (i = -row; i >= 1; i--) {
+			for (j = 1; j <= -row - i; j++) {
+				System.out.print(" ");
+			}
+			for (j = i * 2 - 1; j >= 1; j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		return row;
 	}
 }

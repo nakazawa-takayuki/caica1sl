@@ -23,26 +23,40 @@ public class Ex0241 {
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
-			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("範囲外です。もう一度数字を入力してください");
-				continue;
 			}
-			if (height < 0) {
-				System.out.println(" 0より大きな数字を入力してください");
+			if (height == 0) {
+				System.out.println(" 0以外の数字を入力してください");
 				continue;
-			}
-
-			for (int i = 0; i < height; i++) {
-				for (int j = 0; j <= i; j++) {
-					System.out.print("*");
-				}
-				for (int j = 0; j < height - i - 1; j++) {
-					System.out.print(" ");
-				}
-				System.out.println();
 			}
 			input.close();
 			break;
+		}
+
+		if (height > 0) {
+			makeTriangle1(height);
+		} else {
+			makeTriangle2(height);
+		}
+	}
+
+	private static void makeTriangle1(int height) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j <= i; j++) {
+				System.out.print("*");
+			}
+			for (int j = 0; j < height - i - 1; j++) {
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void makeTriangle2(int height) {
+		for (int i = 0; i <= -height; i++) {
+			for (int j = 1; j <= -height + 1 - i; j++) {
+				System.out.print("*");
+			}
+			System.out.println(" ");
 		}
 	}
 }
