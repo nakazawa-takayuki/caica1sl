@@ -30,12 +30,9 @@ public class ShoppingCart {
 	 */
 	public void printDetailProducts() {
 		for(HashMap.Entry<Products,Integer> entry : cart.entrySet()) {
-			String cartProductsName;								//かごに入っている商品の名前
-			Integer cartProductsCount;							//かごに入っている一種類の商品の個数
-			double totalPrice;									//かごに入っている一種類の商品の合計金額
-			cartProductsName = entry.getKey().getProductsName();
-			cartProductsCount = entry.getValue();
-			totalPrice = entry.getKey().calcCart(entry.getValue());
+			String cartProductsName = entry.getKey().getProductsName();	//かごに入っている商品の名前
+			Integer cartProductsCount = entry.getValue();		//かごに入っている一種類の商品の個数
+			double totalPrice = entry.getKey().calcCart(entry.getValue());	//かごに入っている一種類の商品の合計金額
 
 			System.out.println("商品名：" + cartProductsName + "　個数：" + cartProductsCount
 					+ "　合計：" + totalPrice + "円" + "\n");
