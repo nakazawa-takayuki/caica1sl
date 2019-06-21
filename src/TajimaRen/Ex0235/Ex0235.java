@@ -15,8 +15,6 @@ public class Ex0235 {
 
 		String str = br.readLine();
 		int inputNum;
-		String binaryNumber;		//2進数
-		String decimalNumber;		//16進数
 
 		try {
 			inputNum = Integer.parseInt(str);
@@ -25,17 +23,18 @@ public class Ex0235 {
 			return;
 		}
 
-		//代入
-		binaryNumber = toBinaryNumber(inputNum);
-		decimalNumber = toDecimalNumber(inputNum);
-
-		//出力
 		if(inputNum < 0 || inputNum > 255) {
 			System.out.println("0～255の範囲の数字を入力してください");
-		}else {
-			System.out.println("2進数の変換結果：" + String.format("%08d",Integer.parseInt(binaryNumber)));
-			System.out.println("16進数の変換結果：" + decimalNumber);
+			return;
 		}
+
+		//代入
+		String binaryNumber = toBinaryNumber(inputNum);		//2進数
+		String decimalNumber = toDecimalNumber(inputNum);	//16進数
+
+		//出力
+		System.out.println("2進数の変換結果：" + String.format("%08d",Integer.parseInt(binaryNumber)));
+		System.out.println("16進数の変換結果：" + decimalNumber);
 	}
 
 	//2進数に変換
