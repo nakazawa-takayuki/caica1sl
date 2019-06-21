@@ -11,12 +11,15 @@ import java.util.Scanner;
  */
 public class Ex0245 {
 
+	final static String MAX_COMMON_NUMBER = "最大公約数 = ";
+
 	public static void main(String[] args) {
 
 		int inputNum1 = 0;
 		int inputNum2 = 0;
+		Scanner scn = new Scanner(System.in);
+
 		try {
-			Scanner scn = new Scanner(System.in);
 			System.out.println("input number1:");
 			inputNum1 = scn.nextInt();
 			System.out.println("input number2:");
@@ -26,10 +29,10 @@ public class Ex0245 {
 			System.out.println("整数値を入力してください。");
 			return;
 		}
-		checkCommoNumber(inputNum1, inputNum2);
+		checkCommonNumber(inputNum1, inputNum2);
 	}
 
-	public static void checkCommoNumber(int inputNum1, int inputNum2) {
+	public static void checkCommonNumber(int inputNum1, int inputNum2) {
 		int bigInputNum = 0;
 		int smallInputNum = 0;
 		int remainder = 0;
@@ -41,11 +44,21 @@ public class Ex0245 {
 			bigInputNum = inputNum2;
 			smallInputNum = inputNum1;
 		}
+		try {
+			if (bigInputNum == 0 && smallInputNum == 0) {
+				System.out.println("上限がありません");
+			} else if (bigInputNum == 0 ^ smallInputNum == 0) {
+				System.out.println(MAX_COMMON_NUMBER + bigInputNum);
+			}
+		} catch (ArithmeticException e) {
+			System.out.println("整数値を入力してください。");
+			return;
+		}
 
 		while ((remainder = bigInputNum % smallInputNum) != 0) {
 			bigInputNum = smallInputNum;
 			smallInputNum = remainder;
 		}
-		System.out.println(smallInputNum);
+		System.out.println(MAX_COMMON_NUMBER + smallInputNum);
 	}
 }
