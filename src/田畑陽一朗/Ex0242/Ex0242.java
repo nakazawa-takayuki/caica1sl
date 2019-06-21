@@ -31,7 +31,7 @@ public class Ex0242 {
 		} else if (inputNum < 0) {
 			makeEqualSidesInverseTriangle(inputNum);
 		} else {
-			System.out.println("値を入力してください");
+			System.out.println("出力できません");
 		}
 	}
 

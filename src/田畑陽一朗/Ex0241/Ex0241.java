@@ -30,7 +30,7 @@ public class Ex0241 {
 		} else if (inputNum < 0) {
 			makeInverseTriangle(inputNum);
 		} else {
-			System.out.println("値を入力してください");
+			System.out.println("出力できません");
 		}
 	}
 
