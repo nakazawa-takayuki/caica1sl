@@ -17,7 +17,6 @@ public class Ex0240 {
 
 		String str = br.readLine();
 		int inputNum;
-		boolean inTable = false;
 
 		try {
 			inputNum = Integer.parseInt(str);
@@ -31,9 +30,12 @@ public class Ex0240 {
 			return;
 		}
 
-		for(int i = 1; i <= 9;i++) {
-			for(int j = 1; j <= 9;j++) {
-				if(i*j == inputNum) {
+	}
+	public static void multiplication(int inputNum) {
+		boolean inTable = false;
+		for(int i = 1; i <= 9; i++) {
+			for(int j = 1; j <= 9; j++) {
+				if(i * j == inputNum) {
 					System.out.println("九九の表（" + i + "*" + j + "）にあります");
 					inTable = true;
 				}

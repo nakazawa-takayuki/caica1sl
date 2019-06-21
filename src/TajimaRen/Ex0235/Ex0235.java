@@ -28,7 +28,6 @@ public class Ex0235 {
 			return;
 		}
 
-		//代入
 		String binaryNumber = toBinaryNumber(inputNum);		//2進数
 		String decimalNumber = toDecimalNumber(inputNum);	//16進数
 
