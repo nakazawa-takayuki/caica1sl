@@ -1,3 +1,4 @@
+//全体を通してコメントアウトは後日追加いたします。
 package tashirotakumi.Ex0110;
 
 import java.util.Scanner;
