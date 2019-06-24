@@ -26,19 +26,21 @@ public class Ex0250 {
 		} finally {
 			scn.close();
 		}
+
 		if (inputNum < 10 || inputNum > 99) {
 			System.out.println("2桁の整数値を入力してください");
 			return;
 		}
 
-		ArrayList<Integer> primeList = new ArrayList<Integer>();
-		makeList(primeList);
+		ArrayList<Integer> primeList = makePrimeList();
 		binarySearchPrime(primeList, inputNum);
 	}
 
 	//0から100までの素数をリストに格納する。
 
-	public static void makeList(ArrayList<Integer> primeList) {
+	public static ArrayList<Integer> makePrimeList() {
+		ArrayList<Integer> primeList = new ArrayList<>();
+
 		primeList.add(2);
 
 		for (int i = 3; i <= 100; i += 2) {
@@ -49,10 +51,12 @@ public class Ex0250 {
 					break;
 				}
 			}
+
 			if (decision == 0) {
 				primeList.add(i);
 			}
 		}
+		return primeList;
 	}
 
 	//二分探索でリストの中に打ち込んだ値があるか判定
@@ -75,6 +79,7 @@ public class Ex0250 {
 				upper = mid - 1;
 			}
 		}
+
 		if (decision < 0) {
 			System.out.println("素数ではありません");
 		} else {
