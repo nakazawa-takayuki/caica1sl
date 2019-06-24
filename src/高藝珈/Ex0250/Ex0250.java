@@ -13,23 +13,23 @@ import java.util.Scanner;
 
 public class Ex0250 {
 
-	final static int[] prime = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
+	final static int[] PRIME = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
 			89, 97 };
 
 	public static void main(String[] args) {
 		int input1;
-		Arrays.sort(prime);
+		Arrays.sort(PRIME);
 
 		while (true) { // 入力チェック
 			Scanner input = new Scanner(System.in);
+			System.out.println("input number：");
 			try {
-				System.out.println("input number：");
 				input1 = input.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("数字以外が入力されています");
 				continue;
 			}
-			if (input1 < 0 || input1 > 99) {
+			if (input1 < 10 || input1 > 99) {
 				System.out.println("2桁の数字を入力してください");
 				continue;
 			}
@@ -37,29 +37,31 @@ public class Ex0250 {
 			break;
 		}
 
-		int search = search(prime, input1);
-		if (search != -1) {
+
+		if (search(input1)) {
 			System.out.println("素数です");
 		} else {
 			System.out.println("素数ではありません");
 		}
 	}
 
-	public static int search(int[] prime, int input1) {
+	public static boolean search(int input1) {
 		int low = 0;
-		int high = prime.length - 1;
+		int high = PRIME.length - 1;
+		boolean result = false;
+
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (input1 == prime[mid]) {
-				return mid;
+			if (input1 == PRIME[mid]) {
+				return result = true;
 			}
-			if (input1 > prime[mid]) {
+			if (input1 > PRIME[mid]) {
 				low = mid + 1;
 			}
-			if (input1 < prime[mid]) {
+			if (input1 < PRIME[mid]) {
 				high = mid - 1;
 			}
 		}
-		return -1;
+		return result;
 	}
 }

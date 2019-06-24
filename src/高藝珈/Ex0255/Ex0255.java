@@ -41,33 +41,16 @@ public class Ex0255 {
 			break;
 		}
 
-		int week = 0;
-		switch (input1) {
-		case 0:
-			week = 0;
-			break;
-		case 1:
-			week = 1;
-			break;
-		case 2:
-			week = 2;
-			break;
+		displayCalendar(input1, input2);
 
-		case 3:
-			week = 3;
-			break;
-		case 4:
-			week = 4;
-			break;
-		case 5:
-			week = 5;
-			break;
-		default:
-			week = 6;
-		}
+	}
 
-		System.out.println("--------------------------");
+	private static void displayCalendar(int input1, int input2) {
+
+		int week = input1;
+
 		System.out.print("日\t月\t火\t水\t木\t金\t土\n");
+		System.out.println("--------------------------");
 
 		int day = 1;
 		for (int i = 0; i < 6; i++) {
@@ -85,5 +68,6 @@ public class Ex0255 {
 		}
 
 		System.out.println("--------------------------");
+
 	}
 }
