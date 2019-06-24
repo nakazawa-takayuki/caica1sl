@@ -26,47 +26,48 @@ public class Ex0250 {
 		} finally {
 			scn.close();
 		}
-		if (inputNum < 0 || inputNum > 99) {
+		if (inputNum < 10 || inputNum > 99) {
 			System.out.println("2桁の整数値を入力してください");
 			return;
 		}
 
-		ArrayList<Integer> prime = new ArrayList<Integer>();
-		makeList(prime);
-		Binary_Search_Prime(prime, inputNum);
+		ArrayList<Integer> primeList = new ArrayList<Integer>();
+		makeList(primeList);
+		binarySearchPrime(primeList, inputNum);
 	}
 
 	//0から100までの素数をリストに格納する。
 
-	public static void makeList(ArrayList<Integer> prime) {
-		prime.add(2);
+	public static void makeList(ArrayList<Integer> primeList) {
+		primeList.add(2);
 
 		for (int i = 3; i <= 100; i += 2) {
-			int d = 0;
+			int decision = 0;
 			for (int j = 2; j <= (i / 2) + 1; j++) {
 				if (i % j == 0) {
-					d = 1;
+					decision = 1;
 					break;
 				}
 			}
-			if (d == 0)
-				prime.add(i);
+			if (decision == 0) {
+				primeList.add(i);
+			}
 		}
 	}
 
 	//二分探索でリストの中に打ち込んだ値があるか判定
 
-	public static void Binary_Search_Prime(ArrayList<Integer> prime, int inputNum) {
+	public static void binarySearchPrime(ArrayList<Integer> primeList, int inputNum) {
 
-		int pos = -1;
+		int decision = -1;
 		int lower = 0; // リストの下限
-		int upper = prime.size() - 1; // リストの上限
+		int upper = primeList.size() - 1; // リストの上限
 
 		while (lower <= upper) {
 			int mid = (lower + upper) / 2;
-			int middle = prime.get(mid);
+			int middle = primeList.get(mid);
 			if (middle == inputNum) {
-				pos = mid;
+				decision = mid;
 				break;
 			} else if (middle < inputNum) {
 				lower = mid + 1;
@@ -74,7 +75,7 @@ public class Ex0250 {
 				upper = mid - 1;
 			}
 		}
-		if (pos < 0) {
+		if (decision < 0) {
 			System.out.println("素数ではありません");
 		} else {
 			System.out.println("素数です");
