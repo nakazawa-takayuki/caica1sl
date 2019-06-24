@@ -17,7 +17,6 @@ public class Ex0240 {
 
 		String str = br.readLine();
 		int inputNum;
-		String message = null;
 
 		try {
 			inputNum = Integer.parseInt(str);
@@ -26,29 +25,28 @@ public class Ex0240 {
 			return;
 		}
 
-		if(inputNum < 10 || inputNum >= 100) {
+		if (inputNum < 10 || 100 <= inputNum ) {
 			System.out.println("2桁の整数値を入力してください");
 			return;
 		}
 
 		//出力
-		System.out.println(multiplication(inputNum,message));
+		multiplication(inputNum);
 	}
 
 	//九九の表にあるかどうか探すメソッド
-	public static String multiplication(int inputNum,String message) {
+	public static void multiplication(int inputNum) {
 		boolean inTable = false;
 		for(int i = 1; i <= 9; i++) {
 			for(int j = 1; j <= 9; j++) {
 				if(i * j == inputNum) {
-					message = "九九の表（" + i + "*" + j + "）にあります";
+					System.out.println("九九の表（" + i + "*" + j + "）にあります");
 					inTable = true;
 				}
 			}
 		}
 		if(!inTable) {
-			message = "九九の表にありません";
+			System.out.println("九九の表にありません");
 		}
-		return message;
 	}
 }

@@ -18,7 +18,7 @@ public class Ex0235 {
 
 		try {
 			inputNum = Integer.parseInt(str);
-		}catch(NumberFormatException ex) {
+		} catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
 			return;
 		}
@@ -33,7 +33,7 @@ public class Ex0235 {
 
 		//出力
 		System.out.println("2進数の変換結果：" + String.format("%08d",Integer.parseInt(binaryNumber)));
-		System.out.println("16進数の変換結果：" + decimalNumber);
+		System.out.println("16進数の変換結果：" + decimalNumber.toUpperCase());
 	}
 
 	//2進数に変換

@@ -16,11 +16,11 @@ public class Ex0241 {
 		System.out.println("input number：");
 
 		String str = br.readLine();
-		int inputNum;
+		int inputNum = 0;
 
 		try {
 			inputNum = Integer.parseInt(str);
-		}catch(NumberFormatException ex) {
+		} catch(NumberFormatException ex) {
 			System.out.println("数字を入力してください");
 			return;
 		}
