@@ -44,14 +44,12 @@ public class Ex0245 {
 			bigInputNum = inputNum2;
 			smallInputNum = inputNum1;
 		}
-		try {
-			if (bigInputNum == 0 && smallInputNum == 0) {
-				System.out.println("上限がありません");
-			} else if (bigInputNum == 0 ^ smallInputNum == 0) {
-				System.out.println(MAX_COMMON_NUMBER + bigInputNum);
-			}
-		} catch (ArithmeticException e) {
-			System.out.println("整数値を入力してください。");
+
+		if (bigInputNum == 0 && smallInputNum == 0) {
+			System.out.println("上限がありません");
+			return;
+		} else if (bigInputNum == 0 ^ smallInputNum == 0) {
+			System.out.println(MAX_COMMON_NUMBER + bigInputNum);
 			return;
 		}
 
