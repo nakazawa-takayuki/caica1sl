@@ -33,12 +33,21 @@ public class Ex0245 {
 			return;
 		}
 
-		//メソッドに値を代入する
-		int greatDivisor = divisor(inputNum1, inputNum2);
-
 		//結果出力
-		System.out.println("最大公約数 = " + greatDivisor);
+		if (checkZero(inputNum2)) {
+			System.out.println("最大公約数はありません。");
+		} else {
+			System.out.println("最大公約数 = " + divisor(inputNum1, inputNum2));
+		}
+	}
 
+	//入力値は0の場合をチェックするメソッド
+	public static boolean checkZero(int inputNum) {
+		if (inputNum == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	//ユークリッドの互除法を用いて最大公約数を求めるメソッド

@@ -31,7 +31,7 @@ public class Ex0250 {
 			inputNum = scan.nextInt();
 			scan.close();
 
-		//入力値は数字ではない場合の例外処理
+			//入力値は数字ではない場合の例外処理
 		} catch (InputMismatchException e) {
 			System.out.println("数値以外が入力されました。");
 			return;
@@ -43,34 +43,32 @@ public class Ex0250 {
 			return;
 		}
 
-		//メソッドに引数を渡す
-		int position = binarySearch(PRIME_NUMBER, inputNum, PRIME_NUMBER.length - 1, 0);
-
 		//結果出力
-		if (position == -1) {
-			System.out.println("素数ではありません。");
-		} else {
+		if (binarySearch(inputNum)) {
 			System.out.println("素数です。");
+		} else {
+			System.out.println("素数ではありません。");
 		}
 
 	}
 
-	public static int binarySearch(int[] array, int inputNum, int high, int low) {
+	//二分探索で入力値は配列に存在するかを判断するメソッド
+	public static boolean binarySearch(int inputNum) {
+		int low = 0;
+		int high = PRIME_NUMBER.length;
+		boolean result = false;
 
-		//入力値は配列の範囲を超えるかを判断する
-		if (inputNum < array[low] || inputNum > array[high] || low > high) {
-			return -1;
+		while (low < high) {
+			int middle = (low + high) / 2;
+			if (inputNum < PRIME_NUMBER[middle]) {
+				high = middle;
+			} else if (inputNum > PRIME_NUMBER[middle]) {
+				low = middle + 1;
+			} else {
+				return result = true;
+			}
 		}
-
-		//二分探索で入力値は配列に存在するかを判断する
-		int middle = (low + high) / 2;
-		if (inputNum < array[middle]) {
-			return binarySearch(array, inputNum, middle - 1, low);
-		} else if (inputNum > array[middle]) {
-			return binarySearch(array, inputNum, high, middle + 1);
-		} else {
-			return middle;
-		}
+		return result;
 
 	}
 
