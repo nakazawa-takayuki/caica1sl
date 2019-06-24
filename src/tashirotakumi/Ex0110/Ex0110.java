@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Ex0110 {
 	public static void main(String[] args) {
 		System.out.println("文字列1：");
-		@SuppressWarnings("resource")
-		String scan1 = new Scanner(System.in).nextLine(); //キーボードからの入力
+		Scanner scan = new Scanner(System.in); //キーボードからの入力
+		String inputStr1 =scan.nextLine();
 		System.out.println("文字列2：");
-		@SuppressWarnings("resource")
-		String scan2 = new Scanner(System.in).nextLine(); //キーボードからの入力
-		Comparison(scan1, scan2);//
+		String inputStr2 = scan.nextLine(); //キーボードからの入力
+		scan.close();
+		sortDicionary(inputStr1, inputStr2);//
 
 	}
 
@@ -21,7 +21,7 @@ public class Ex0110 {
 	 * @param scan 入力された文字列
 	 *
 	 */
-	private static void Comparison(String scan1, String scan2) {
+	private static void sortDicionary(String scan1, String scan2) {
 		if (scan1.equals(scan2)) {
 			System.out.println("2つの文字列は同じです->" + scan1);
 			return;

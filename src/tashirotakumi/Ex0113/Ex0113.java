@@ -7,11 +7,11 @@ public class Ex0113 {
 		System.out.println("文字列：");
 		@SuppressWarnings("resource")
 		String scan = new Scanner(System.in).nextLine(); //キーボードからの入力
-		scan = Check(scan);
+		scan = checkHalfSize(scan);
 		System.out.println(scan);
 	}
 
-	public static String Check(String s) {
+	public static String checkHalfSize(String s) {
 		StringBuffer sb = new StringBuffer(s);
 		for (int i = 0; i < sb.length(); i++) {
 			char c = sb.charAt(i);

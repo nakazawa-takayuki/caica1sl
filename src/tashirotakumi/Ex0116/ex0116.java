@@ -4,29 +4,40 @@ import java.util.Scanner;
 
 public class ex0116 {
 	public static void main(String[] args) {
+
+		int input1Str = 0;
+		int input2Str = 0;
+
+		Scanner scan = new Scanner(System.in); //キーボードからの入力
 		System.out.println("input number1");
-		@SuppressWarnings("resource")
-		String input1str = new Scanner(System.in).nextLine();
+		String inputStr1 = scan.nextLine();
 		System.out.println("input number2");
-		@SuppressWarnings("resource")
-		String input2str = new Scanner(System.in).nextLine();
+		String inputStr2 = scan.nextLine();
 
-		int input1 = Integer.parseInt(input1str);
-		int input2 = Integer.parseInt(input2str);
+		scan.close();
 
-		boolean inputcheck1 = oddEven(input1);
-		boolean inputcheck2 = oddEven(input2);
-		judge(inputcheck1, inputcheck2, input1, input2);
+		try {
+			input1Str = Integer.parseInt(inputStr1);
+			input2Str = Integer.parseInt(inputStr2);
+
+		} catch (NumberFormatException e) {
+			System.err.println("数字を入力してください");
+			return;
+		}
+
+		boolean inputcheck1 = checkOdd(input1Str);
+		boolean inputcheck2 = checkOdd(input2Str);
+		judge(inputcheck1, inputcheck2, input1Str, input2Str);
 
 	}
 
-	public static boolean oddEven(int num) {
-		boolean check = false;
+	public static boolean checkOdd(int num) {
+		boolean isOdd = false;
 		num = num % 2;
 		if (num == 1) {
-			check = true;
+			isOdd = true;
 		}
-		return check;
+		return isOdd;
 
 	}
 

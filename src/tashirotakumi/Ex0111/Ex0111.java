@@ -6,24 +6,25 @@ public class Ex0111 {
 
 	public static void main(String[] args) {
 		System.out.println("文字列：");
-		@SuppressWarnings("resource")
-		String scan = new Scanner(System.in).nextLine(); //キーボードからの入力
-		Comparison(scan);
+		Scanner scan = new Scanner(System.in); //キーボードからの入力
+		String inputStr = scan.nextLine(); //キーボードからの入力
+		scan.close();
+		specificCharacter(inputStr);
 	}
 
-	private static void Comparison(String scan1) {
-		char[] scan = scan1.toCharArray();
-		char[] com = { '①', '③', '⑤', '⑦', '⑨' };
-		int x = 0;
-		for (int i = 0; i < scan1.length(); i++) {
-			for (int j = 0; j < 5; j++) {
-				if (scan[i] == com[j]) {
-					x = 1;
-					System.out.println("許可しない文字（文字：" + scan[i] + (i + 1) + "桁目）が含まれます");
+	private static void specificCharacter(String inputStr) {
+		char[]  conversionChar= inputStr.toCharArray();
+		final char[] TARGET_CHAR_ARRAY = { '①', '③', '⑤', '⑦', '⑨' };
+		boolean x = true;
+		for (int i = 0; i < inputStr.length(); i++) {
+			for (int j = 0; j < TARGET_CHAR_ARRAY .length; j++) {
+				if (conversionChar[i] == TARGET_CHAR_ARRAY [j]) {
+					x = false;
+					System.out.println("許可しない文字（文字：" + conversionChar[i] + (i + 1) + "桁目）が含まれます");
 				}
 			}
 		}
-		if (x == 0) {
+		if (x) {
 			System.out.println("許可する文字列です");
 		}
 	}
