@@ -29,6 +29,7 @@ public class Ex0255 {
 				System.out.println("数字以外が入力されています");
 				continue;
 			}
+
 			if (input1 > 6 || input1 < 0) {
 				System.out.println(" 0~6を入力してください");
 				continue;
@@ -59,6 +60,7 @@ public class Ex0255 {
 					System.out.print("\t");
 					continue;
 				}
+
 				if (day > input2) {
 					break;
 				}
