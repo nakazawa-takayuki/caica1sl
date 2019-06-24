@@ -31,12 +31,11 @@ public class Ex0240 {
 			return;
 		}
 
-		message = multiplication(inputNum,message);
-
 		//出力
-		System.out.println(message);
-
+		System.out.println(multiplication(inputNum,message));
 	}
+
+	//九九の表にあるかどうか探すメソッド
 	public static String multiplication(int inputNum,String message) {
 		boolean inTable = false;
 		for(int i = 1; i <= 9; i++) {

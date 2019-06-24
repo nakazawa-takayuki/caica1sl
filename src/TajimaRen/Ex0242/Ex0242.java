@@ -30,6 +30,12 @@ public class Ex0242 {
 			return;
 		}
 
+		//出力
+		isoscelesTriangle(inputNum);
+	}
+
+	//二等辺三角形を作るメソッド
+	public static void isoscelesTriangle(int inputNum) {
 		for(int i = 0; i < inputNum; i++) {
 			for(int j = 0; j < inputNum - i; j++) {
 				System.out.print(" ");

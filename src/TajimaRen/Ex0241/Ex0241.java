@@ -30,6 +30,12 @@ public class Ex0241 {
 			return;
 		}
 
+		//出力
+		squareTriangle(inputNum);
+	}
+
+	//直角三角形を作るメソッド
+	public static void squareTriangle(int inputNum) {
 		for(int i = 0; i < inputNum; i++) {
 			for(int j = 0; j < i+1; j++) {
 				System.out.print("*");
