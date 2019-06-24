@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Ex0250 {
 
 	//素数の配列を設定する
-	final static int[] PRIME_NUMBER = {
+	final static int[] PRIME_NUMBER_ARRAY = {
 			2, 3, 5, 7, 11, 13, 17, 19,
 			23, 29, 31, 37, 41, 43, 47,
 			53, 59, 61, 67, 71, 73, 79, 83, 89, 97
@@ -55,14 +55,14 @@ public class Ex0250 {
 	//二分探索で入力値は配列に存在するかを判断するメソッド
 	public static boolean binarySearch(int inputNum) {
 		int low = 0;
-		int high = PRIME_NUMBER.length;
+		int high = PRIME_NUMBER_ARRAY.length;
 		boolean result = false;
 
 		while (low < high) {
 			int middle = (low + high) / 2;
-			if (inputNum < PRIME_NUMBER[middle]) {
+			if (inputNum < PRIME_NUMBER_ARRAY[middle]) {
 				high = middle;
-			} else if (inputNum > PRIME_NUMBER[middle]) {
+			} else if (inputNum > PRIME_NUMBER_ARRAY[middle]) {
 				low = middle + 1;
 			} else {
 				return result = true;

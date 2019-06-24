@@ -3,6 +3,12 @@ package hehangrui.Ex0255;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * 問題
+ * キーボードから「月の始まりの曜日の番号」と「月末の日の数字」を入力し、カレンダーを出力する.
+ *
+ * @author Adrian
+ */
 public class Ex0255 {
 
 	public static void main(String[] args) {
