@@ -19,11 +19,18 @@ public class Ex0256 {
 		System.out.println("input date：");
 
 		String str = br.readLine();
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		sdf.setLenient(false);
+
+		if(str.length() != 10) {
+			System.out.println("指定した形式ではありません");
+			return;
+		}
 
 		try {
 			sdf.parse(str);
 			System.out.println("指定した形式です");
+
 		} catch(ParseException e) {
 			System.out.println("指定した形式ではありません");
 			return;
