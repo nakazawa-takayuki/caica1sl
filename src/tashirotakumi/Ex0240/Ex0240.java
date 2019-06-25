@@ -4,35 +4,38 @@ import java.util.Scanner;
 
 //import java.text.DecimalFormat;
 public class Ex0240 {
+	private static final int MIN_VALUE = 10;
+	private static final int MAX_VALUE = 99;
 
 	public static void main(String[] args) {
-		int value[][] = new int[10][10];
-		int input = 0;
-		boolean flag = false;
-		//DecimalFormat df1 = new DecimalFormat("00");
-		for (int i = 1; i < 10; i++) {
-			for (int j = 1; j < 10; j++) {
-				value[i][j] = i * j;
-			}
-		}
-		System.out.println("input number");
-		@SuppressWarnings("resource")
-		String scan = new Scanner(System.in).nextLine();
+
+		int inputNumber = 0;
+		boolean existenceTableFlag = false;
+
+		Scanner scan = new Scanner(System.in); //キーボードからの入力
+		System.out.println("input number:");
+		String inputStr = scan.nextLine();
+		scan.close();
+
 		try {
-			input = Integer.parseInt(scan);
+			inputNumber = Integer.parseInt(inputStr);
 		} catch (NumberFormatException e) {
 			System.err.println("数字を入力してください");
 			return;
 		}
+		if (inputNumber < MIN_VALUE || inputNumber > MAX_VALUE) {
+			System.err.println("二桁の数字を入力してください");
+			return;
+		}
 		for (int i = 1; i <= 9; i++) {
 			for (int j = 1; j <= 9; j++) {
-				if (value[i][j] == input) {
-					System.out.println("九九の表（" + (i) + "×" + (j) + "）にあります");
-					flag = true;
+				if ( i * j == inputNumber) {
+					System.out.println("九九の表（" + i + "×" + j + "）にあります");
+					existenceTableFlag = true;
 				}
 			}
 		}
-		if (!flag) {
+		if (!existenceTableFlag) {
 			System.err.println("九九の表にありません");
 		}
 	}

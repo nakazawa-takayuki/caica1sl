@@ -12,13 +12,20 @@ public class Ex0112 {
 		String inputStr = scan.nextLine(); //キーボードからの入力
 		scan.close();
 
-		if (CheckhalfSize(inputStr)) {
+		if (checkhalfSize(inputStr)) {
 			System.out.println("許可する文字列です");
 		} else {
 			System.out.println("半角カナが含まれます");
 		}
 	}
-	public static boolean CheckhalfSize(String str) {
-			return !str.matches(HAS_HALF_KANA);
+
+	/**
+	 * CheckhalfSizeメソッド
+	 * 入力された文字列に半角カナが含まれているか確認する
+	 * @param str 入力された文字列
+	 * @return 半角カナが含まれているか確認した結果を返す
+	 */
+	public static boolean checkhalfSize(String str) {
+		return !str.matches(HAS_HALF_KANA);
 	}
 }

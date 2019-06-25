@@ -5,14 +5,22 @@ import java.util.Scanner;
 public class Ex0113 {
 	public static void main(String[] args) {
 		System.out.println("文字列：");
-		@SuppressWarnings("resource")
-		String scan = new Scanner(System.in).nextLine(); //キーボードからの入力
-		scan = checkHalfSize(scan);
-		System.out.println(scan);
+		Scanner scan = new Scanner(System.in); //キーボードからの入力
+		String inputStr = scan.nextLine();
+		scan.close();
+
+		inputStr = checkNumberHalfSize(inputStr);
+		System.out.println(inputStr);
 	}
 
-	public static String checkHalfSize(String s) {
-		StringBuffer sb = new StringBuffer(s);
+	/**
+	 * checkNumberHalfSizeメソッド
+	 * 入力された文字列に全角数字が入力されている場合に半角に変更する
+	 * @param input 入力された文字列
+	 * @return 全角数字を半角に変換後の文字列
+	 */
+	public static String checkNumberHalfSize(String inputStr) {
+		StringBuffer sb = new StringBuffer(inputStr);
 		for (int i = 0; i < sb.length(); i++) {
 			char c = sb.charAt(i);
 			if (c >= '０' && c <= '９') {
