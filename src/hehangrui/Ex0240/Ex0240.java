@@ -11,6 +11,7 @@ import java.util.Scanner;
  */
 public class Ex0240 {
 
+	//九九表の定数配列を設定する
 	final static int[][] NINETY_NINE_TABLE = {
 			{ 1,  2,  3,  4,  5,  6,  7,  8,  9 },
 			{ 2,  4,  6,  8, 10, 12, 14, 16, 18 },
@@ -23,6 +24,10 @@ public class Ex0240 {
 			{ 9, 18, 27, 36, 45, 54, 63, 72, 81 }
 	};
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -50,7 +55,11 @@ public class Ex0240 {
 		checkNum(inputNum);
 	}
 
-	//数値は九九表にあるかを判断し、出力する
+	/**
+	 * 数値は九九表にあるかを判断し、出力する
+	 * @param inputNum
+	 * @return
+	 */
 	public static int checkNum(int inputNum) {
 		boolean isNiceNum = true;
 		for (int i = 0; i <= 8; i++) {

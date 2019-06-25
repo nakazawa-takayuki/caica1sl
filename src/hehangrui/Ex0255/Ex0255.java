@@ -11,6 +11,10 @@ import java.util.Scanner;
  */
 public class Ex0255 {
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -53,7 +57,11 @@ public class Ex0255 {
 
 	}
 
-	//入力された曜日の番号と月末の日によってカレンダーを作るメソッド
+	/**
+	 * 入力された曜日の番号と月末の日によってカレンダーを作るメソッド
+	 * @param dayOfTheWeek
+	 * @param monthEnd
+	 */
 	public static void creatCalendar(int dayOfTheWeek, int monthEnd) {
 		int day = 0;
 		for (int rowWeek = 0; rowWeek < 6; rowWeek++) {

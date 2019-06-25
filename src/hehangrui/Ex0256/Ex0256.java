@@ -12,6 +12,10 @@ import java.util.regex.Pattern;
  */
 public class Ex0256 {
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -36,7 +40,11 @@ public class Ex0256 {
 
 	}
 
-	//入力した日付の形式をチェックするメソッド
+	/**
+	 * 入力した日付の形式をチェックするメソッド
+	 * @param inputDate
+	 * @return
+	 */
 	private static boolean isLegalDate(String inputDate) {
 		Pattern p = Pattern.compile("^[0-9]{4}/[0-9]{2}/[0-9]{2}$");
 		Matcher m = p.matcher(inputDate);

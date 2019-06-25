@@ -19,6 +19,10 @@ public class Ex0250 {
 			53, 59, 61, 67, 71, 73, 79, 83, 89, 97
 	};
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -52,7 +56,11 @@ public class Ex0250 {
 
 	}
 
-	//二分探索で入力値は配列に存在するかを判断するメソッド
+	/**
+	 * 二分探索で入力値は配列に存在するかを判断するメソッド
+	 * @param inputNum
+	 * @return
+	 */
 	public static boolean binarySearch(int inputNum) {
 		int low = 0;
 		int high = PRIME_NUMBER_ARRAY.length;

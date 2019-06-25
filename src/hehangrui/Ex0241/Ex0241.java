@@ -11,6 +11,10 @@ import java.util.Scanner;
  */
 public class Ex0241 {
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -37,7 +41,11 @@ public class Ex0241 {
 		}
 	}
 
-	//入力値が0以上の場合の処理メソッド
+	/**
+	 * 入力値が0以上の場合の処理メソッド
+	 * @param height
+	 * @return
+	 */
 	public static int positiveNumTriangle(int height) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j <= i; j++) {
@@ -52,7 +60,11 @@ public class Ex0241 {
 
 	}
 
-	//入力値が0未満の場合の処理メソッド
+	/**
+	 * 入力値が0未満の場合の処理メソッド
+	 * @param height
+	 * @return
+	 */
 	public static int negativeNumTriangle(int height) {
 		for (int i = 0; i > height; i--) {
 			for (int j = 0; j >= i; j--) {

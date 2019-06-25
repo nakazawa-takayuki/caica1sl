@@ -11,6 +11,10 @@ import java.util.Scanner;
  */
 public class Ex0235 {
 
+	/**
+	 * 入力値を追加、結果を出力するメインメソッド
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		//キーボード入力欄
@@ -38,13 +42,21 @@ public class Ex0235 {
 		}
 	}
 
-	//入力値を２進数に変換するメソッド
+	/**
+	 * 入力値を２進数に変換するメソッド
+	 * @param inputNum
+	 * @return
+	 */
 	public static String binaryNum(int inputNum) {
 		String bin = Integer.toBinaryString(inputNum);
 		return bin;
 	}
 
-	//入力値を１６進数に変換するメソッド
+	/**
+	 * 入力値を１６進数に変換するメソッド
+	 * @param inputNum
+	 * @return
+	 */
 	public static String HexNum(int inputNum) {
 		String hex = Integer.toHexString(inputNum);
 		return hex;
