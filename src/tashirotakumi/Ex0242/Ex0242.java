@@ -9,17 +9,21 @@ public class Ex0242 {
 		Scanner scan = new Scanner(System.in); //キーボードからの入力
 		String input = scan.nextLine();
 		scan.close();
-		int num = number(input);
+		int num = convertStringToInt(input);
 
-		display(num);
+		if (num < 0) {
+			createLeftTriangle(num);
+		} else {
+			createRightTriangle(num);
+		}
 	}
 
-	/**numberメソッド
+	/**convertStringToIntメソッド
 	 * inputが数字以外の場合エラーを表示、数字の場合int型に格納
 	 * @param input 文字列
 	 * @return 数値
 	 */
-	public static int number(String input) {
+	public static int convertStringToInt(String input) {
 		int num = 0;
 		try {
 			num = Integer.parseInt(input);
@@ -30,25 +34,50 @@ public class Ex0242 {
 	}
 
 	/**
-	 * displayメソッド
+	 * createRightTriangleメソッド
 	 * 入力された数値分、表示を増やしながら表示を行う
 	 * @param num 数値
 	 */
-	public static void display(int num) {
+	public static void createRightTriangle(int num) {
 
-		for(int i=0;i<num;i++) {
+		for (int i = 0; i < num; i++) {
 
-			for(int j1 =num-1;j1>i;j1--) {
+			for (int j1 = num - 1; j1 > i; j1--) {
 				System.out.print(" ");
 			}
-			for(int j2 =0;j2<=i;j2++) {
+			for (int j2 = 0; j2 <= i; j2++) {
 				System.out.print("*");
 			}
-			for(int j3 = 1;j3<=i;j3++) {
+			for (int j3 = 1; j3 <= i; j3++) {
 				System.out.print("*");
 			}
-			System.out.println("");
+			System.out.println();
 		}
+	}
 
+	/**
+	 * createRightTriangleメソッド
+	 * 入力された数値分、表示を増やしながら表示を行う
+	 * @param num 数値
+	 */
+	public static void createLeftTriangle(int num) {
+
+		int j = 0;
+		for (int i = 0; i < Math.abs(num); i++) {
+			for (int space = Math.abs(num) - i; space < Math.abs(num); space++) {
+				System.out.print(" ");
+			}
+			for (int asterisk = i + 1; asterisk < Math.abs(num); asterisk++) {
+				System.out.print("*");
+			}
+
+			for (j = 0; j < (Math.abs(num) - i); j++) {
+				System.out.print("*");
+			}
+			for (int endSpace = j; endSpace < Math.abs(num); endSpace++) {
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
 	}
 }
