@@ -3,6 +3,8 @@ package TajimaRen.Ex0370;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 起動時引数として正解の4 桁の数字を与える。
@@ -14,42 +16,56 @@ import java.io.InputStreamReader;
  */
 public class Ex0370 {
 
+	static final int DIGIT = 4;
 	static final String GIVE_UP_NUMBER = "999";
 
 	public static void main(String[] args) throws IOException {
 		String input;
-		String answer = args[0];
-		int count = 1;
+		String answer;
+		int count;
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//引数が空、もしくは4桁でなかったときの処理
+		if(args.length == 0) {
+			System.out.println("引数が入っていません");
+			return;
+		}else if(args[0].length() < DIGIT || DIGIT < args[0].length()) {
+			System.out.println("引数が4桁ではありません");
+			return;
+		}
 
 		while(true) {
+			answer = args[0];
+			count = 1;
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			System.out.println("（" + count +"回目）予測数字を入力してください：");
 			input = br.readLine();
 
-			try {
-				Integer.parseInt(input);
-			} catch(NumberFormatException ex) {
+			//入力された文字列が数字ではなかったときの処理
+			Pattern pattern = Pattern.compile("^[0-9]*$");
+			Matcher matcher = pattern.matcher(input);
+			if (matcher.find() == false) {
 				System.out.println("数字を入力してください");
-				return;
+				continue;
 			}
 
-			//4桁以下かつ999でない数字を入力されたとき
-			if (input.length() < 4 && !input.equals(GIVE_UP_NUMBER)) {
+			//4桁以下かつ999でない数字を入力されたときの処理
+			if (input.length() < DIGIT && !input.equals(GIVE_UP_NUMBER)) {
 				System.out.println("4桁の数字もしくは999を入力してください");
-				return;
+				continue;
 
-			//4桁以上の数字を入力されたとき
-			} else if (4 < input.length()) {
+			//4桁以上の数字を入力されたときの処理
+			} else if (DIGIT < input.length()) {
 				System.out.println("4桁の数字もしくは999を入力してください");
-				return;
+				continue;
 			}
 
+			//MatchクラスとMatchクラスで求めたhitの数とbrowの数を持ってくる
 			Match match = new Match();
 			Match result = match.matchMethod(input,answer);
 
 			//出力
-			if (input.equals(GIVE_UP_NUMBER)){
+			if (result.hit == DIGIT || input.equals(GIVE_UP_NUMBER)){
 				System.out.println("正解は" + answer + "でした。");
 				break;
 			} else {
@@ -57,29 +73,5 @@ public class Ex0370 {
 				count++;
 			}
 		}
-	}
-}
-
-class Match{
-	static	int hit ;
-	static int brow ;
-
-	public Match matchMethod(String input,String answer) {
-		Match match = new Match();
-		String[] inputArrays = input.split("");
-		String[] answerArrays = answer.split("");
-		hit = 0;
-		brow = 0;
-
-		for (int i = 0; i < inputArrays.length; i++) {
-			for (int j = 0; j < answerArrays.length; j++) {
-				if (i == j && inputArrays[i].equals(answerArrays[j])) {
-					hit++;
-				} else if (inputArrays[i].equals(answerArrays[j])){
-					brow++;
-				}
-			}
-		}
-		return match;
 	}
 }
