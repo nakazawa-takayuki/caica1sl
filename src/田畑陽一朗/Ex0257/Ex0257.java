@@ -36,12 +36,16 @@ public class Ex0257 {
 		calcInputDate(dateArray);
 	}
 
+	//入力した日付の大小を判別して、long型の配列に格納する
+
 	public static long[] compareInputDateSize(String inputDate1, String inputDate2, SimpleDateFormat simpleDateFormat1,
 			SimpleDateFormat simpleDateFormat2) {
 
 		long[] dateArray = new long[2];
 		Date dateFormat1 = null;
 		Date dateFormat2 = null;
+
+		//指定した日付か確認する
 		try {
 			simpleDateFormat1.setLenient(false);
 			dateFormat1 = simpleDateFormat1.parse(inputDate1);
@@ -51,6 +55,8 @@ public class Ex0257 {
 			System.out.println("指定した形式ではありません");
 			System.exit(0);
 		}
+
+		//long型に変換し、大小比較して配列に格納
 
 		long dateTime1 = dateFormat1.getTime();
 		long dateTime2 = dateFormat2.getTime();
@@ -67,6 +73,8 @@ public class Ex0257 {
 		dateArray[1] = smallDateTime;
 		return dateArray;
 	}
+
+	//日付と秒の差分を計算して出力
 
 	public static void calcInputDate(long dateArray[]) {
 		long bigDateTime = dateArray[0];
