@@ -26,6 +26,11 @@ public class Ex0256 {
 		} catch (ParseException e) {
 			judge = false;
 		}
+		if (inputDate.contains(":")) {
+			System.out.println("指定した形式ではありません");
+			return;
+		}
+
 		if (judge) {
 			System.out.println("指定した形式です");
 		} else {
