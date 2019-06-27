@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Ex0256 {
 
+	public static final String DATE_FORMAT = "\\d+/[0-9]{2}/[0-9]{2}";
+
 	public static void main(String[] args) {
 
 		Scanner scn = new Scanner(System.in);
@@ -18,21 +20,15 @@ public class Ex0256 {
 
 	public static void judgeInputDateFormat(String inputDate) {
 
-		boolean judge = true;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		try {
-			dateFormat.setLenient(false);
-			dateFormat.parse(inputDate);
-		} catch (ParseException e) {
-			judge = false;
-		}
-		if (inputDate.contains(":")) {
-			System.out.println("指定した形式ではありません");
-			return;
-		}
 
-		if (judge) {
-			System.out.println("指定した形式です");
+		if (inputDate.matches(DATE_FORMAT)) {
+			try {
+				dateFormat.parse(inputDate);
+				System.out.println("指定した形式です。");
+			} catch (ParseException e) {
+				System.out.println("指定した形式ではありません");
+			}
 		} else {
 			System.out.println("指定した形式ではありません");
 		}
