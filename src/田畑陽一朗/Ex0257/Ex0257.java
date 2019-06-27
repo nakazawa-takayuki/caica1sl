@@ -13,6 +13,9 @@ import java.util.Scanner;
  *
  */
 public class Ex0257 {
+
+	public static final String DATE_FORMAT = "\\d+/[0-9]{2}/[0-9]{2}";
+
 	public static void main(String[] args) {
 
 		Scanner scn = new Scanner(System.in);
@@ -22,42 +25,41 @@ public class Ex0257 {
 		String inputDate2 = scn.nextLine();
 		scn.close();
 
-		if (inputDate1.contains(":") || inputDate2.contains(":")) {
-			System.out.println("指定した形式ではありません");
-			return;
-		}
+		compareInputDateSize(inputDate1, inputDate2);
 
-		SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy/MM/dd");
-		SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy/MM/dd");
-		compareInputDateSize(inputDate1, inputDate2, simpleDateFormat1, simpleDateFormat2);
-
-		long dateArray[] = compareInputDateSize(inputDate1, inputDate2, simpleDateFormat1, simpleDateFormat2);
+		long dateArray[] = compareInputDateSize(inputDate1, inputDate2);
 
 		calcInputDate(dateArray);
 	}
 
 	//入力した日付の大小を判別して、long型の配列に格納する
 
-	public static long[] compareInputDateSize(String inputDate1, String inputDate2, SimpleDateFormat simpleDateFormat1,
-			SimpleDateFormat simpleDateFormat2) {
+	public static long[] compareInputDateSize(String inputDate1, String inputDate2) {
 
-		long[] dateArray = new long[2];
+		SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy/MM/dd");
+
 		Date dateFormat1 = null;
 		Date dateFormat2 = null;
 
 		//指定した日付か確認する
-		try {
-			simpleDateFormat1.setLenient(false);
-			dateFormat1 = simpleDateFormat1.parse(inputDate1);
-			simpleDateFormat2.setLenient(false);
-			dateFormat2 = simpleDateFormat2.parse(inputDate2);
-		} catch (ParseException e) {
+		if ((inputDate1.matches(DATE_FORMAT)) && (inputDate2.matches(DATE_FORMAT))) {
+			try {
+				simpleDateFormat1.setLenient(false);
+				dateFormat1 = simpleDateFormat1.parse(inputDate1);
+				simpleDateFormat2.setLenient(false);
+				dateFormat2 = simpleDateFormat2.parse(inputDate2);
+			} catch (ParseException e) {
+				System.out.println("指定した形式ではありません");
+				System.exit(0);
+			}
+		} else {
 			System.out.println("指定した形式ではありません");
 			System.exit(0);
 		}
-
 		//long型に変換し、大小比較して配列に格納
 
+		long[] dateArray = new long[2];
 		long dateTime1 = dateFormat1.getTime();
 		long dateTime2 = dateFormat2.getTime();
 		long bigDateTime;
