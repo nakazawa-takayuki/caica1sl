@@ -25,7 +25,7 @@ public class Ex0320 {
 		} finally {
 			scn.close();
 		}
-		System.out.println(calcFactorial(inputNum));
+		System.out.println(inputNum+"の階乗は"+calcFactorial(inputNum)+"です");
 	}
 
 	//階乗を再帰呼び出しで求める。
