@@ -1,7 +1,6 @@
 package 高藝珈.Ex0370;
 
 import java.util.InputMismatchException;
-//import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -15,52 +14,49 @@ import java.util.Scanner;
 
 public class Ex0370 {
 
+	static final int DIGIT = 4;
+	static final String GIVE_UP_NUMBER = "999";
+	static final int INT_TO_CHAR = 48;
+
 	public static void main(String[] args) {
-
 		Ex0370 game = new Ex0370();
+		game.play(null, args);
+	}
 
-		String str1 = args[0];
-		char[] result = str1.toCharArray();
-		int[] array = new int[4];
+	String hitAndBLOW = "";
 
-		for (int i = 0; i < 4; i++) {
-			array[i] = result[i] - 48;
+	//ゲーム部
+	@SuppressWarnings({ "resource" })
+	public void play(int[] array, String[] args) {
+
+		String answer = args[0];
+		char[] result1 = answer.toCharArray();
+		int[] answerArray = new int[DIGIT];
+		for (int i = 0; i < DIGIT; i++) {
+			answerArray[i] = result1[i] - INT_TO_CHAR;
 		}
 
 		if (args.length == 0) {
 			System.out.println("引数が入っていない");
 			return;
-		} else if (args[0].length() != 4) {
+		} else if (args[0].length() != DIGIT) {
 			System.out.println("引数が4桁ではない");
 			return;
 		}
 
-		game.play(array);
-
-	}
-
-	//変数の初期化
-	int[] inputNumsArray = new int[4]; // 入力した答えが入る
-	int hit = 0;
-	int blow = 0;
-	int count = 0;
-	String input1;
-	String numberStr = "";
-	String str = "";
-
-	//ゲーム部
-	@SuppressWarnings({ "resource" })
-	public void play(int[] array) {
-
-		for (int i = 0; i < array.length; i++) {
-			numberStr = numberStr + array[i];
+		String answerStr = "";
+		for (int i = 0; i < answerArray.length; i++) {
+			answerStr = answerStr + answerArray[i];
 		}
+
+		int count = 0;
+		String input1;
 
 		while (true) {
 
 			count++;
 
-			System.out.println(str + "(" + count + "回目）予測数字を入力してください：");
+			System.out.println(hitAndBLOW + "(" + count + "回目）予測数字を入力してください：");
 
 			//インプット
 			Scanner scan = new Scanner(System.in);
@@ -74,27 +70,27 @@ public class Ex0370 {
 				continue;
 			}
 
-			if (input1.length() != 4 && !input1.equals("999")) {
+			if (input1.length() != DIGIT && !input1.equals(GIVE_UP_NUMBER)) {
 				System.out.println("4桁の数字もしくは999を入力してください");
 				continue;
 			}
 
-			if (input1.equals("999")) {
-				System.out.println("正解は:" + numberStr + "でした。");
+			if (input1.equals(GIVE_UP_NUMBER)) {
+				System.out.println("正解は:" + answerStr + "でした。");
 				break;
 			}
 
-			char[] result = input1.toCharArray();
-			int[] inputNumsArray = new int[4];
+			char[] result2 = input1.toCharArray();
+			int[] inputNumsArray = new int[DIGIT];
 			for (int i = 0; i < inputNumsArray.length; i++) {
-				inputNumsArray[i] = result[i] - 48;
+				inputNumsArray[i] = result2[i] - INT_TO_CHAR;
 			}
 
 			//答え判断
-			compare(array, inputNumsArray);
+			compareAnswerAndInput(answerArray, inputNumsArray);
 
-			//終了判断 ヒットが4つになったら終了
-			if (hit == 4) {
+			//終了判断
+			if (input1.equals(answerStr)) {
 				System.out.println("おめでとー 正解です！");
 				break;
 			} else {
@@ -104,9 +100,9 @@ public class Ex0370 {
 	}
 
 	//答え判断方法
-	public String compare(int[] answer, int[] inputs) {
-		hit = 0;
-		blow = 0;
+	public String compareAnswerAndInput(int[] answer, int[] inputs) {
+		int hit = 0;
+		int blow = 0;
 		for (int i = 0; i < answer.length; i++) {
 			if (inputs[i] == answer[i]) {
 				hit += 1;
@@ -119,8 +115,8 @@ public class Ex0370 {
 				}
 			}
 		}
-		str = "ヒット：" + hit + " " + "ブロー：" + blow;
-		return str;
+		hitAndBLOW = "ヒット：" + hit + " " + "ブロー：" + blow;
+		return hitAndBLOW;
 	}
 
 }
