@@ -2,6 +2,7 @@ package 田畑陽一朗.Ex0257;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -25,30 +26,31 @@ public class Ex0257 {
 		String inputDate2 = scn.nextLine();
 		scn.close();
 
-		compareInputDateSize(inputDate1, inputDate2);
+		checkInputDate(inputDate1, inputDate2);
 
-		long dateArray[] = compareInputDateSize(inputDate1, inputDate2);
+		Date dateFormatArray[] = checkInputDate(inputDate1, inputDate2);
+		compareInputDateSize(dateFormatArray);
 
+		long dateArray[] = compareInputDateSize(dateFormatArray);
 		calcInputDate(dateArray);
 	}
 
 	//入力した日付の大小を判別して、long型の配列に格納する
 
-	public static long[] compareInputDateSize(String inputDate1, String inputDate2) {
+	public static Date[] checkInputDate(String inputDate1, String inputDate2) {
 
-		SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy/MM/dd");
-		SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 		Date dateFormat1 = null;
 		Date dateFormat2 = null;
 
-		//指定した日付か確認する
+		//指定した日付の形式か確認する
 		if ((inputDate1.matches(DATE_FORMAT)) && (inputDate2.matches(DATE_FORMAT))) {
 			try {
-				simpleDateFormat1.setLenient(false);
-				dateFormat1 = simpleDateFormat1.parse(inputDate1);
-				simpleDateFormat2.setLenient(false);
-				dateFormat2 = simpleDateFormat2.parse(inputDate2);
+				simpleDateFormat.setLenient(false);
+				dateFormat1 = simpleDateFormat.parse(inputDate1);
+				simpleDateFormat.setLenient(false);
+				dateFormat2 = simpleDateFormat.parse(inputDate2);
 			} catch (ParseException e) {
 				System.out.println("指定した形式ではありません");
 				System.exit(0);
@@ -57,30 +59,32 @@ public class Ex0257 {
 			System.out.println("指定した形式ではありません");
 			System.exit(0);
 		}
-		//long型に変換し、大小比較して配列に格納
+
+		Date[] dateFormatArray = new Date[2];
+		dateFormatArray[0] = dateFormat1;
+		dateFormatArray[1] = dateFormat2;
+		return dateFormatArray;
+	}
+
+	//long型に変換し、大小比較して配列に格納
+
+	public static long[] compareInputDateSize(Date dateFormatArray[]) {
 
 		long[] dateArray = new long[2];
-		long dateTime1 = dateFormat1.getTime();
-		long dateTime2 = dateFormat2.getTime();
-		long bigDateTime;
-		long smallDateTime;
-		if (dateTime1 > dateTime2) {
-			bigDateTime = dateTime1;
-			smallDateTime = dateTime2;
-		} else {
-			bigDateTime = dateTime2;
-			smallDateTime = dateTime1;
-		}
-		dateArray[0] = bigDateTime;
-		dateArray[1] = smallDateTime;
+		long dateTime1 = dateFormatArray[0].getTime();
+		long dateTime2 = dateFormatArray[1].getTime();
+
+		dateArray[0] = dateTime1;
+		dateArray[1] = dateTime2;
+		Arrays.sort(dateArray);
 		return dateArray;
 	}
 
 	//日付と秒の差分を計算して出力
 
 	public static void calcInputDate(long dateArray[]) {
-		long bigDateTime = dateArray[0];
-		long smallDateTime = dateArray[1];
+		long bigDateTime = dateArray[1];
+		long smallDateTime = dateArray[0];
 
 		long daysDifference = (bigDateTime - smallDateTime) / (1000 * 60 * 60 * 24);
 
