@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Ex0360 {
 	public static final int DROP_END = 64;
+	public static final int TOP_LEFT =-1;
 
 	public static void main(String[] args) {
 		String[][] field = new String[10][10];
@@ -23,6 +24,10 @@ public class Ex0360 {
 					}
 				} else if (i == 0 && j == 0) {
 					field[i][j] = "  ";
+				} else if ((i == 4 && j == 4) || (i == 5 && j == 5)) {
+					field[i][j] = "●";
+				} else if ((i == 4 && j == 5) || (i == 5 && j == 4)) {
+					field[i][j] = "○";
 				} else {
 					field[i][j] = "□";
 				}
@@ -45,7 +50,7 @@ public class Ex0360 {
 		while (endFlag <= DROP_END) {
 			if (endFlag % 2 == 1) {
 				System.out.print("先行のターンです。");
-			}else {
+			} else {
 				System.out.println("後攻のターンです。");
 			}
 			System.out.println();
@@ -65,11 +70,12 @@ public class Ex0360 {
 			if (field[line][column] == "□") {
 				if (endFlag % 2 == 1) {
 					field[line][column] = "●";
-				}else {
+				} else {
 					field[line][column] = "○";
 				}
 
 			}
+			field=checkReversible(field,line,column,endFlag);
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) {
 					System.out.print(field[i][j]);
@@ -79,8 +85,28 @@ public class Ex0360 {
 			endFlag++;
 		}
 	}
-	public static void checkReversible(String[][] field) {
+
+	public static String[][] checkReversible(String[][] field,int line,int column,int endFlag) {
+		int recordLine=0;
+		int recodeColumn=0;
+
 		//ここに縦横斜めを確認する処理を記載
+		recordLine=line+TOP_LEFT;
+		recodeColumn=column+TOP_LEFT;
+		if(endFlag%2==1) {
+			if(field[recordLine][recodeColumn].equals("○")){
+				System.out.println("++++++++++++++++++++++++");
+			}
+		}else {
+			if(field[recordLine][recodeColumn].equals("●")){
+				System.out.println("++++++++++++++++++++++++");
+		}
+
+		}
+
+
+
+		return field;
 	}
 
 }
