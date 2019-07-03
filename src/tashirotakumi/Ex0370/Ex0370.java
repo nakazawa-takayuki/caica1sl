@@ -3,8 +3,9 @@ package tashirotakumi.Ex0370;
 import java.util.Scanner;
 
 public class Ex0370 {
-	public static int count = 1;
+	public static int INPUTCOUNT = 1;
 	public static final int DIGITNUMBERCHECK = 4;
+	public static final String GIVE_UP_NUMBER = "999";
 
 	public static void main(String[] args) {
 		answerInputCheck(args);
@@ -21,23 +22,22 @@ public class Ex0370 {
 	 */
 	public static String clipNumberComparison() {
 
-		System.out.print("(" + count + ")回目予測数字を入力してください：");
-
+		System.out.print("(" + INPUTCOUNT + ")回目予測数字を入力してください：");
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in); //キーボードからの入力
 		String input = scan.nextLine();
-		count++;
-
+		INPUTCOUNT++;
 		return input;
 	}
+
 	/**
 	 * answerInputCheckメソッド
 	 * 起動時引数が重複していないかチェックを行う
 	 * @param args 起動時引数
 	 */
 	public static void answerInputCheck(String[] args) {
-		char[] answer = args[0].toCharArray();
 
+		char[] answer = args[0].toCharArray();
 		for (int i = 0; i < args[0].length(); i++) {
 			for (int j = i + 1; j < args[0].length(); j++) {
 				if (answer[i] == answer[j]) {
@@ -47,6 +47,7 @@ public class Ex0370 {
 			}
 		}
 	}
+
 	/**
 	 * checkNumberHalfSizeメソッド
 	 * 入力された文字列に全角数字が入力されている場合に半角に変更する
@@ -54,6 +55,7 @@ public class Ex0370 {
 	 * @return 全角数字を半角に変換後の文字列
 	 */
 	public static String checkNumberHalfSize(String inputStr) {
+
 		StringBuffer sb = new StringBuffer(inputStr);
 		for (int i = 0; i < sb.length(); i++) {
 			char c = sb.charAt(i);
@@ -63,6 +65,7 @@ public class Ex0370 {
 		}
 		return sb.toString();
 	}
+
 	/**
 	 * clipNumberStoringメソッド
 	 * 入力チェック、ヒット、ブローを数え表示を行う
@@ -85,7 +88,7 @@ public class Ex0370 {
 			System.err.println("数字を入力してください。");
 			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
 		}
-		if (input.equals("999")) {
+		if (input.equals(GIVE_UP_NUMBER)) {
 			System.out.println("正解は" + args[0] + "でした。");
 			System.exit(0);
 		}
@@ -93,17 +96,14 @@ public class Ex0370 {
 			System.err.println("4桁の数字を入力してください。");
 			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
 		}
-
 		for (int i = 0; i < input.length(); i++) {
 			for (int j = i + 1; j < args[0].length(); j++) {
-
 				if (clipNumber[i] == clipNumber[j]) {
 					System.out.println(" ");
 					System.err.println("重複する値を入力しないでください。");
 					System.out.println("数字を入力してください。");
 					clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
 				}
-
 			}
 		}
 		for (int i = 0; i < input.length(); i++) {
@@ -112,10 +112,8 @@ public class Ex0370 {
 					hitCount++;
 					hitFlag = true;
 					break;
-
 				} else if (clipNumber[i] == answer[j]) {
 					blowFlag = true;
-
 				}
 			}
 			if (blowFlag && (!hitFlag)) {

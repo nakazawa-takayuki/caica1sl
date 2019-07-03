@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Ex0371 {
 	public static int count = 1;
 	public static final int DIGITNUMBERCHECK = 4;
+	public static final String  GIVE_UP_NUMBER ="999";
 
 	public static void main(String[] args) {
 		clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
@@ -65,7 +66,7 @@ public class Ex0371 {
 			System.err.println("数字を入力してください。");
 			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
 		}
-		if (input.equals("999")) {
+		if (input.equals(GIVE_UP_NUMBER)) {
 			System.out.println("正解は" + args[0] + "でした。");
 			System.exit(0);
 		}
