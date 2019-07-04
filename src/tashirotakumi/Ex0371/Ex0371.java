@@ -3,7 +3,7 @@ package tashirotakumi.Ex0371;
 import java.util.Scanner;
 
 public class Ex0371 {
-	public static int count = 1;
+	public static int INPUT_COUNT = 1;
 	public static final int DIGITNUMBERCHECK = 4;
 	public static final String  GIVE_UP_NUMBER ="999";
 
@@ -17,12 +17,12 @@ public class Ex0371 {
 	 */
 	public static String clipNumberComparison() {
 
-		System.out.print("(" + count + ")回目予測数字を入力してください：");
+		System.out.print("(" + INPUT_COUNT + ")回目予測数字を入力してください：");
 
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in); //キーボードからの入力
 		String input = scan.nextLine();
-		count++;
+		INPUT_COUNT++;
 
 		return input;
 	}
