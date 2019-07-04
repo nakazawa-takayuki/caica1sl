@@ -36,8 +36,17 @@ public class Ex0370 {
 	 * @param args 起動時引数
 	 */
 	public static void answerInputCheck(String[] args) {
-
-		char[] answer = args[0].toCharArray();
+		char[] answer = null ;
+		try {
+			answer = args[0].toCharArray();
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("起動時引数が入力されていません。終了します。");
+			System.exit(0);
+		}
+		if(answer.length!=4) {
+			System.err.println("起動時引数が4桁以外です。終了します。");
+			System.exit(0);
+		}
 		for (int i = 0; i < args[0].length(); i++) {
 			for (int j = i + 1; j < args[0].length(); j++) {
 				if (answer[i] == answer[j]) {

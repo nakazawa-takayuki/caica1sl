@@ -8,8 +8,7 @@ public class Ex0371 {
 	public static final String  GIVE_UP_NUMBER ="999";
 
 	public static void main(String[] args) {
-		clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
-	}
+		clipNumberStoring(args,answerInputCheck(args), checkNumberHalfSize(clipNumberComparison()));	}
 
 	/**clipNumberComparisonメソッド
 	 *キーボードから入力を行う
@@ -50,12 +49,12 @@ public class Ex0371 {
 	 * @param args 起動時引数
 	 * @param input キーボードから入力された値
 	 */
-	public static void clipNumberStoring(String[] args, String input) {
+	public static void clipNumberStoring(String[] args,char[]answer, String input) {
 
 		int hitCount = 0;
 		int blowCount = 0;
 		char[] clipNumber = input.toCharArray();
-		char[] answer = args[0].toCharArray();
+
 
 		@SuppressWarnings("unused")
 		int inputNum = 0;
@@ -64,7 +63,7 @@ public class Ex0371 {
 			inputNum = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
 			System.err.println("数字を入力してください。");
-			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
+			clipNumberStoring(args,answerInputCheck(args), checkNumberHalfSize(clipNumberComparison()));
 		}
 		if (input.equals(GIVE_UP_NUMBER)) {
 			System.out.println("正解は" + args[0] + "でした。");
@@ -72,7 +71,7 @@ public class Ex0371 {
 		}
 		if (input.length() != DIGITNUMBERCHECK) {
 			System.err.println("4桁の数字を入力してください。");
-			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
+			clipNumberStoring(args,answerInputCheck(args), checkNumberHalfSize(clipNumberComparison()));
 		}
 
 		for (int i = 0; i < input.length(); i++) {
@@ -88,6 +87,8 @@ public class Ex0371 {
 			for (int j = 0; j < args[0].length(); j++) {
 				if (clipNumber[i] == answer[j]) {
 					blowFlag = true;
+					answer[j] = ' ';
+					break;
 				}
 			}
 			if (blowFlag) {
@@ -102,7 +103,27 @@ public class Ex0371 {
 		}
 		System.out.println("ヒット：" + hitCount + "ブロー：" + blowCount);
 		if (hitCount != args[0].length()) {
-			clipNumberStoring(args, checkNumberHalfSize(clipNumberComparison()));
+			clipNumberStoring(args,answerInputCheck(args), checkNumberHalfSize(clipNumberComparison()));
 		}
+	}
+	/**
+	 * answerInputCheckメソッド
+	 * 起動時引数が重複していないかチェックを行う
+	 * @param args 起動時引数
+	 */
+	public static char[] answerInputCheck(String[] args) {
+
+		char[] answer = null ;
+		try {
+			answer = args[0].toCharArray();
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("起動時引数が入力されていません。終了します。");
+			System.exit(0);
+		}
+		if(answer.length!=4) {
+			System.err.println("起動時引数が4桁以外です。終了します。");
+			System.exit(0);
+		}
+		return answer;
 	}
 }
