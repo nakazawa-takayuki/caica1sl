@@ -97,11 +97,13 @@ public class Ex0371 {
 			}
 			blowFlag = false;
 		}
+		
 		if (hitCount == args[0].length()) {
 			System.out.println("正解です");
 			System.exit(0);
 		}
 		System.out.println("ヒット：" + hitCount + "ブロー：" + blowCount);
+		
 		if (hitCount != args[0].length()) {
 			clipNumberStoring(args,answerInputCheck(args), checkNumberHalfSize(clipNumberComparison()));
 		}
