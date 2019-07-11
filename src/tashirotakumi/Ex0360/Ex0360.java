@@ -46,7 +46,7 @@ public class Ex0360 {
 			}
 			board.isPut(line, column, spTop.endFlagConfirmation());
 			board.BoardFieldConfirmation(); //駒の表示
-			if (!(spTop.spinningTopCount(board.boardField, spTop.endFlagConfirmation()))) { //駒が一色になった場合にゲーム終了
+			if (!(spTop.spinningTopCount(board.boardField))) { //駒が一色になった場合にゲーム終了
 				break;
 			}
 			if (spTop.endFlagConfirmation() >= spTop.getGameEndTimes()) { //駒を打ちつくした場合にゲーム終了
@@ -63,12 +63,11 @@ public class Ex0360 {
 	 * @return 入力された数値
 	 */
 	public static int inputReception() {
-
 		@SuppressWarnings("resource")
-
 		Scanner scan = new Scanner(System.in);
 		String inputStr = scan.nextLine();
 		Board board = new Board();
+
 		int inputNumber = 0;
 		try {
 			inputNumber = Integer.parseInt(inputStr);
