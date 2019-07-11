@@ -1,12 +1,91 @@
 package tashirotakumi.Ex0360;
 
+import java.util.Scanner;
+
 public class Ex0360 {
+	private static int PASS_NUMBER = 9;
+	private static int EXCEPTION_NUMBER = 0;
+
 
 	public static void main(String[] args) {
-		//
+		Board board = new Board();
+		board.BoardFieldConfirmation();
+		SpinningTop spTop = new SpinningTop();
+		while (true) {
+			spTop. firstSecondCheck();
+			System.out.println("行："); //キーボードによる受付入力チェック
+			int line = inputReception();
+			if (line == EXCEPTION_NUMBER) {
+				board.BoardFieldConfirmation();
+				System.out.println("数字を入力してください");
+				continue;
+			}
+			System.out.println("列：");
+			int column = inputReception();
+			if (column == EXCEPTION_NUMBER) {
+				board.BoardFieldConfirmation();
+				System.out.println("数字を入力してください");
+				continue;
+			}
+			if (line == PASS_NUMBER || column == PASS_NUMBER) {
+				spTop.endFlagCountUp();
+				board.BoardFieldConfirmation();
+				spTop.setCountUpGameEndTimes();
+				System.out.println("パスしました。");
+				continue;
+			}
+			if (!board.isPutCheck(line, column, spTop.endFlagConfirmation())) { //置ける場所か確認問題なければおく。
+				board.BoardFieldConfirmation();
+				System.out.println("おける場所を選択してください");
+				continue;
+			}
+			if (board.aroundIsFlip(line, column, spTop.endFlagConfirmation())) {
+				board.BoardFieldConfirmation();
+				System.out.println("おける場所を選択してください");
+				continue;
+			}
+			board.isPut(line, column, spTop.endFlagConfirmation());
+			board.BoardFieldConfirmation(); //駒の表示
+			if (!(spTop.spinningTopCount(board.boardField, spTop.endFlagConfirmation()))) { //駒が一色になった場合にゲーム終了
+				break;
+			}
+			if (spTop.endFlagConfirmation() >= spTop.getGameEndTimes()) { //駒を打ちつくした場合にゲーム終了
+				spTop.winOrLose();
+				break;
+			}
+			spTop.endFlagCountUp();
+		}
 	}
 
+	/**
+	 * inputReceptionメソッド
+	 * キーボードから入力を受け付け入力チェックを行う
+	 * @return 入力された数値
+	 */
+	public static int inputReception() {
+
+		@SuppressWarnings("resource")
+
+		Scanner scan = new Scanner(System.in);
+		String inputStr = scan.nextLine();
+		Board board = new Board();
+		int inputNumber = 0;
+		try {
+			inputNumber = Integer.parseInt(inputStr);
+		} catch (NumberFormatException e) {
+			inputNumber = EXCEPTION_NUMBER;
+		}
+		if (inputNumber < 0 || inputNumber > board.getArrayMax()) {
+			inputNumber = EXCEPTION_NUMBER;
+		}
+
+		return inputNumber;
+
+	}
 }
+
+//以下はメソッド化のみ使用した処理の記述
+
 /*
 	public static void main(String[] args) {
 		String[][] field = new String[10][10];
