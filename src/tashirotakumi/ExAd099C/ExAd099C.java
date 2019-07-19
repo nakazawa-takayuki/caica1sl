@@ -9,12 +9,13 @@ public class ExAd099C {
 		inputNumCheck(one);
 
 		for (int i = 5; i > 0; i--) {
-			if(one>multiplication9(i)) {
+			if(one>=multiplication9(i)) {
 				one=one-multiplication9(i);
 				argument++;
 				i++;
 			}
-			if(one>multiplication6(i)) {
+
+			if(one>=multiplication6(i)) {
 				one=one-multiplication6(i);
 				argument++;
 				i++;
