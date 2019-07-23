@@ -1,28 +1,57 @@
+
 package tashirotakumi.ExAd099C;
 
 public class ExAd099C {
-	public static int argument=0;
+	public static int argument = 0;
+	public static int argument2 = 0;
+
 	public static void main(String[] args) {
 
 		int one = integerCange(args[0]);
 
 		inputNumCheck(one);
-
-		for (int i = 5; i > 0; i--) {
-			if(one>=multiplication9(i)) {
-				one=one-multiplication9(i);
+		int too = one;
+		int i = 5;
+		while (one >= 5 || too >= 5) {
+			boolean x = false;
+			boolean y = false;
+			if (one >= multiplication9(i)) {
+				one = one - multiplication9(i);
 				argument++;
-				i++;
+				x = true;
 			}
 
-			if(one>=multiplication6(i)) {
-				one=one-multiplication6(i);
+			if (one >= multiplication6(i)) {
+				one = one - multiplication6(i);
 				argument++;
+				x = true;
+			}
+			if (too >= multiplication6(i)) {
+				too = too - multiplication6(i);
+				argument2++;
+				y = true;
+			}
+			if (too >= multiplication9(i)) {
+				too = too - multiplication9(i);
+				argument2++;
+				y = true;
+			}
+			if (x) {
 				i++;
 			}
+			if (y) {
+				i++;
+			}
+			i--;
 		}
 		multiplication1(one);
-		System.out.println(argument);
+		multiplication2(too);
+		if (one < too) {
+			System.out.println(argument);
+		} else {
+
+			System.out.println(argument2);
+		}
 	}
 
 	public static int integerCange(String args) {
@@ -60,12 +89,26 @@ public class ExAd099C {
 	}
 
 	public static int multiplication1(int one) {
-		for (int i = 5; i> 0; i--) {
-			if(one>0) {
-				one = one-1;
+		for (int i = 5; i > 0; i--) {
+			if (one > 0) {
+				one = one - 1;
 				argument++;
 			}
 		}
+
 		return one;
 	}
+
+	public static int multiplication2(int too) {
+		for (int i = 5; i > 0; i--) {
+			if (too > 0) {
+				too = too - 1;
+				argument2++;
+			}
+		}
+
+		return too;
+	}
 }
+
+
