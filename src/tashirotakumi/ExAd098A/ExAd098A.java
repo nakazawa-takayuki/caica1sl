@@ -4,10 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExAd098A {
+	public static final int MAX_INT=1000;
+	public static final int MIN_INT=-1000;
 	public static void main(String[] args) {
-
-		int one=integerCange(args[0]);
-		int too=integerCange(args[1]);
+		int one=0;
+		int too=0;
+		try {
+		one=integerCange(args[0]);
+		too=integerCange(args[1]);
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("スペースを入れ、値を二つ入力してください");
+			System.exit(0);
+		}
 		inputNumCheck(one);
 		inputNumCheck(too);
 
@@ -40,7 +48,7 @@ public class ExAd098A {
 
 	}
 	public static void inputNumCheck(int Number) {
-		if (Number >= -1000 && Number <= 1000) {
+		if (Number >= MIN_INT && Number <= MAX_INT) {
 			return;
 		}
 		System.out.println("入力エラー");

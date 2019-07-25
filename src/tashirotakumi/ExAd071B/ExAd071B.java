@@ -21,7 +21,7 @@ public class ExAd071B {
 
 		boolean availabilityFlag = false;
 
-		if (inputStr.length() > UPPER_LIMIT || inputStr.length() == LOWER_LIMIT) {
+		if (inputStr.length() > UPPER_LIMIT || inputStr.length() < LOWER_LIMIT) {
 			System.out.println("入力エラー");
 			System.exit(0);
 		}

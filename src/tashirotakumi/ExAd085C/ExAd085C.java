@@ -5,12 +5,15 @@ public class ExAd085C {
 	public static final int A_MIN = 1;
 	public static final int N_MAX = 20000000;
 	public static final int N_MIN = 1;
+	public static final int THOUSAND=1000;
+	public static final int FIVE_THOUSAND=5000;
+	public static final int TEN_THOUSAND=10000;
 
 	public static void main(String[] args) {
 		try {
 			inputNumCheck(Integer.parseInt(args[0]), A_MIN, A_MAX);
 			inputNumCheck(Integer.parseInt(args[1]), N_MIN, N_MAX);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			System.out.println("入力エラー");
 			System.exit(0);
 		}
@@ -21,8 +24,8 @@ public class ExAd085C {
 		boolean iFlag = false;
 		boolean hasSameFlag = false;
 		for (int i = 0; i <= Integer.parseInt(args[0]); i++) {
-			if (settingAmount >= 10000) {
-				settingAmount = settingAmount - (10000 * i);
+			if (settingAmount >= TEN_THOUSAND) {
+				settingAmount = settingAmount - (TEN_THOUSAND * i);
 				countAmount = countAmount + i;
 				iFlag = true;
 			}
@@ -31,16 +34,16 @@ public class ExAd085C {
 			}
 
 			for (int j = 0; j <= Integer.parseInt(args[0]); j++) {
-				if (settingAmount >= 5000) {
-					settingAmount = settingAmount - (5000 * j);
+				if (settingAmount >= FIVE_THOUSAND) {
+					settingAmount = settingAmount - (FIVE_THOUSAND * j);
 					countAmount = countAmount + j;
 					jFlag = true;
 				}
 
 				for (int k = 0; k <= Integer.parseInt(args[0]); k++) {
 
-					if (settingAmount >= 1000) {
-						settingAmount = settingAmount - (1000 * k);
+					if (settingAmount >= THOUSAND) {
+						settingAmount = settingAmount - (THOUSAND * k);
 						countAmount = countAmount + k;
 						kFlag = true;
 					}
@@ -52,20 +55,20 @@ public class ExAd085C {
 
 					}
 					if (kFlag) {
-						settingAmount = settingAmount + (1000 * k);
+						settingAmount = settingAmount + (THOUSAND * k);
 						countAmount = countAmount - k;
 						kFlag = false;
 					}
 				}
 				if (jFlag) {
-					settingAmount = settingAmount + (5000 * j);
+					settingAmount = settingAmount + (FIVE_THOUSAND * j);
 					countAmount = countAmount - j;
 					jFlag = false;
 				}
 			}
 			if (iFlag) {
 
-				settingAmount = settingAmount + (10000 * i);
+				settingAmount = settingAmount + (TEN_THOUSAND * i);
 				countAmount = 0;
 				iFlag = false;
 			}

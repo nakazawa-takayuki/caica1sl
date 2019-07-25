@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class ExAd079A {
 	public static final int N_MIN = 1000;
 	public static final int N_MAX = 9999;
+	public static final int SUME = 2;
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -23,7 +24,7 @@ public class ExAd079A {
 			} else {
 				sumeFlag = 0;
 			}
-			if (sumeFlag == 2) {
+			if (sumeFlag == SUME) {
 				System.out.println("YES");
 				break;
 			}

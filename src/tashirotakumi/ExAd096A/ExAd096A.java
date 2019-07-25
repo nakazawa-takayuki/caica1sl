@@ -13,11 +13,22 @@ public class ExAd096A {
 		String inputStr2 = scan.nextLine();
 		scan.close();
 		*/
-		int month = inputCheck(args[0]);
+		int month = 0;
+		try {
+			month = inputCheck(args[0]);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("正しい値を入力してください");
+		}
 		if (month < 1 || month > 12) {
 			System.exit(0);
 		}
-		int date = inputCheck(args[1]);
+		int date = 0;
+		try {
+			date = inputCheck(args[1]);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("正しい値を入力してください");
+
+		}
 		if (date < 1 || date > 31) {
 			System.exit(0);
 		}
@@ -59,7 +70,7 @@ public class ExAd096A {
 				}
 
 			}
-			System.out.println("合計"+listCalculationResult.size()+"日が「高橋」です。");
+			System.out.println("合計" + listCalculationResult.size() + "日が「高橋」です。");
 		}
 	}
 

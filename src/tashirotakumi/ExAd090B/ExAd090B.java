@@ -10,7 +10,7 @@ public class ExAd090B {
 		try {
 			firstNumber = Integer.parseInt(args[0]);
 			secondNumber = Integer.parseInt(args[1]);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			System.exit(0);
 		}
 		inputCheck(firstNumber,secondNumber);

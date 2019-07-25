@@ -4,15 +4,16 @@ package tashirotakumi.ExAd099C;
 public class ExAd099C {
 	public static int argument = 0;
 	public static int argument2 = 0;
-
+	public static final int MAX_REPEAT=5;
+	public static final int MIN_VALUE=5;
 	public static void main(String[] args) {
 
 		int one = integerCange(args[0]);
 
 		inputNumCheck(one);
 		int too = one;
-		int i = 5;
-		while (one >= 5 || too >= 5) {
+		int i = MAX_REPEAT;
+		while (one >= MIN_VALUE || too >= MIN_VALUE) {
 			boolean x = false;
 			boolean y = false;
 			if (one >= multiplication9(i)) {
@@ -89,7 +90,7 @@ public class ExAd099C {
 	}
 
 	public static int multiplication1(int one) {
-		for (int i = 5; i > 0; i--) {
+		for (int i = MAX_REPEAT; i > 0; i--) {
 			if (one > 0) {
 				one = one - 1;
 				argument++;
@@ -100,7 +101,7 @@ public class ExAd099C {
 	}
 
 	public static int multiplication2(int too) {
-		for (int i = 5; i > 0; i--) {
+		for (int i = MAX_REPEAT; i > 0; i--) {
 			if (too > 0) {
 				too = too - 1;
 				argument2++;

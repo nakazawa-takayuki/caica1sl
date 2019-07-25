@@ -14,7 +14,7 @@ public class ExAd079B {
 		int inputNumber=inputNumCheck(inputStr,N_MAX,N_MIN);
 
 		long []LucasNumbers = null;
-		LucasNumbers=new long [87];
+		LucasNumbers=new long [N_MAX+1];
 
 		LucasNumbers[0]=2;
 		LucasNumbers[1]=1;
